@@ -11,6 +11,7 @@ import { ListDetailOfferComponent } from './offers-page/list-detail-offer/list-d
 import { DetailedOfferComponent } from './offers-page/detailed-offer/detailed-offer.component';
 import { OfferViewButtonsComponent } from './view-offer-page/offer-view-buttons/offer-view-buttons.component';
 import { ViewOfferComponent } from './view-offer-page/view-offer/view-offer.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ViewOfferComponent } from './view-offer-page/view-offer/view-offer.comp
     ListDetailOfferComponent,
     DetailedOfferComponent,
     OfferViewButtonsComponent,
-    ViewOfferComponent
+    ViewOfferComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
