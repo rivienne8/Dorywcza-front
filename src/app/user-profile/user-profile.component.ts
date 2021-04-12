@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserProfileService} from './user-profile.service';
 import {ActivatedRoute} from '@angular/router';
+import {UserUpdateDTO} from './user-update-DTO';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,14 +10,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  details: string[];
   @Input()
-  userUpdateDTO?: string[];
+  userUpdateDTO?: UserUpdateDTO;
 
   constructor(private userProfileService: UserProfileService,
               private route: ActivatedRoute) {
-    this.details =
-      ['name', 'username', 'address'];
   }
 
   ngOnInit(): void {
@@ -24,15 +22,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUserById(): void{
-    // const ud = +this.route.snapshot.paramMap.get('id');
-    // console.log(ud);
-    const id = 2;
+    const id = +(this.route.snapshot.paramMap.get('id') || 0);  // how to make it not 'possible null'?
+
     this.userProfileService.getUserById(id)
       .subscribe(userDTO => this.userUpdateDTO = userDTO);
-  }
-
-  getDetails(): string[] {
-    return this.details;
   }
 
 }

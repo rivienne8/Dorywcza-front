@@ -3,5 +3,7 @@
   <a>
   {{'dorywcza.pl' | uppercase}}
   </a> <br>
-  <a *ngIf="id" routerLink="/user-profile/{{id}}">{{userName}}</a>
+  <div *ngIf="id">
+    <a  routerLink="/user-profile/{{id}}">{{userName}}</a>
+  </div>
 </h1>
