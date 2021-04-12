@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadComponent implements OnInit {
 
-  constructor() { }
+  userName: string;
+  id: number;
+
+
+  constructor() {
+    this.userName = "Witek";
+    this.id = 2;
+
+  }
 
   ngOnInit(): void {
   }
