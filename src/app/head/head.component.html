@@ -3,7 +3,10 @@
   <a>
   {{'dorywcza.pl' | uppercase}}
   </a> <br>
-  <div *ngIf="id">
-    <a  routerLink="/user-profile/{{id}}">{{userName}}</a>
+  <div *ngIf="userDTO && userDTO.id && userDTO.avatar && userDTO.email">
+    <a  routerLink="/user-update-profile/{{userDTO.id}}">{{userDTO.email}}</a>
+    <div >
+      <img src="{{path}}{{userDTO.avatar.url}}" alt="picture id {{userDTO.avatar.name}}" width="50px" height="auto" >
+    </div>
   </div>
 </h1>

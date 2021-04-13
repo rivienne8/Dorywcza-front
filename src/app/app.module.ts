@@ -11,8 +11,9 @@ import { ListDetailOfferComponent } from './offers-page/list-detail-offer/list-d
 import { DetailedOfferComponent } from './offers-page/detailed-offer/detailed-offer.component';
 import { OfferViewButtonsComponent } from './view-offer-page/offer-view-buttons/offer-view-buttons.component';
 import { ViewOfferComponent } from './view-offer-page/view-offer/view-offer.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserUpdateProfileComponent } from './user-update-profile/user-update-profile.component';
 import {HttpClientModule} from '@angular/common/http';
+import { UserPublicProfileComponent } from './user-public-profile/user-public-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {HttpClientModule} from '@angular/common/http';
     DetailedOfferComponent,
     OfferViewButtonsComponent,
     ViewOfferComponent,
-    UserProfileComponent
+    UserUpdateProfileComponent,
+    UserPublicProfileComponent
   ],
   imports: [
     BrowserModule,

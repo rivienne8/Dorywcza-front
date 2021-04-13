@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {UserSimplifiedDTO} from './user-simplified-DTO';
+import {HeadService} from './head.service';
+import {ActivatedRoute} from '@angular/router';
+import {UserUpdateDTO} from '../user-update-profile/user-update-DTO';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-head',
@@ -7,16 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadComponent implements OnInit {
 
-  userName: string;
-  id = 1;
+  path = environment.apiUrl;
 
+  @Input()
+  userDTO?: UserSimplifiedDTO;
 
-
-  constructor() {
-    this.userName = `Sample user id ${this.id}`;
+  constructor(private headService: HeadService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.getUserDTOById(1);
   }
 
+  private getUserDTOById(id: number): void {
+    this.headService.getSimplifiedDTO(id).subscribe(userDTO => this.userDTO = userDTO);
+  }
 }

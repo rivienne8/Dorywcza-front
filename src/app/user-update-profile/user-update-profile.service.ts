@@ -7,12 +7,12 @@ import {UserUpdateDTO} from './user-update-DTO';
 @Injectable({
   providedIn: 'root'
 })
-export class UserProfileService {
+export class UserUpdateProfileService {
 
   constructor(private http: HttpClient) { }
 
   getUserById(id: number): Observable<UserUpdateDTO> {
 
-    return this.http.get<UserUpdateDTO>(`${environment.apiUrl}/users-update/${id}?toUpdate=true`);
+    return this.http.get<UserUpdateDTO>(`${environment.apiUrl}/users/${id}?type=update`);
   }
 }
