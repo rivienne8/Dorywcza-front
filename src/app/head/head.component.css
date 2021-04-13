@@ -1,0 +1,24 @@
+.header-text{
+  color: white;
+  text-align: center;
+  flex: 1  1 auto;
+  font-family: Lora;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.background{
+  background-color: rgb(75,31,82);
+}
+
+.mat-icon-button{
+  background-color: rgb(75,31,82);
+  border: none;
+  color: rgb(203, 235, 74);
+  height: 40%;
+  width: 5%;
+}
+
+.icon{
+  font-size: 50px;
+}

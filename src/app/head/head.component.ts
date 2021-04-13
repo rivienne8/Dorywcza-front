@@ -17,6 +17,7 @@ export class HeadComponent implements OnInit {
   @Input()
   userDTO?: UserSimplifiedDTO;
 
+
   constructor(private headService: HeadService, private route: ActivatedRoute) {
   }
 
