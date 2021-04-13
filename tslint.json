@@ -104,6 +104,7 @@
         }
       ]
     },
+    "no-trailing-whitespace": false,
     "variable-name": {
       "options": [
         "ban-keywords",
