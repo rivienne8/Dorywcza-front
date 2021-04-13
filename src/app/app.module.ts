@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeadComponent } from './head/head.component';
-// import { ListOffertComponent } from './main-page/list-offer/list-offer.component';
+import { ListOfferComponent } from './main-page/list-offer/list-offer.component';
 import { OffersButtonsComponent } from './offers-page/offers-buttons/offers-buttons.component';
 import { ListDetailOfferComponent } from './offers-page/list-detail-offer/list-detail-offer.component';
 import { DetailedOfferComponent } from './offers-page/detailed-offer/detailed-offer.component';
@@ -17,13 +17,18 @@ import {MatIconModule} from '@angular/material/icon';
 import { MainPageComponent } from './main-page/main-page.component';
 import {MainButtonsComponent} from './main-page/main-buttons/main-buttons.component';
 import {MatButtonModule} from '@angular/material/button';
+import { FooterComponent } from './footer/footer/footer.component';
+import {BriefOfferComponent} from './main-page/brief-offer/brief-offer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadComponent,
     MainPageComponent,
-    MainButtonsComponent
+    MainButtonsComponent,
+    FooterComponent,
+    ListOfferComponent,
+    BriefOfferComponent,
 
   ],
   imports: [
