@@ -1,19 +1,19 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserProfileService} from './user-profile.service';
+import {UserUpdateProfileService} from './user-update-profile.service';
 import {ActivatedRoute} from '@angular/router';
 import {UserUpdateDTO} from './user-update-DTO';
 
 @Component({
   selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  templateUrl: './user-update-profile.component.html',
+  styleUrls: ['./user-update-profile.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class UserUpdateProfileComponent implements OnInit {
 
   @Input()
   userUpdateDTO?: UserUpdateDTO;
 
-  constructor(private userProfileService: UserProfileService,
+  constructor(private userProfileService: UserUpdateProfileService,
               private route: ActivatedRoute) {
   }
 

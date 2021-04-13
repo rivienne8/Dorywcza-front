@@ -7,7 +7,7 @@ import {UserUpdateDTO} from './user-update-DTO';
 @Injectable({
   providedIn: 'root'
 })
-export class UserProfileService {
+export class UserUpdateProfileService {
 
   constructor(private http: HttpClient) { }
 

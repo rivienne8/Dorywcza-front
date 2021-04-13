@@ -1,12 +1,13 @@
-export interface UserUpdateDTO {
+export interface UserPublicDTO{
   id: number;
   email: string;
-  phone_number: string;
+  phoneNumber?: string;
   overallRating?: number;
-  first_name?: string;
-  last_name?: string;
-  user_name?: string;
+  firstName?: string;
+  lastName?: string;
+  userName?: string;
   description?: string;
   street?: string;
   experienceDescription?: string;
+
 }

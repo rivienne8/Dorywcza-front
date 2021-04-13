@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HeadComponent} from './head/head.component';
-import {UserProfileComponent} from './user-profile/user-profile.component';
+import {UserUpdateProfileComponent} from './user-update-profile/user-update-profile.component';
 
 const routes: Routes = [
-  { path: 'user-profile/:id', component: UserProfileComponent },
+  { path: 'user-update-profile/:id', component: UserUpdateProfileComponent },
   { path: 'head', component: HeadComponent },
 
 ];
