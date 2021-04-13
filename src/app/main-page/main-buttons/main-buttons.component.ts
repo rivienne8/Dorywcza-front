@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './main-buttons.component.html',
   styleUrls: ['./main-buttons.component.css']
 })
+
 export class MainButtonsComponent implements OnInit {
 
   constructor() { }
