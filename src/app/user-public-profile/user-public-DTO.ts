@@ -1,5 +1,7 @@
+import {ImageDTO} from '../image-DTO';
+
 export interface UserPublicDTO{
-  id: number;
+  id?: number;
   email: string;
   phoneNumber?: string;
   overallRating?: number;
@@ -9,5 +11,6 @@ export interface UserPublicDTO{
   description?: string;
   street?: string;
   experienceDescription?: string;
-
+  pictures?: ImageDTO[];
+  avatar?: ImageDTO;
 }

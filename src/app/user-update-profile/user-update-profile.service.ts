@@ -13,6 +13,6 @@ export class UserUpdateProfileService {
 
   getUserById(id: number): Observable<UserUpdateDTO> {
 
-    return this.http.get<UserUpdateDTO>(`${environment.apiUrl}/users-update/${id}?toUpdate=true`);
+    return this.http.get<UserUpdateDTO>(`${environment.apiUrl}/users/${id}?type=update`);
   }
 }
