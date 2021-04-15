@@ -10,9 +10,9 @@
 
         <span class="header-text"><a routerLink="/main-page" class="header-text">{{'dorywcza.pl'}}</a></span>
 
-      <a  *ngIf="userDTO && userDTO.id && userDTO.avatar && userDTO.email; else elseBlock"
+      <a  *ngIf="userDTO; else elseBlock"
           routerLink="/user-update-profile/{{userDTO.id}}">
-        <div >
+        <div *ngIf="userDTO.avatar && userDTO.avatar.url && userDTO.avatar.name; else elseBlock">
           <img src="{{path}}{{userDTO.avatar.url}}" alt="picture id {{userDTO.avatar.name}}" width="50px" height="auto" >
         </div>
       </a>
