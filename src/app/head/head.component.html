@@ -1,22 +1,26 @@
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
-<h1>
+
   <div>
     <mat-toolbar class="background">
-      <button class="mat-icon-button" aria-label="Redirect home page">
-        <mat-icon class="icon">track_changes</mat-icon>
-      </button>
-      <span class="header-text">{{'dorywcza.pl'}}</span>
-      <button class="mat-icon-button"  aria-label="Login/Register/Account settings">
-        <mat-icon class="icon">account_circle</mat-icon>
-      </button>
+      <a routerLink="/main-page">
+        <button class="mat-icon-button" aria-label="Redirect home page">
+          <mat-icon class="icon">track_changes</mat-icon>
+        </button>
+      </a>
+
+        <span class="header-text"><a routerLink="/main-page" class="header-text">{{'dorywcza.pl'}}</a></span>
+
+      <a  *ngIf="userDTO; else elseBlock"
+          routerLink="/user-update-profile/{{userDTO.id}}">
+        <div *ngIf="userDTO.avatar && userDTO.avatar.url && userDTO.avatar.name; else elseBlock">
+          <img src="{{path}}{{userDTO.avatar.url}}" alt="picture id {{userDTO.avatar.name}}" width="50px" height="auto" >
+        </div>
+      </a>
+      <ng-template #elseBlock>
+        <button class="mat-icon-button"  aria-label="Login/Register/Account settings">
+          <mat-icon class="icon">account_circle</mat-icon>
+        </button>
+      </ng-template>
     </mat-toolbar>
   </div>
 
-  <div *ngIf="userDTO && userDTO.id && userDTO.avatar && userDTO.email">
-    <a  routerLink="/user-update-profile/{{userDTO.id}}">{{userDTO.email}}</a>
-    <div >
-      <img src="{{path}}{{userDTO.avatar.url}}" alt="picture id {{userDTO.avatar.name}}" width="50px" height="auto" >
-    </div>
-
-  </div>
-</h1>
