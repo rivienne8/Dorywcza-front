@@ -12,6 +12,7 @@ import {environment} from '../../environments/environment';
 export class UserPublicProfileComponent implements OnInit {
 
   path = environment.apiUrl;
+  breakpoint: number | undefined;
 
   @Input()
   userPublicDTO?: UserPublicDTO;
@@ -21,12 +22,17 @@ export class UserPublicProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserById();
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : 3;
   }
 
   getUserById(): void{
     const id = +(this.route.snapshot.paramMap.get('id') || 0);
     this.userPublicService.getUserById(id)
       .subscribe(userDTO => this.userPublicDTO = userDTO);
+  }
+
+  onResize(event: any): void{
+    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 3;
   }
 
 }

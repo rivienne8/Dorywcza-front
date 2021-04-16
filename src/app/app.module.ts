@@ -23,6 +23,10 @@ import {BriefOfferComponent} from './main-page/brief-offer/brief-offer.component
 import {MainPageComponent} from './main-page/main-page.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -51,9 +55,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatIconModule,
     BrowserAnimationsModule,
     MatMenuModule, MatButtonModule,
+    MatCardModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    MatGridListModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

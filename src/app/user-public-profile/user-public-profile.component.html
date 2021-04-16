@@ -1,17 +1,56 @@
-<ul *ngIf="userPublicDTO">
-  <li>{{userPublicDTO.id}}</li>
-  <li>{{userPublicDTO.email}}</li>
-  <li>{{userPublicDTO.overallRating}}</li>
-  <li>{{userPublicDTO.firstName}}</li>
-  <li>{{userPublicDTO.lastName}}</li>
-  <li>{{userPublicDTO.userName}}</li>
-  <li>{{userPublicDTO.description}}</li>
-  <li>{{userPublicDTO.street}}</li>
-  <li>{{userPublicDTO.experienceDescription}}</li>
-  My experience:
-  <ul *ngFor="let picture of userPublicDTO.pictures">
 
-    <li><img src="{{path}}{{picture.url}}" alt="{{picture.name}}" width="50px" height="auto"> </li>
-  </ul>
+<mat-card>
+  <mat-card-title>Profile</mat-card-title>
+  <mat-card-content>
+    <ul *ngIf="userPublicDTO">
+      <li>username: {{userPublicDTO.userName}}</li>
+      <li>rating: {{userPublicDTO.overallRating}}</li>
+      <li>email: {{userPublicDTO.email}}</li>
+      <li>about me: {{userPublicDTO.description}}</li>
+      <li *ngIf="userPublicDTO.avatar && userPublicDTO.avatar.url">
+        <mat-card class="avatar-in-profile">
+          <img mat-card-image src="{{path}}{{userPublicDTO.avatar.url}}" alt="picture id {{userPublicDTO.avatar.name}}" width="10em" height="auto">
+        </mat-card>
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>
 
-</ul>
+<mat-card>
+  <mat-card-title>Personal Data</mat-card-title>
+  <mat-card-content>
+    <ul *ngIf="userPublicDTO">
+      <li>full name: {{userPublicDTO.firstName}} {{userPublicDTO.lastName}}</li>
+      <li>address: {{userPublicDTO.street}}</li>
+    </ul>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Experience</mat-card-title>
+  <mat-card-content>
+    <ul *ngIf="userPublicDTO">
+      <li>experience: {{userPublicDTO.experienceDescription}}</li>
+<!--      <li>-->
+<!--        <mat-card *ngFor="let picture of userPublicDTO.pictures" >-->
+<!--          <img mat-card-image src="{{path}}{{picture.url}}" alt="{{picture.name}}">-->
+<!--        </mat-card>-->
+
+<!--      </li>-->
+<!--      <div fxLayout="row wrap" fxLayoutGap="3px" fxLayoutAlign="flex-start">-->
+<!--        <div *ngFor="let picture of userPublicDTO.pictures" >-->
+<!--          <img mat-card-image src="{{path}}{{picture.url}}" alt="{{picture.name}}">-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <li>-->
+        <mat-grid-list [cols]="breakpoint"  (window:resize)="onResize($event)">
+          <mat-grid-tile *ngFor="let picture of userPublicDTO.pictures">
+            <img mat-card-image src="{{path}}{{picture.url}}" alt="{{picture.name}}">
+          </mat-grid-tile>
+        </mat-grid-list>
+<!--      </li>-->
+
+    </ul>
+  </mat-card-content>
+</mat-card>
