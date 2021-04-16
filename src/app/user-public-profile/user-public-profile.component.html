@@ -31,25 +31,13 @@
   <mat-card-content>
     <ul *ngIf="userPublicDTO">
       <li>experience: {{userPublicDTO.experienceDescription}}</li>
-<!--      <li>-->
-<!--        <mat-card *ngFor="let picture of userPublicDTO.pictures" >-->
-<!--          <img mat-card-image src="{{path}}{{picture.url}}" alt="{{picture.name}}">-->
-<!--        </mat-card>-->
 
-<!--      </li>-->
-<!--      <div fxLayout="row wrap" fxLayoutGap="3px" fxLayoutAlign="flex-start">-->
-<!--        <div *ngFor="let picture of userPublicDTO.pictures" >-->
-<!--          <img mat-card-image src="{{path}}{{picture.url}}" alt="{{picture.name}}">-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <li>-->
         <mat-grid-list [cols]="breakpoint"  (window:resize)="onResize($event)">
           <mat-grid-tile *ngFor="let picture of userPublicDTO.pictures">
             <img mat-card-image src="{{path}}{{picture.url}}" alt="{{picture.name}}">
           </mat-grid-tile>
         </mat-grid-list>
-<!--      </li>-->
+
 
     </ul>
   </mat-card-content>
