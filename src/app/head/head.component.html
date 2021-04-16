@@ -10,17 +10,41 @@
 
         <span class="header-text"><a routerLink="/main-page" class="header-text">{{'dorywcza.pl'}}</a></span>
 
-      <a  *ngIf="userDTO; else elseBlock"
-          routerLink="/user-update-profile/{{userDTO.id}}">
-        <div *ngIf="userDTO.avatar && userDTO.avatar.url && userDTO.avatar.name; else elseBlock">
-          <img src="{{path}}{{userDTO.avatar.url}}" alt="picture id {{userDTO.avatar.name}}" width="50px" height="auto" >
+      <button mat-button [matMenuTriggerFor]="menu">
+        <div *ngIf="userDTO && userDTO.avatar && userDTO.avatar.url && userDTO.avatar.name; else elseBlock">
+          <img mat-card-image src="{{path}}{{userDTO.avatar.url}}" alt="picture id {{userDTO.avatar.name}}" width="50px" height="auto" >
         </div>
-      </a>
+
       <ng-template #elseBlock>
         <button class="mat-icon-button"  aria-label="Login/Register/Account settings">
           <mat-icon class="icon">account_circle</mat-icon>
         </button>
       </ng-template>
+
+      </button>
+      <mat-menu #menu>
+        <button *ngIf="userDTO" mat-menu-item>
+          <span aria-label="login/register/logout">Log out</span>
+        </button>
+        <button *ngIf="!userDTO" mat-menu-item>
+          <span aria-label="login/register/logout">Log in</span>
+        </button>
+        <button *ngIf="!userDTO" mat-menu-item>
+          <span aria-label="login/register/logout">Register</span>
+        </button>
+        <button *ngIf="userDTO && userDTO.id" mat-menu-item>
+          <a routerLink="user-update-profile/{{userDTO.id}}">
+            <span>UserProfil</span>
+          </a>
+        </button>
+        <button mat-menu-item>
+          <span>My Offers</span>
+        </button>
+        <button mat-menu-item>
+          <span>My answers</span>
+        </button>
+      </mat-menu>
     </mat-toolbar>
+
   </div>
 
