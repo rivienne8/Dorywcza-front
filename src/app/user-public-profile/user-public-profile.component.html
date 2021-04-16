@@ -1,1 +1,17 @@
-<p>user-public-profile works!</p>
+<ul *ngIf="userPublicDTO">
+  <li>{{userPublicDTO.id}}</li>
+  <li>{{userPublicDTO.email}}</li>
+  <li>{{userPublicDTO.overallRating}}</li>
+  <li>{{userPublicDTO.firstName}}</li>
+  <li>{{userPublicDTO.lastName}}</li>
+  <li>{{userPublicDTO.userName}}</li>
+  <li>{{userPublicDTO.description}}</li>
+  <li>{{userPublicDTO.street}}</li>
+  <li>{{userPublicDTO.experienceDescription}}</li>
+  My experience:
+  <ul *ngFor="let picture of userPublicDTO.pictures">
+
+    <li><img src="{{path}}{{picture.url}}" alt="{{picture.name}}" width="50px" height="auto"> </li>
+  </ul>
+
+</ul>
