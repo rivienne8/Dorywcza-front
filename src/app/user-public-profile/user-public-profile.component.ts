@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {UserPublicProfileService} from './user-public-profile.service';
+import {ActivatedRoute} from '@angular/router';
+import {UserPublicDTO} from './user-public-DTO';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-user-public-profile',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPublicProfileComponent implements OnInit {
 
-  constructor() { }
+  path = environment.apiUrl;
+  breakpoint: number | undefined;
+
+  @Input()
+  userPublicDTO?: UserPublicDTO;
+
+  constructor(private userPublicService: UserPublicProfileService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getUserById();
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : 3;
+  }
+
+  getUserById(): void{
+    const id = +(this.route.snapshot.paramMap.get('id') || 0);
+    this.userPublicService.getUserById(id)
+      .subscribe(userDTO => this.userPublicDTO = userDTO);
+  }
+
+  onResize(event: any): void{
+    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 3;
   }
 
 }

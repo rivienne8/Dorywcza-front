@@ -14,13 +14,19 @@ import { UserUpdateProfileComponent } from './user-update-profile/user-update-pr
 import {HttpClientModule} from '@angular/common/http';
 import { UserPublicProfileComponent } from './user-public-profile/user-public-profile.component';
 import { FooterComponent } from './footer/footer.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {BriefOfferComponent} from './main-page/brief-offer/brief-offer.component';
 import {MainPageComponent} from './main-page/main-page.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +53,13 @@ import {MainPageComponent} from './main-page/main-page.component';
     MatSliderModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule,
+    BrowserAnimationsModule,
+    MatMenuModule, MatButtonModule,
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
