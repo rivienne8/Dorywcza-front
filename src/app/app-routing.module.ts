@@ -4,6 +4,7 @@ import {HeadComponent} from './head/head.component';
 import {MainPageComponent} from './main-page/main-page.component';
 import {UserUpdateProfileComponent} from './user-update-profile/user-update-profile.component';
 import {UserPublicProfileComponent} from './user-public-profile/user-public-profile.component';
+import {OffersPageComponent} from './offers-page/offers-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main-page', pathMatch: 'full'},
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'user-update-profile/:id', component: UserUpdateProfileComponent },
   { path: 'user-public-profile/:id', component: UserPublicProfileComponent },
   { path: 'head', component: HeadComponent },
+  { path: 'service-offers', component: OffersPageComponent}
 
 ];
 
