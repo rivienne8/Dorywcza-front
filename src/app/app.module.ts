@@ -26,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { OffersPageComponent } from './offers-page/offers-page.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
     MainPageComponent,
     BriefOfferComponent,
+    OffersPageComponent,
   ],
   imports: [
     BrowserModule,
