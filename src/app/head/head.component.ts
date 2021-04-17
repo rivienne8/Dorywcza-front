@@ -22,7 +22,7 @@ export class HeadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserDTOById(1);
+    this.getUserDTOById(5);
   }
 
   private getUserDTOById(id: number): void {
