@@ -29,6 +29,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {GlobalErrorHandler} from './global-error-handler';
 import {ServerErrorInterceptor} from './server-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { OffersPageComponent } from './offers-page/offers-page.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FooterComponent,
     MainPageComponent,
     BriefOfferComponent,
+    OffersPageComponent,
   ],
   imports: [
     BrowserModule,
