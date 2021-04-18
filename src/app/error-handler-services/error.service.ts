@@ -1,29 +1,41 @@
 import { Injectable } from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
+import {ErrorDTO} from './error-DTO';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorService {
+  message?: string;
+
 
   constructor() { }
 
-  getClientMessage(error: Error): string {
+  getErrorMessage(error: Error): string {
     if (!navigator.onLine){
       return '(client) No Internet Connection';
     }
+
     return error.message ? error.message : error.toString();
   }
 
-  getClientStack(error: Error): string {
+  getErrorStack(error: Error): string {
     return error.stack as string;
   }
 
-  getServerMessage(error: HttpErrorResponse): string {
-    return navigator.onLine ? error.message : '(server) No Internet Connection';
+  getErrorDTOMessage(error: HttpErrorResponse): string {
+
+    const errorFromBackend: ErrorDTO = error.error;
+    this.message = 'status: ' + errorFromBackend.status
+      + ', htttp status: ' + errorFromBackend.httpStatus
+      + ', level: ' + errorFromBackend.level
+      + ', message: ' + errorFromBackend.message;
+    return navigator.onLine ? this.message : '(server) No Internet Connection';
   }
 
   getServerStack(error: HttpErrorResponse): string {
+
     return 'stack from error : ';
   }
 }

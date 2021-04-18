@@ -11,7 +11,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       retry(1),
       // @ts-ignore
-        catchError((error: HttpErrorResponse) => {
+      catchError((error: HttpErrorResponse) => {
           if (error.status === 401) {
             // refresh token
           } else {
@@ -21,19 +21,6 @@ export class ServerErrorInterceptor implements HttpInterceptor {
       );
     }
   }
-//     return new Observable((observer) => {
-//       next.handle(req).subscribe(
-//         (res: HttpResponse<any>) => {
-//           if (res instanceof HttpResponse) {
-//             observer.next(res);
-//           }
-//         },
-//         (err: HttpErrorResponse) => {
-//           console.error(err);
-//         }
-//       );
-//     });
-//   }
-// }
+
 
 
