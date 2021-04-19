@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,7 @@ import { DetailedOfferComponent } from './offers-page/detailed-offer/detailed-of
 import { OfferViewButtonsComponent } from './view-offer-page/offer-view-buttons/offer-view-buttons.component';
 import { ViewOfferComponent } from './view-offer-page/view-offer/view-offer.component';
 import { UserUpdateProfileComponent } from './user-update-profile/user-update-profile.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { UserPublicProfileComponent } from './user-public-profile/user-public-profile.component';
 import { FooterComponent } from './footer/footer.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
@@ -26,6 +26,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {GlobalErrorHandler} from './global-error-handler';
+import {ServerErrorInterceptor} from './server-error.interceptor';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OffersPageComponent } from './offers-page/offers-page.component';
 
 
@@ -62,8 +65,10 @@ import { OffersPageComponent } from './offers-page/offers-page.component';
     ReactiveFormsModule,
     MatGridListModule,
     FlexLayoutModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
+    {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
