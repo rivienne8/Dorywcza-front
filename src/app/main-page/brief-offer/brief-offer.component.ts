@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
 import {UserSimplifiedDTO} from '../../head/user-simplified-DTO';
 import {SalaryTimeUnitDTO} from '../../offers-page/offers-page_DTO/salary-time-unit-DTO';
@@ -8,6 +8,7 @@ import {DateRangeDTO} from '../../offers-page/offers-page_DTO/date-range-DTO';
 import {IndustryDTO} from '../../offers-page/offers-page_DTO/industry-DTO';
 import {OfferScheduleDTO} from '../../offers-page/offers-page_DTO/offer-schedule-DTO';
 import {OfferTest} from './offer-test';
+import {OFFERS} from './mock-offer-test';
 
 @Component({
   selector: 'app-brief-offer',
@@ -16,21 +17,9 @@ import {OfferTest} from './offer-test';
 })
 
 
-
 export class BriefOfferComponent implements OnInit {
 
-  offer: OfferTest[] = [{
-    id: 5,
-    title: `name 1`,
-  }, {
-    id: 3,
-    title: 'name 2'
-  }, {
-    id: 1,
-    title: 'name 3'
-  }];
-
-  constructor() { }
+  offers = OFFERS;
 
   ngOnInit(): void {
   }

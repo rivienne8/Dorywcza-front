@@ -1,4 +1,6 @@
 export interface OfferTest {
-  id: number;
   title: string;
+  location: string;
+  user_name: string;
+  salary: number;
 }

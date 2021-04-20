@@ -1,6 +1,10 @@
-<mat-card >
-  <mat-card-title *ngFor="let of of offer">
-    {{of.title}}
-  </mat-card-title>
+
+<mat-card *ngFor="let offer of offers">
+  <mat-card-content >
+    <div>{{offer.title}} </div>
+    {{offer.user_name}}
+    {{offer.salary}} zł
+    {{offer.location}}
+  </mat-card-content>
 </mat-card>
 
