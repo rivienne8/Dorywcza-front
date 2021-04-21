@@ -6,12 +6,12 @@
 
     <label>Nazwa użytkownika:</label>
     <input type="text" formControlName="userName" >
-    <div *ngIf="userName && userName.invalid && (userName.dirty && userName.touched)"
+    <div class="ng-invalid" *ngIf="userName && userName.invalid && (userName.dirty && userName.touched)"
     >Nazwa użytkownika za krótka</div>
 
     <label>Email:</label>
     <input type="text" formControlName="email">
-    <div *ngIf="email && email.invalid && (email.dirty && email.touched)"
+    <div class="ng-invalid" *ngIf="email && email.invalid && (email.dirty && email.touched)"
     >Nieprawidłowy format e-mail</div>
 
     <label>O mnie:</label>
@@ -28,8 +28,8 @@
 
     <label>Numer telefonu:</label>
     <input type="text" formControlName="phoneNumber">
-    <div *ngIf="phoneNumber && phoneNumber.invalid && (phoneNumber.dirty && phoneNumber.touched)"
-    >Numer telefonu powinien mieć minimum 9 znaków</div>
+    <div class="ng-invalid" *ngIf="phoneNumber && phoneNumber.invalid && (phoneNumber.dirty && phoneNumber.touched)"
+    >Numer telefonu powinien składać się z cyfr</div>
 
     <label>Ulica:</label>
     <input type="text" formControlName="street" >

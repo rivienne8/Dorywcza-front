@@ -3,6 +3,7 @@ import {UserUpdateProfileService} from './user-update-profile.service';
 import {ActivatedRoute} from '@angular/router';
 import {UserUpdateDTO} from './user-update-DTO';
 import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {from} from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,7 +17,7 @@ export class UserUpdateProfileComponent implements OnInit {
 
   profileForm = this.fb.group({
     userName: ['', [Validators.minLength(2)]],
-    email: ['', [Validators.email]],
+    email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     firstName: [''],
     lastName: [''],
     phoneNumber: ['', [Validators.pattern('[- +()0-9]+')]],
@@ -47,6 +48,11 @@ export class UserUpdateProfileComponent implements OnInit {
 
   onSubmit(): void{
     console.log(this.profileForm.value);
+
+    if (this.userUpdateDTO && this.userUpdateDTO.id != null){
+      const fromForm = new UserUpdateDTO(this.profileForm.value);
+      this.userProfileService.updateUserById(this.userUpdateDTO.id, fromForm );
+    }
   }
 
   get userName(): AbstractControl | null {
