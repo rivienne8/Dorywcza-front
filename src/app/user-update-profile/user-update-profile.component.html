@@ -4,41 +4,57 @@
     <mat-card>
     <mat-card-subtitle>Profil</mat-card-subtitle>
 
+      <mat-form-field>
     <label>Nazwa użytkownika:</label>
-    <input type="text" formControlName="userName" >
+    <input matInput type="text" formControlName="userName" >
     <div class="ng-invalid" *ngIf="userName && userName.invalid && (userName.dirty && userName.touched)"
     >Nazwa użytkownika za krótka</div>
+      </mat-form-field>
 
+      <mat-form-field>
     <label>Email:</label>
-    <input type="text" formControlName="email">
+    <input matInput type="text" formControlName="email">
     <div class="ng-invalid" *ngIf="email && email.invalid && (email.dirty && email.touched)"
     >Nieprawidłowy format e-mail</div>
+      </mat-form-field>
 
+      <mat-form-field>
     <label>O mnie:</label>
-    <input type="text" formControlName="description" >
+    <input matInput type="text" formControlName="description" >
+      </mat-form-field>
     </mat-card>
     <mat-card>
     <mat-card-subtitle>Dane kontaktowe</mat-card-subtitle>
 
-    <label>Imię:</label>
-    <input type="text" formControlName="firstName" >
+      <mat-form-field>
+    <mat-label>Imię:</mat-label>
+    <input matInput type="text" formControlName="firstName" >
+      </mat-form-field>
 
-    <label>Nazwisko:</label>
-    <input type="text" formControlName="lastName" >
+        <mat-form-field>
+    <mat-label>Nazwisko:</mat-label>
+    <input matInput type="text" formControlName="lastName" >
+        </mat-form-field>
 
-    <label>Numer telefonu:</label>
-    <input type="text" formControlName="phoneNumber">
+          <mat-form-field>
+    <mat-label>Numer telefonu:</mat-label>
+    <input matInput type="text" formControlName="phoneNumber">
     <div class="ng-invalid" *ngIf="phoneNumber && phoneNumber.invalid && (phoneNumber.dirty && phoneNumber.touched)"
     >Numer telefonu powinien składać się z cyfr</div>
+          </mat-form-field>
 
-    <label>Ulica:</label>
-    <input type="text" formControlName="street" >
+            <mat-form-field>
+    <mat-label>Ulica:</mat-label>
+    <input matInput type="text" formControlName="street" >
+            </mat-form-field>
 
     </mat-card>
     <mat-card>
     <mat-card-subtitle>Doświadczenie</mat-card-subtitle>
-    <label>Opis doświadczenia:</label>
-    <input type="text" formControlName="experienceDescription" />
+      <mat-form-field>
+    <mat-label>Opis doświadczenia:</mat-label>
+    <input matInput type="text" formControlName="experienceDescription" />
+        </mat-form-field>
     </mat-card>
 
     <button type="submit" [disabled]="!profileForm.valid">Submit</button>
