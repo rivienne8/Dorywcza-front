@@ -1,26 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
+import {Component, OnInit} from '@angular/core';
+import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
+import {UserSimplifiedDTO} from '../../head/user-simplified-DTO';
+import {SalaryTimeUnitDTO} from '../../offers-page/offers-page_DTO/salary-time-unit-DTO';
+import {SalaryDTO} from '../../offers-page/offers-page_DTO/salary-DTO';
+import {OfferLocationDTO} from '../../offers-page/offers-page_DTO/offer-location-DTO';
+import {DateRangeDTO} from '../../offers-page/offers-page_DTO/date-range-DTO';
+import {IndustryDTO} from '../../offers-page/offers-page_DTO/industry-DTO';
+import {OfferScheduleDTO} from '../../offers-page/offers-page_DTO/offer-schedule-DTO';
+import {OfferTest} from './offer-test';
+import {OFFERS} from './mock-offer-test';
 
 @Component({
   selector: 'app-brief-offer',
   templateUrl: './brief-offer.component.html',
   styleUrls: ['./brief-offer.component.css']
 })
+
+
 export class BriefOfferComponent implements OnInit {
 
-  tiles: Tile[] = [
-    {text: 'Tytuł oferty', cols: 3, rows: 1, color: 'lightgray'},
-    {text: 'użytkownik', cols: 1, rows: 2, color: 'lightgray'},
-    {text: '800 zł', cols: 1, rows: 1, color: 'lightgray'},
-    {text: 'Miejscowość', cols: 2, rows: 1, color: 'lightgray'},
-  ];
-
-  constructor() { }
+  offers = OFFERS;
 
   ngOnInit(): void {
   }

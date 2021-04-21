@@ -1,0 +1,21 @@
+/*.brief {*/
+/*  position: relative;*/
+/*  width: 220%;*/
+/*  margin-left: 42%;*/
+/*  margin-block-start: -31.5%;*/
+/*}*/
+
+
+mat-card {
+
+  height: 25px;
+  width: 45%;
+  position: relative;
+  margin: 5px;
+  top: -400px;
+  left: 40%;
+  background-color: lightgray;
+  color: rgb(75, 31, 82);
+
+
+}
