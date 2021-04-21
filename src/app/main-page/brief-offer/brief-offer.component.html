@@ -1,9 +1,10 @@
-<mat-grid-list cols="4" rowHeight="100px">
-  <mat-grid-tile class="brief-offer"
-    *ngFor="let tile of tiles"
-    [colspan]="tile.cols"
-    [rowspan]="tile.rows"
-    [style.background]="tile.color">
-    {{tile.text}}
-  </mat-grid-tile>
-</mat-grid-list>
+
+<mat-card *ngFor="let offer of offers">
+  <mat-card-content >
+    <div>{{offer.title}} </div>
+    {{offer.user_name}}
+    {{offer.salary}} zł
+    {{offer.location}}
+  </mat-card-content>
+</mat-card>
+
