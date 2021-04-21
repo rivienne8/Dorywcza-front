@@ -1,11 +1,23 @@
-<div *ngIf="serviceOfferDTO" class="test">
-  <span>{{serviceOfferDTO.title}}</span>
-  <span>{{serviceOfferDTO.userSimplifiedDTO.email}}</span>
-  <span>{{serviceOfferDTO.salaryTimeUnitDTO.name}}</span>
-  <span>{{serviceOfferDTO.salaryDTO.maxSalary}}</span>
-  <span>{{serviceOfferDTO.salaryDTO.minSalary}}</span>
-  <span>{{serviceOfferDTO.offerLocationDTO.xPosition}}</span>
-  <span>{{serviceOfferDTO.offerLocationDTO.yPosition}}</span>
-  <span>{{serviceOfferDTO.dateRangeDTO.endDate}}</span>
-  <span>{{serviceOfferDTO.dateRangeDTO.startDate}}</span>
+<!--<div *ngIf="serviceOfferDTO">-->
+<!--  <div>{{serviceOfferDTO.dateRangeDTO.startDate}} - {{serviceOfferDTO.dateRangeDTO.endDate}}</div>-->
+<!--  <div>{{serviceOfferDTO.offerLocationDTO.xposition}}, {{serviceOfferDTO.offerLocationDTO.yposition}}</div>-->
+<!--  <div>{{serviceOfferDTO.title}}</div>-->
+<!--  <span>{{serviceOfferDTO.userSimplifiedDTO.email}}</span>-->
+<!--  <div>{{serviceOfferDTO.salaryDTO.minSalary}} - {{serviceOfferDTO.salaryDTO.maxSalary}} {{serviceOfferDTO.salaryTimeUnitDTO.name}}</div>-->
+<!--</div>-->
+
+<div *ngIf="offerDTO">
+  <table>
+    <tr>
+      <td>{{offerDTO.dateRangeDTO.startDate}} - {{offerDTO.dateRangeDTO.endDate}}</td>
+      <td>{{offerDTO.offerLocationDTO.xposition}}, {{offerDTO.offerLocationDTO.yposition}}</td>
+    </tr>
+    <tr>
+      <td>{{offerDTO.title}}</td>
+    </tr>
+    <tr>
+      <td>{{offerDTO.userSimplifiedDTO.email}}</td>
+      <td>{{offerDTO.salaryDTO.minSalary}} - {{offerDTO.salaryDTO.maxSalary}} {{offerDTO.salaryTimeUnitDTO.name}}</td>
+    </tr>
+  </table>
 </div>

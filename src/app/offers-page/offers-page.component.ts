@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {OfferDTO} from './offers-page_DTO/offerDTO';
-import {OffersPageService} from './offers-page.service';
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-offers-page',
@@ -9,17 +8,10 @@ import {OffersPageService} from './offers-page.service';
 })
 export class OffersPageComponent implements OnInit {
 
-  @Input()
-  serviceOffersDTO: OfferDTO[] = [];
 
-  constructor(private offerPageService: OffersPageService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getServiceOffers();
-  }
-
-  getServiceOffers(): void {
-    this.offerPageService.getServiceOffers().subscribe(serviceOffersDTO => this.serviceOffersDTO = serviceOffersDTO);
   }
 
 }

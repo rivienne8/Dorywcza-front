@@ -8,7 +8,7 @@ import {OfferDTO} from '../offers-page_DTO/offerDTO';
 })
 export class DetailedOfferComponent implements OnInit {
   @Input()
-  serviceOfferDTO?: OfferDTO;
+  offerDTO?: OfferDTO;
 
   constructor() { }
 

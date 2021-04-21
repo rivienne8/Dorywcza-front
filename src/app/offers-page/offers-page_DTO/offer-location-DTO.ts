@@ -1,5 +1,5 @@
 
 export interface OfferLocationDTO {
-  xPosition: number;
-  yPosition: number;
+  xposition: number;
+  yposition: number;
 }
