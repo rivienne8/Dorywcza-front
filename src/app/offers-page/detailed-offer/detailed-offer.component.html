@@ -1,1 +1,11 @@
-<p>detailed-offer works!</p>
+<div *ngIf="serviceOfferDTO" class="test">
+  <span>{{serviceOfferDTO.title}}</span>
+  <span>{{serviceOfferDTO.userSimplifiedDTO.email}}</span>
+  <span>{{serviceOfferDTO.salaryTimeUnitDTO.name}}</span>
+  <span>{{serviceOfferDTO.salaryDTO.maxSalary}}</span>
+  <span>{{serviceOfferDTO.salaryDTO.minSalary}}</span>
+  <span>{{serviceOfferDTO.offerLocationDTO.xPosition}}</span>
+  <span>{{serviceOfferDTO.offerLocationDTO.yPosition}}</span>
+  <span>{{serviceOfferDTO.dateRangeDTO.endDate}}</span>
+  <span>{{serviceOfferDTO.dateRangeDTO.startDate}}</span>
+</div>

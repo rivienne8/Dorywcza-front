@@ -1,22 +1,8 @@
-<mat-card>
-  <mat-card-title>Profile</mat-card-title>
-  <mat-card-content>
-    <ul>
-      <li *ngFor="let serviceOffer of serviceOffersDTO">
-        <span>{{serviceOffer.title}}</span>
-        <span>{{serviceOffer.description}}</span>
-        <span>{{serviceOffer.userSimplifiedDTO.email}}</span>
-        <span>{{serviceOffer.salaryTimeUnitDTO.name}}</span>
-        <span>{{serviceOffer.hasExperience}}</span>
-        <span>{{serviceOffer.salaryDTO.maxSalary}}</span>
-        <span>{{serviceOffer.offerLocationDTO.xPosition}}</span>
-        <span>{{serviceOffer.dateRangeDTO.endDate}}</span>
-        <span>{{serviceOffer.industryDTO.name}}</span>
-        <span>{{serviceOffer.offerScheduleDTO.fridayAfternoon}}</span>
-        <span>{{serviceOffer.tagsNames}}</span>
-        <span>{{serviceOffer.dataCreated}}</span>
-        <span>{{serviceOffer.dateUpdated}}</span>
-      </li>
-    </ul>
-  </mat-card-content>
-</mat-card>
+<app-offers-buttons></app-offers-buttons>
+<ul>
+  <li *ngFor="let serviceOffer of serviceOffersDTO">
+    <app-detailed-offer [serviceOfferDTO]="serviceOffer"></app-detailed-offer>
+    <br>
+  </li>
+</ul>
+
