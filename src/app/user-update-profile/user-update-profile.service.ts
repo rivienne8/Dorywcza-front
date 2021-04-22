@@ -15,4 +15,9 @@ export class UserUpdateProfileService {
 
     return this.http.get<UserUpdateDTO>(`${environment.apiUrl}/users/${id}?type=update`);
   }
+
+  updateUserById(id: number, userDTO: UserUpdateDTO): void {
+    this.http.put<UserUpdateDTO>(`${environment.apiUrl}/users/${id}`, userDTO)
+      .subscribe(data => console.log(data));
+  }
 }

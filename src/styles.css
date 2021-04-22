@@ -8,3 +8,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white;
 }
 
+.mat-card{
+  margin-bottom: 4px;
+  color: #424242;
+  background: #fff;
+}
+
+.mat-menu-panel {
+  background: rgb(203, 235, 74);
+}

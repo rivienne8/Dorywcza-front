@@ -30,6 +30,8 @@ import {GlobalErrorHandler} from './global-error-handler';
 import {ServerErrorInterceptor} from './server-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OffersPageComponent } from './offers-page/offers-page.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -62,6 +64,8 @@ import { OffersPageComponent } from './offers-page/offers-page.component';
     MatMenuModule, MatButtonModule,
     MatCardModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
     MatGridListModule,
     FlexLayoutModule,
