@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'user-update-profile/:id', component: UserUpdateProfileComponent },
   { path: 'user-public-profile/:id', component: UserPublicProfileComponent },
   { path: 'head', component: HeadComponent },
-  { path: 'service-offers', component: OffersPageComponent}
+  { path: 'service-offers', component: OffersPageComponent},
+  {path: 'jobs', component: OffersPageComponent}
 
 ];
 
