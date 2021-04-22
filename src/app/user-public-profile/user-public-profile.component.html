@@ -10,6 +10,7 @@
       <li *ngIf="userPublicDTO.avatar && userPublicDTO.avatar.url">
         <mat-card class="avatar-in-profile">
           <img mat-card-image src="{{path}}{{userPublicDTO.avatar.url}}" alt="picture id {{userPublicDTO.avatar.name}}" width="10em" height="auto">
+          <app-upload-image></app-upload-image>
         </mat-card>
       </li>
     </ul>

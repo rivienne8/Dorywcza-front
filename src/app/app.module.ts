@@ -30,6 +30,7 @@ import {GlobalErrorHandler} from './global-error-handler';
 import {ServerErrorInterceptor} from './server-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OffersPageComponent } from './offers-page/offers-page.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { OffersPageComponent } from './offers-page/offers-page.component';
     MainPageComponent,
     BriefOfferComponent,
     OffersPageComponent,
+    UploadImageComponent,
   ],
   imports: [
     BrowserModule,
