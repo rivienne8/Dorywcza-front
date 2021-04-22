@@ -30,6 +30,8 @@ import {GlobalErrorHandler} from './global-error-handler';
 import {ServerErrorInterceptor} from './server-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OffersPageComponent } from './offers-page/offers-page.component';
+import { ViewOfferPageComponent } from './view-offer-page/view-offer-page.component';
+import {GoogleMapsModule} from '@angular/google-maps';
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import { OffersPageComponent } from './offers-page/offers-page.component';
     MainPageComponent,
     BriefOfferComponent,
     OffersPageComponent,
+    ViewOfferPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ import { OffersPageComponent } from './offers-page/offers-page.component';
     MatGridListModule,
     FlexLayoutModule,
     MatSnackBarModule,
+    GoogleMapsModule
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
