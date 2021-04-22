@@ -1,6 +1,7 @@
 
 <mat-card>
   <mat-card-title>Profile</mat-card-title>
+  <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}"><div>Edytuj</div></a>
   <mat-card-content>
     <ul *ngIf="userPublicDTO">
       <li>username: {{userPublicDTO.userName}}</li>

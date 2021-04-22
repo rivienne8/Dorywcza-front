@@ -31,6 +31,8 @@ import {ServerErrorInterceptor} from './server-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OffersPageComponent } from './offers-page/offers-page.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -64,6 +66,8 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     MatMenuModule, MatButtonModule,
     MatCardModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
     MatGridListModule,
     FlexLayoutModule,

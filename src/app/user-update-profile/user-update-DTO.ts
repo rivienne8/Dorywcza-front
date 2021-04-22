@@ -1,6 +1,6 @@
-export interface UserUpdateDTO {
-  id: number;
-  email: string;
+export class UserUpdateDTO {
+  id?: number;
+  email?: string;
   phoneNumber?: string;
   overallRating?: number;
   firstName?: string;
@@ -9,4 +9,10 @@ export interface UserUpdateDTO {
   description?: string;
   street?: string;
   experienceDescription?: string;
+
+
+  public constructor(init?: Partial<UserUpdateDTO>) {
+    Object.assign(this, init);
+  }
+
 }
