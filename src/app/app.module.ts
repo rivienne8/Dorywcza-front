@@ -30,8 +30,10 @@ import {GlobalErrorHandler} from './global-error-handler';
 import {ServerErrorInterceptor} from './server-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OffersPageComponent } from './offers-page/offers-page.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import {MatInputModule} from '@angular/material/input';
     MainPageComponent,
     BriefOfferComponent,
     OffersPageComponent,
+    UploadImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +72,7 @@ import {MatInputModule} from '@angular/material/input';
     ReactiveFormsModule,
     MatGridListModule,
     FlexLayoutModule,
+    MatProgressBarModule,
     MatSnackBarModule,
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},

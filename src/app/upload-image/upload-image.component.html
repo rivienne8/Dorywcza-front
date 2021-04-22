@@ -1,0 +1,12 @@
+
+
+<!--    <label>Dodaj/zmień zdjęcie</label>-->
+    <input type="file" class="hidden-input" (change)="handleFileInput($event)" #fileUpload>
+    <div class="file-upload">
+      <a (click)="fileUpload.click()">
+              <span class="material-icons">change_circle</span>
+      </a>
+    </div>
+
+
+
