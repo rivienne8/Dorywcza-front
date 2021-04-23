@@ -1,7 +1,10 @@
-<google-map [center]="position">
-  <map-marker
-    [position]="position"
-  ></map-marker>
-</google-map>
-<p>{{observable}}</p>
+
+<div *ngIf="offerDTO">
+  <p>{{offerDTO.title}}</p>
+  <google-map [center]="{lat: offerDTO.offerLocationDTO.xposition, lng:offerDTO.offerLocationDTO.yposition}">
+    <map-marker
+      [position]="{lat: offerDTO.offerLocationDTO.xposition, lng:offerDTO.offerLocationDTO.yposition}"
+    ></map-marker>
+  </google-map>
+</div>
 
