@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {catchError} from 'rxjs/operators';
 import { map } from 'rxjs/operators';
+import {NotificationService} from '../error-handler-services/notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UploadImageService {
   path = environment.apiUrl;
   isUploadedStatus?: boolean;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private notificationService: NotificationService) { }
 
   postFile(imageToUpload: File, userId: number): void {
     const formData: FormData = new FormData();
@@ -22,7 +23,7 @@ export class UploadImageService {
     formData.append('userId', String(userId));
     this.http.post<Blob>(`${this.path}/upload`, formData )
       .subscribe(
-
+        () => this.notificationService.showSuccess('New avatar uploaded')
       );
   }
 

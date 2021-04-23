@@ -18,13 +18,14 @@ export class UploadImageComponent implements OnInit {
 
   }
 
-  // handleFileInput(files: FileList): void{
-  //   this.imageToUpload = files[0];
-  //   this.uploadFile();
-  // }
-
   handleFileInput(event: any): void{
+    const mimeType = event.target.files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      throw new  Error('Only images are supported.');
+    }
+
     this.imageToUpload = event.target.files[0];
+
     if (this.imageToUpload){
       this.uploadFile();
     }

@@ -8,6 +8,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white;
 }
 
+.success {
+  background-color: rgb(125, 144, 32);
+  color: white;
+}
+
 .mat-card{
   margin-bottom: 4px;
   color: #424242;
