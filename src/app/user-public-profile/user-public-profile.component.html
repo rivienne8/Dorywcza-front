@@ -1,5 +1,11 @@
 
-<mat-card>
+
+
+
+<div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center" >
+
+<mat-card class="router-outlet-container" fxFlex
+          >
   <mat-card-title>Profil</mat-card-title>
   <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
     <span class="material-icons">edit</span>
@@ -18,7 +24,8 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card>
+<mat-card fxFlex
+>
   <mat-card-title>Dane teleadresowe</mat-card-title>
   <mat-card-content>
 
@@ -29,7 +36,7 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card>
+<mat-card fxFlex>
   <mat-card-title>Doświadczenie</mat-card-title>
   <mat-card-content>
 
@@ -42,3 +49,4 @@
   </div>
   </mat-card-content>
 </mat-card>
+</div>
