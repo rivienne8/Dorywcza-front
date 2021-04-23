@@ -12,7 +12,7 @@ export class NotificationService {
 
   showSuccess(message: string): void {
     this.zone.run( () => {
-      this.snackBar.open(message);
+      this.snackBar.open(message, 'X', {panelClass: ['success']});
     });
   }
 
