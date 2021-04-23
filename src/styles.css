@@ -17,6 +17,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white;
 }
 
+.mat-button-base {
+  background-color: rgb(203, 235, 74);
+  color: rgb(75,31,82);
+}
+
 .mat-card{
   margin-bottom: 4px;
   color: #424242;

@@ -4,8 +4,7 @@
 
 <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center" >
 
-<mat-card class="router-outlet-container" fxFlex
-          >
+<mat-card class="router-outlet-container" fxFlex >
   <mat-card-title>Profil</mat-card-title>
   <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
     <span class="material-icons">edit</span>
