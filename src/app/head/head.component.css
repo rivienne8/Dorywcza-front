@@ -36,3 +36,7 @@
 .mat-menu {
   background: rgb(203, 235, 74);
 }
+
+.mat-button-base {
+  background: none;
+}
