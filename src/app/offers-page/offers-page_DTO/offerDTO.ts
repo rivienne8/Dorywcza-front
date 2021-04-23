@@ -20,5 +20,7 @@ export interface OfferDTO {
   tagsNames?: string[];
   dataCreated: string;
   dateUpdated: string;
+  fullAddress: string;
+  cityName: string;
 
 }

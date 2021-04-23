@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Observable, Observer} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +11,19 @@ export class LocationService {
     this.geocoder = new google.maps.Geocoder();
   }
 
-  geocodeLatLng(position: { lng: number; lat: number }): void {
-    this.geocoder.geocode(
-      { location: position },
-      (
-        results,
-        status
-      ) => {
-        if (status === 'OK') {
-          if (results[0]) {
-            console.log(results[0].formatted_address);
+  geocodeLatLng(position: { lng: number; lat: number }): Observable<google.maps.GeocoderResult[]> {
+    return new Observable((observer: Observer<google.maps.GeocoderResult[]>) => {
+      this.geocoder.geocode({location: position},
+        (results: google.maps.GeocoderResult[], status: google.maps.GeocoderStatus
+        ) => {
+          if (status === google.maps.GeocoderStatus.OK) {
+            observer.next(results);
+            observer.complete();
           } else {
-            window.alert('No results found');
+            console.log('Geocoding service: geocoder failed due to: ' + status);
+            observer.error(status);
           }
-        } else {
-          window.alert('Geocoder failed due to: ' + status);
-        }
-      }
-    );
-
+        });
+    });
   }
 }

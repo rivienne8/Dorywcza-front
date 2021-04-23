@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
-import {LocationService} from '../../location.service';
 
 @Component({
   selector: 'app-detailed-offer',
@@ -11,7 +10,7 @@ export class DetailedOfferComponent implements OnInit {
   @Input()
   offerDTO?: OfferDTO;
 
-  constructor(private locationService: LocationService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

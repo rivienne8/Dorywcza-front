@@ -8,12 +8,18 @@ import {LocationService} from '../../location.service';
 })
 export class ViewOfferComponent implements OnInit {
   position = {lat: 42.361145, lng: -71.057083};
-
+  observable?: string;
   constructor(private locationService: LocationService) {
   }
 
   ngOnInit(): void {
-    this.locationService.geocodeLatLng(this.position);
+    this.getLocation();
+  }
+
+  getLocation(): void {
+    this.locationService.geocodeLatLng(this.position).forEach((results: google.maps.GeocoderResult[]) => {
+      this.observable = results[0].formatted_address;
+    } ).then(() => console.log('done'));
   }
 
 }
