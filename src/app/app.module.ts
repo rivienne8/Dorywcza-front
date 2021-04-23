@@ -34,6 +34,8 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ViewOfferPageComponent } from './view-offer-page/view-offer-page.component';
+import {GoogleMapsModule} from '@angular/google-maps';
 
 
 @NgModule({
@@ -54,6 +56,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     BriefOfferComponent,
     OffersPageComponent,
     UploadImageComponent,
+    ViewOfferPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     FlexLayoutModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    GoogleMapsModule
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
