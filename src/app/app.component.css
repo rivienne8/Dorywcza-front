@@ -1,6 +1,21 @@
-.router-outlet-container {
+.main-app-container{
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column-reverse;
-  /*justify-items: center;*/
+  flex-direction: column;
+}
 
+.header-container{
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.router-outlet-container{
+  flex-shrink: 1;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.footer-container{
+  flex-shrink: 0;
+  flex-grow: 0;
 }

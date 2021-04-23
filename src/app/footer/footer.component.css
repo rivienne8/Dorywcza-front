@@ -1,5 +1,6 @@
 .footer {
-  position: fixed;
+  /*position: fixed;*/
+  position: static;
   bottom: 0;
   width: 100%;
   text-align: left;
