@@ -9,6 +9,7 @@ import {OfferDTO} from '../offers-page_DTO/offerDTO';
 export class DetailedOfferComponent implements OnInit {
   @Input()
   offerDTO?: OfferDTO;
+  loc = location.pathname;
 
   constructor() { }
 
