@@ -36,10 +36,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ViewOfferPageComponent } from './view-offer-page/view-offer-page.component';
 import {GoogleMapsModule} from '@angular/google-maps';
-import { UploadImageComponent } from './upload-image/upload-image.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -61,7 +57,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     OffersPageComponent,
     UploadImageComponent,
     ViewOfferPageComponent,
-    UploadImageComponent,
   ],
   imports: [
     BrowserModule,
