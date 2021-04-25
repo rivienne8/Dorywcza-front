@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'head', component: HeadComponent },
   { path: 'service-offers', component: OffersPageComponent},
   {path: 'jobs', component: OffersPageComponent},
-  {path: 'offer', component: ViewOfferPageComponent}
+  {path: 'service-offers/:id', component: ViewOfferPageComponent},
+  {path: 'jobs/:id', component: ViewOfferPageComponent}
 
 ];
 

@@ -7,6 +7,7 @@ import {IndustryDTO} from './industry-DTO';
 import {OfferScheduleDTO} from './offer-schedule-DTO';
 
 export interface OfferDTO {
+  id: number;
   description: string;
   title: string;
   userSimplifiedDTO: UserSimplifiedDTO;

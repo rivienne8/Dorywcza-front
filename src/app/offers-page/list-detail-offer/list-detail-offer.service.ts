@@ -22,4 +22,8 @@ export class ListDetailOfferService {
         offer.cityName = results[0].address_components[3].long_name;
       } ).then(() => console.log('done')))));
   }
+
+  getOffer(id: number, pathName: string): Observable<OfferDTO> {
+    return this.http.get<OfferDTO>(`${environment.apiUrl}${pathName}`);
+  }
 }
