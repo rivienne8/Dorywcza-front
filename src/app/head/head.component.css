@@ -25,6 +25,18 @@
 }
 
 .mat-menu-item > span, a {
-  color: white ;
+  color: #424242 ;
   text-decoration: none;
+}
+
+.mat-menu-item:hover {
+  background: rgb(198, 229, 92);
+}
+
+.mat-menu {
+  background: rgb(203, 235, 74);
+}
+
+.mat-button-base {
+  background: none;
 }

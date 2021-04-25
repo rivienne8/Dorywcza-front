@@ -1,8 +1,15 @@
 .footer {
-  position: fixed;
+  /*position: fixed;*/
+  position: static;
   bottom: 0;
   width: 100%;
   text-align: left;
   background-color: rgb(75,31,82);
   color: white;
+
+}
+
+p {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
 }
