@@ -30,6 +30,8 @@ import {GlobalErrorHandler} from './global-error-handler';
 import {ServerErrorInterceptor} from './server-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OffersPageComponent } from './offers-page/offers-page.component';
+import { ViewOfferPageComponent } from './view-offer-page/view-offer-page.component';
+import {GoogleMapsModule} from '@angular/google-maps';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -53,6 +55,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MainPageComponent,
     BriefOfferComponent,
     OffersPageComponent,
+    ViewOfferPageComponent,
     UploadImageComponent,
   ],
   imports: [
@@ -74,6 +77,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     FlexLayoutModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    GoogleMapsModule
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
