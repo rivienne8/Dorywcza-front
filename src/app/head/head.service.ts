@@ -17,7 +17,6 @@ export class HeadService {
     const params = new HttpParams()
       .set('type', 'simplified');
 
-    // return this.http.get<UserSimplifiedDTO>(`${environment.apiUrl}/users/${id}?type=simplified`);
     return this.http.get<UserSimplifiedDTO>(environment.apiUrl + '/users/' + id, {params});
   }
 }

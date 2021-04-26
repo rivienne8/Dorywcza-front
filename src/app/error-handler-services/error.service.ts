@@ -14,7 +14,7 @@ export class ErrorService {
 
   getErrorMessage(error: Error): string {
     if (!navigator.onLine){
-      return '(client) No Internet Connection';
+      return 'Brak połączenia z internetem';
     }
 
     return error.message ? error.message : error.toString();
@@ -25,17 +25,18 @@ export class ErrorService {
   }
 
   getErrorDTOMessage(error: HttpErrorResponse): string {
+    if (error.status === 0){
+      this.message = 'Dane chwilowo niedostępne';
+    } else {
+      const errorFromBackend: ErrorDTO = error.error;
+      this.message = 'level: ' + errorFromBackend.level
+        + ', message: ' + errorFromBackend.message;
+    }
 
-    const errorFromBackend: ErrorDTO = error.error;
-    this.message = 'status: ' + errorFromBackend.status
-      + ', htttp status: ' + errorFromBackend.httpStatus
-      + ', level: ' + errorFromBackend.level
-      + ', message: ' + errorFromBackend.message;
-    return navigator.onLine ? this.message : '(server) No Internet Connection';
+    return navigator.onLine ? this.message : 'Brak połączenia z internetem';
   }
 
   getServerStack(error: HttpErrorResponse): string {
-
-    return 'stack from error : ';
+    return 'stack from error : ' +  this.getErrorStack(error);
   }
 }

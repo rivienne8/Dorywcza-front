@@ -6,18 +6,18 @@
 
       <mat-form-field >
         <mat-label>Nazwa użytkownika:</mat-label>
-          <input matInput type="text" formControlName="userName" placeholder="Nazwa użytkownika"  >
-          <mat-error class="ng-invalid" *ngIf="userName && userName.invalid ">
-          Nazwa użytkownika za krótka
-          </mat-error>
+        <input matInput type="text" formControlName="userName" placeholder="Nazwa użytkownika"  >
+        <mat-error class="ng-invalid" *ngIf="userName && userName.invalid ">
+        Nazwa użytkownika za krótka
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Email:</mat-label>
-          <input matInput type="text" formControlName="email" placeholder="Email">
-          <mat-error class="ng-invalid" *ngIf="email && email.invalid && (email.dirty && email.touched)">
-          Nieprawidłowy format e-mail
-          </mat-error>
+        <input matInput type="text" formControlName="email" placeholder="Email">
+        <mat-error class="ng-invalid" *ngIf="email && email.invalid && (email.dirty && email.touched)">
+        Nieprawidłowy format e-mail
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -59,7 +59,7 @@
 
       <mat-form-field>
         <mat-label>Kod pocztowy:</mat-label>
-        <input matInput type="text" formControlName="zipCode" >
+        <input matInput type="text" formControlName="zipCode" [value]="profileForm.get('zipCode')?.value | zipcode" >
       </mat-form-field>
 
       <mat-form-field>
