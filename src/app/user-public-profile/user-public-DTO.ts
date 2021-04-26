@@ -10,6 +10,9 @@ export interface UserPublicDTO{
   userName?: string;
   description?: string;
   street?: string;
+  flatNumber?: string;
+  zipCode?: number;
+  city?: string;
   experienceDescription?: string;
   pictures?: ImageDTO[];
   avatar?: ImageDTO;

@@ -6,30 +6,32 @@
 
 <mat-card class="router-outlet-container" fxFlex >
   <mat-card-title>Profil</mat-card-title>
-  <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
-    <span class="material-icons">edit</span>
-  </a>
+    <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
+      <span class="material-icons">edit</span>
+    </a>
   <mat-card-content>
     <div *ngIf="userPublicDTO">
-      <div>nazwa użytkownika: {{userPublicDTO.userName}}</div>
-      <div>scoring: {{userPublicDTO.overallRating}}</div>
-      <div>email: {{userPublicDTO.email}}</div>
-      <div>o mnie: {{userPublicDTO.description}}</div>
+      <div>Nazwa użytkownika: {{userPublicDTO.userName}}</div>
+      <div>Scoring: {{userPublicDTO.overallRating}}</div>
+      <div>Email: {{userPublicDTO.email}}</div>
+      <div>O mnie: {{userPublicDTO.description}}</div>
       <mat-card class="card-picture" *ngIf="userPublicDTO.avatar && userPublicDTO.avatar.url">
-          <img mat-card-image src="{{path}}{{userPublicDTO.avatar.url}}" alt="{{userPublicDTO.avatar.name}}" >
+        <img mat-card-image src="{{path}}{{userPublicDTO.avatar.url}}" alt="{{userPublicDTO.avatar.name}}" >
         <app-upload-image [userId]="userPublicDTO?.id"></app-upload-image>
       </mat-card>
     </div>
   </mat-card-content>
 </mat-card>
 
-<mat-card fxFlex
->
-  <mat-card-title>Dane teleadresowe</mat-card-title>
+<mat-card fxFlex >
+  <mat-card-title>Dane teleadresowe:</mat-card-title>
   <mat-card-content>
 
       <div>imię i nazwisko: {{userPublicDTO?.firstName}} {{userPublicDTO?.lastName}}</div>
-      <div>adres: {{userPublicDTO?.street}}</div>
+      <div>adres: {{userPublicDTO?.street}} {{userPublicDTO?.flatNumber}} <br>
+                  {{userPublicDTO?.zipCode | zipcode }} {{userPublicDTO?.city}}
+      </div>
+
       <div *ngIf="userPublicDTO?.phoneNumber">telefon: {{userPublicDTO?.phoneNumber}}</div>
 
   </mat-card-content>

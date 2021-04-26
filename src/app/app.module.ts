@@ -36,6 +36,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ViewOfferPageComponent } from './view-offer-page/view-offer-page.component';
 import {GoogleMapsModule} from '@angular/google-maps';
+import { ZipcodePipe } from './zipcode.pipe';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {GoogleMapsModule} from '@angular/google-maps';
     OffersPageComponent,
     UploadImageComponent,
     ViewOfferPageComponent,
+    ZipcodePipe,
   ],
   imports: [
     BrowserModule,
