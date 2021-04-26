@@ -1,14 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
-import {UserSimplifiedDTO} from '../../head/user-simplified-DTO';
-import {SalaryTimeUnitDTO} from '../../offers-page/offers-page_DTO/salary-time-unit-DTO';
-import {SalaryDTO} from '../../offers-page/offers-page_DTO/salary-DTO';
-import {OfferLocationDTO} from '../../offers-page/offers-page_DTO/offer-location-DTO';
-import {DateRangeDTO} from '../../offers-page/offers-page_DTO/date-range-DTO';
-import {IndustryDTO} from '../../offers-page/offers-page_DTO/industry-DTO';
-import {OfferScheduleDTO} from '../../offers-page/offers-page_DTO/offer-schedule-DTO';
-import {OfferTest} from './offer-test';
-import {OFFERS} from './mock-offer-test';
+import {LocationService} from '../../location.service';
+import {ListDetailOfferService} from '../../offers-page/list-detail-offer/list-detail-offer.service';
+import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-brief-offer',
@@ -19,10 +14,18 @@ import {OFFERS} from './mock-offer-test';
 
 export class BriefOfferComponent implements OnInit {
 
-  offers = OFFERS;
+  @Input()
+  offerDTO?: OfferDTO;
 
+  constructor(private listDetailOfferService: ListDetailOfferService,
+              private route: ActivatedRoute) {
+
+  }
   ngOnInit(): void {
   }
-
+  getOffer(): void {
+    const id = +(this.route.snapshot.paramMap.get('id') || 0);
+    this.listDetailOfferService.getOffer(id, location.pathname).subscribe(offerDTO => this.offerDTO = offerDTO);
+  }
 }
 
