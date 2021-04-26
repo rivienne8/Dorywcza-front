@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserSimplifiedDTO} from './user-simplified-DTO';
 import {HeadService} from './head.service';
 import {ActivatedRoute} from '@angular/router';
-import {UserUpdateDTO} from '../user-update-profile/user-update-DTO';
 import {environment} from '../../environments/environment';
 
 @Component({
@@ -11,12 +10,9 @@ import {environment} from '../../environments/environment';
   styleUrls: ['./head.component.css']
 })
 export class HeadComponent implements OnInit {
-
+  title = 'dorywcza.pl';
   path = environment.apiUrl;
-
-  @Input()
   userDTO?: UserSimplifiedDTO;
-
 
   constructor(private headService: HeadService, private route: ActivatedRoute) {
   }
