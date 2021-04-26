@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {UserUpdateDTO} from './user-update-DTO';
 import {NotificationService} from '../error-handler-services/notification.service';
@@ -13,12 +13,15 @@ export class UserUpdateProfileService {
   constructor(private http: HttpClient, private notificationService: NotificationService) { }
 
   getUserById(id: number): Observable<UserUpdateDTO> {
-
-    return this.http.get<UserUpdateDTO>(`${environment.apiUrl}/users/${id}?type=update`);
+    const params = new HttpParams()
+      .set('type', 'update');
+    return this.http.get<UserUpdateDTO>(`${environment.apiUrl}/users/${id}`, {params});
   }
 
   updateUserById(id: number, userDTO: UserUpdateDTO): void {
     this.http.put<UserUpdateDTO>(`${environment.apiUrl}/users/${id}`, userDTO)
-      .subscribe(() => this.notificationService.showSuccess('Profile updated.'));
+      .subscribe(() => {
+        this.notificationService.showSuccess('Profile updated.');
+      });
   }
 }
