@@ -3,6 +3,7 @@ import {LocationService} from '../../location.service';
 import {ListDetailOfferService} from '../../offers-page/list-detail-offer/list-detail-offer.service';
 import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
 import {ActivatedRoute} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-view-offer',
@@ -10,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./view-offer.component.css']
 })
 export class ViewOfferComponent implements OnInit {
+  path = environment.apiUrl;
 
   @Input()
   offerDTO?: OfferDTO;
