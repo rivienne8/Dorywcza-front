@@ -1,29 +1,29 @@
 
-<mat-card *ngIf="offerDTO">
+<div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center"  *ngIf="offerDTO">
   <mat-card-header>{{offerDTO.industryDTO.name}} -> podkategoria</mat-card-header>
 
-  <mat-card>
-    <mat-card-title>{{offerDTO.title}}</mat-card-title>
-    <mat-card-subtitle>potrzebny od {{offerDTO.dateRangeDTO.startDate}} do {{offerDTO.dateRangeDTO.endDate}}</mat-card-subtitle>
+  <mat-card fxFlex>
+    <mat-card-title fxLayoutAlign="center">{{offerDTO.title}}</mat-card-title>
+    <mat-card-subtitle fxLayoutAlign="center">potrzebny od {{offerDTO.dateRangeDTO.startDate}} do {{offerDTO.dateRangeDTO.endDate}}</mat-card-subtitle>
   </mat-card>
-  <mat-card>
+  <mat-card fxFlex>
     <mat-card-title>
       <img *ngIf="offerDTO.userSimplifiedDTO.avatar" mat-card-avatar src="{{path}}{{offerDTO.userSimplifiedDTO.avatar.url}}" alt="picture id {{offerDTO.userSimplifiedDTO.avatar.name}}">
       {{offerDTO.userSimplifiedDTO.email}}
     </mat-card-title>
       {{offerDTO.description}}
   </mat-card>
-  <mat-card>
-    <mat-card-title>Dodatkowe informacje</mat-card-title>
+  <mat-card fxFlex>
+    <mat-card-title fxLayoutAlign="center" class="extraTitle">Dodatkowe informacje</mat-card-title>
     <mat-card-content>
       wynagrodzenie: {{offerDTO.salaryDTO.minSalary}}zł. - {{offerDTO.salaryDTO.maxSalary}}zł. / {{offerDTO.salaryTimeUnitDTO.name}}
     </mat-card-content>
     <mat-card-content>
-      wymagane doświadczenie: <p *ngIf="offerDTO.hasExperience; else elseBlock">TAK</p> <ng-template #elseBlock>NIE</ng-template>
+      wymagane doświadczenie: <span *ngIf="offerDTO.hasExperience; else elseBlock">TAK</span> <ng-template #elseBlock>NIE</ng-template>
     </mat-card-content>
   </mat-card>
-  <mat-card>
-    <mat-card-title>Niezbędne wymagania</mat-card-title>
+  <mat-card fxFlex>
+    <mat-card-title fxLayoutAlign="center" class="extraTitle">Niezbędne wymagania</mat-card-title>
     <app-tag-detail [tagList]="offerDTO.tagsNames"></app-tag-detail>
   </mat-card>
 
@@ -33,5 +33,5 @@
       [position]="{lat: offerDTO.offerLocationDTO.xposition, lng:offerDTO.offerLocationDTO.yposition}"
     ></map-marker>
   </google-map>
-</mat-card>
+</div>
 
