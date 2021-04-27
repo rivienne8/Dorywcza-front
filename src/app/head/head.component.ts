@@ -11,7 +11,7 @@ import {environment} from '../../environments/environment';
 })
 export class HeadComponent implements OnInit {
   title = 'dorywcza.pl';
-  path = environment.apiUrl;
+  environment = environment;
   userDTO?: UserSimplifiedDTO;
 
   constructor(private headService: HeadService, private route: ActivatedRoute) {

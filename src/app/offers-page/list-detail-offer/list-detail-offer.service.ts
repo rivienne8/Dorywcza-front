@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
 import {environment} from '../../../environments/environment';
 import {tap} from 'rxjs/operators';
-import {LocationService} from '../../location.service';
+import {LocationService} from '../../shared/services/location.service';
 
 @Injectable({
   providedIn: 'root'

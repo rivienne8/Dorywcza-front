@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
 
@@ -10,10 +10,11 @@ export class ServerErrorInterceptor implements HttpInterceptor {
 
     return next.handle(req).pipe(
       retry(1),
-      // @ts-ignore
+
       catchError((error: HttpErrorResponse) => {
           if (error.status === 401) {
-            // refresh token
+            // refresh token from session or
+            return next.handle(req);  // pass the same type
           } else {
             return throwError(error);
           }

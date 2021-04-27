@@ -9,14 +9,12 @@ import {environment} from '../../environments/environment';
 })
 export class HeadService {
 
-
-
   constructor(private http: HttpClient) { }
 
   getSimplifiedDTO(id: number): Observable<UserSimplifiedDTO> {
     const params = new HttpParams()
       .set('type', 'simplified');
 
-    return this.http.get<UserSimplifiedDTO>(environment.apiUrl + '/users/' + id, {params});
+    return this.http.get<UserSimplifiedDTO>(`${environment.apiUrl}/users/${id}`, {params});
   }
 }

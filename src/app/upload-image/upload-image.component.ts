@@ -6,17 +6,13 @@ import {UploadImageService} from './upload-image.service';
   templateUrl: './upload-image.component.html',
   styleUrls: ['./upload-image.component.css']
 })
-export class UploadImageComponent implements OnInit {
+export class UploadImageComponent {
   imageToUpload?: File;
 
   @Input()
-  userId?: number;   // dlaczego tutaj musi byc ?
+  userId?: number;   // is it necessary ?
 
   constructor(private uploadImageService: UploadImageService) { }
-
-  ngOnInit(): void {
-
-  }
 
   handleFileInput(event: any): void{
     const mimeType = event.target.files[0].type;
@@ -36,6 +32,5 @@ export class UploadImageComponent implements OnInit {
       this.uploadImageService.postFile(this.imageToUpload, this.userId);
     }
   }
-
 
 }

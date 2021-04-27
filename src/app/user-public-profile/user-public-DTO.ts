@@ -1,4 +1,4 @@
-import {ImageDTO} from '../image-DTO';
+import {ImageDTO} from '../shared/models/image-DTO';
 
 export interface UserPublicDTO{
   id?: number;
