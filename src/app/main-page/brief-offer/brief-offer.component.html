@@ -1,10 +1,13 @@
-<td>{{offerDTO.title}}</td>
-<mat-card *ngIf="offerDTO">
-  <mat-card-content >
-    <div>{{offerDTO.title}} </div>
-    {{offerDTO.userSimplifiedDTO.email}}
-    {{offerDTO.salaryDTO.minSalary}} - {{offerDTO.salaryDTO.maxSalary}} {{offerDTO.salaryTimeUnitDTO.name}}
-    {{offerDTO.offerLocationDTO.xposition}}, {{offerDTO.offerLocationDTO.yposition}}
-  </mat-card-content>
-</mat-card>
+
+<div *ngIf="offerDTO">
+  <table>
+    <tr>
+      <td>{{offerDTO.title}}</td>
+    </tr>
+    <tr>
+      <td>{{offerDTO.userSimplifiedDTO.email}}</td>
+      <td>{{offerDTO.salaryDTO.minSalary}} - {{offerDTO.salaryDTO.maxSalary}} {{offerDTO.salaryTimeUnitDTO.name}}</td>
+    </tr>
+  </table>
+</div>
 

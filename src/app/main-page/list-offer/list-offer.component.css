@@ -1,0 +1,13 @@
+mat-card {
+
+  height: 85px;
+  width: 45%;
+  position: relative;
+  margin: 5px;
+  top: 25px;
+  left: 25%;
+  background-color: lightgray;
+  color: rgb(75, 31, 82);
+
+
+}
