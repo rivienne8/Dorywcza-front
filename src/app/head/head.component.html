@@ -8,42 +8,42 @@
         </button>
       </a>
 
-        <span class="header-text"><a routerLink="/main-page" class="header-text">{{'dorywcza.pl'}}</a></span>
+        <span class="header-text"><a routerLink="/main-page" class="header-text">{{title}}</a></span>
 
       <button mat-button [matMenuTriggerFor]="menu">
-        <div  *ngIf="userDTO && userDTO.avatar && userDTO.avatar.url && userDTO.avatar.name; else elseBlock">
-          <img mat-card-avatar src="{{path}}{{userDTO.avatar.url}}" alt="picture id {{userDTO.avatar.name}}" width="50px" height="auto" >
-        </div>
+<!--        <div  *ngIf="userDTO && userDTO.avatar && userDTO.avatar.url && userDTO.avatar.name; else elseBlock">-->
+          <div  *ngIf="userDTO && userDTO.avatar && userDTO.avatar.url && userDTO?.avatar?.name; else withoutAvatarBlock">
+          <img mat-card-avatar src="{{path}}{{userDTO.avatar.url}}" alt="picture: {{userDTO.avatar.name}}" width="50px" height="auto" >
+          </div>
 
-      <ng-template #elseBlock>
+      <ng-template #withoutAvatarBlock>
         <button class="mat-icon-button"  aria-label="Login/Register/Account settings">
           <mat-icon class="icon">account_circle</mat-icon>
         </button>
       </ng-template>
 
       </button>
+
       <mat-menu #menu>
         <button *ngIf="userDTO" mat-menu-item>
-          <span aria-label="login/register/logout">Log out</span>
+          <span aria-label="login/register/logout">Wyloguj</span>
         </button>
         <button *ngIf="!userDTO" mat-menu-item>
-          <span aria-label="login/register/logout">Log in</span>
-        </button>
-        <button *ngIf="!userDTO" mat-menu-item>
-          <span aria-label="login/register/logout">Register</span>
+          <span aria-label="login/register/logout">Zaloguj/Zarejestruj</span>
         </button>
         <button *ngIf="userDTO && userDTO.id" mat-menu-item>
           <a routerLink="user-public-profile/{{userDTO.id}}">
-            <span>UserProfil</span>
+            <span>Mój profil</span>
           </a>
         </button>
         <button mat-menu-item>
-          <span>My Offers</span>
+          <span>Moje oferty</span>
         </button>
         <button mat-menu-item>
-          <span>My answers</span>
+          <span>Moje odpowiedzi</span>
         </button>
       </mat-menu>
+
     </mat-toolbar>
 
   </div>

@@ -2,62 +2,81 @@
 <div >
   <form [formGroup]="profileForm" class="example-form" (ngSubmit)="onSubmit()"  fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center">
     <mat-card fxFlex>
-    <mat-card-title>Profil</mat-card-title>
+      <mat-card-title>Profil</mat-card-title>
 
       <mat-form-field >
-    <mat-label>Nazwa użytkownika:</mat-label>
-    <input matInput type="text" formControlName="userName" placeholder="Nazwa użytkownika"  >
-    <mat-error class="ng-invalid" *ngIf="userName && userName.invalid "
-    >Nazwa użytkownika za krótka</mat-error>
+        <mat-label>Nazwa użytkownika:</mat-label>
+        <input matInput type="text" formControlName="userName" placeholder="Nazwa użytkownika"  >
+        <mat-error class="ng-invalid" *ngIf="userName && userName.invalid ">
+        Nazwa użytkownika za krótka
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-    <mat-label>Email:</mat-label>
-    <input matInput type="text" formControlName="email" placeholder="Email">
-    <mat-error class="ng-invalid" *ngIf="email && email.invalid && (email.dirty && email.touched)"
-    >Nieprawidłowy format e-mail</mat-error>
+        <mat-label>Email:</mat-label>
+        <input matInput type="text" formControlName="email" placeholder="Email">
+        <mat-error class="ng-invalid" *ngIf="email && email.invalid && (email.dirty && email.touched)">
+        Nieprawidłowy format e-mail
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-    <mat-label>O mnie:</mat-label>
+        <mat-label>O mnie:</mat-label>
         <textarea matInput type="text" formControlName="description" ></textarea>
       </mat-form-field>
     </mat-card>
 
     <mat-card fxFlex>
-    <mat-card-title>Dane kontaktowe</mat-card-title>
+      <mat-card-title>Dane kontaktowe</mat-card-title>
 
       <mat-form-field>
-    <mat-label>Imię:</mat-label>
-    <input matInput type="text" formControlName="firstName" >
+        <mat-label>Imię:</mat-label>
+        <input matInput type="text" formControlName="firstName" >
       </mat-form-field>
 
-        <mat-form-field>
-    <mat-label>Nazwisko:</mat-label>
-    <input matInput type="text" formControlName="lastName" >
-        </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nazwisko:</mat-label>
+        <input matInput type="text" formControlName="lastName" >
+      </mat-form-field>
 
-          <mat-form-field>
-    <mat-label>Numer telefonu:</mat-label>
-    <input matInput type="tel" formControlName="phoneNumber">
-    <mat-error class="ng-invalid" *ngIf="phoneNumber && phoneNumber.invalid && (phoneNumber.dirty && phoneNumber.touched)"
-    >Numer telefonu powinien składać się z cyfr</mat-error>
-          </mat-form-field>
+      <mat-form-field>
+        <mat-label>Numer telefonu:</mat-label>
+        <input matInput type="tel" formControlName="phoneNumber">
+        <mat-error class="ng-invalid" *ngIf="phoneNumber && phoneNumber.invalid && (phoneNumber.dirty && phoneNumber.touched)">
+        Numer telefonu powinien składać się z cyfr
+        </mat-error>
+      </mat-form-field>
 
-            <mat-form-field>
-    <mat-label>Ulica:</mat-label>
-    <input matInput type="text" formControlName="street" >
-            </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ulica:</mat-label>
+        <input matInput type="text" formControlName="street" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Numer:</mat-label>
+        <input matInput type="text" formControlName="flatNumber" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Kod pocztowy:</mat-label>
+        <input matInput type="text" formControlName="zipCode" [value]="profileForm.get('zipCode')?.value | zipcode" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Miejscowość:</mat-label>
+        <input matInput type="text" formControlName="city" oninput="this.value = this.value.slice(0,1).toUpperCase() + this.value.slice(1)">
+<!--        <input matInput type="text" formControlName="city"  oninput="onInput($event)">-->
+      </mat-form-field>
 
     </mat-card>
 
     <mat-card fxFlex>
-    <mat-card-title>Doświadczenie</mat-card-title>
+      <mat-card-title>Doświadczenie</mat-card-title>
       <mat-form-field>
-    <mat-label>Opis doświadczenia:</mat-label>
-    <textarea matInput type="text" formControlName="experienceDescription" ></textarea>
-        </mat-form-field>
-    </mat-card>
+        <mat-label>Opis doświadczenia:</mat-label>
+        <textarea matInput type="text" formControlName="experienceDescription" ></textarea>
+      </mat-form-field>
+      </mat-card>
 
     <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
   </form>

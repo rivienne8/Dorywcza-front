@@ -36,6 +36,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ViewOfferPageComponent } from './view-offer-page/view-offer-page.component';
 import {GoogleMapsModule} from '@angular/google-maps';
+import { ZipcodePipe } from './zipcode.pipe';
 import { TagDetailComponent } from './view-offer-page/tag-detail/tag-detail.component';
 
 
@@ -58,6 +59,7 @@ import { TagDetailComponent } from './view-offer-page/tag-detail/tag-detail.comp
     OffersPageComponent,
     UploadImageComponent,
     ViewOfferPageComponent,
+    ZipcodePipe,
     TagDetailComponent,
   ],
   imports: [

@@ -13,7 +13,6 @@ export class NotificationService {
   showSuccess(message: string): void {
     this.zone.run( () => {
       this.snackBar.open(message, 'X', {panelClass: ['success'], duration: 3000});
-      location.reload();
     });
   }
 

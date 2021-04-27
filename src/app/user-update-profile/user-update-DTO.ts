@@ -8,11 +8,9 @@ export class UserUpdateDTO {
   userName?: string;
   description?: string;
   street?: string;
+  flatNumber?: string;
+  zipCode?: number;
+  city?: string;
   experienceDescription?: string;
-
-
-  public constructor(init?: Partial<UserUpdateDTO>) {
-    Object.assign(this, init);
-  }
 
 }

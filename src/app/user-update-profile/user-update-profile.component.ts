@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserUpdateProfileService} from './user-update-profile.service';
 import {ActivatedRoute} from '@angular/router';
 import {UserUpdateDTO} from './user-update-DTO';
 import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import {from} from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -12,7 +11,6 @@ import {from} from 'rxjs';
 })
 export class UserUpdateProfileComponent implements OnInit {
 
-  @Input()
   userUpdateDTO?: UserUpdateDTO;
 
   profileForm = this.fb.group({
@@ -23,6 +21,9 @@ export class UserUpdateProfileComponent implements OnInit {
     phoneNumber: ['', [Validators.pattern('[- +()0-9]+')]],
     description: [''],
     street: [''],
+    flatNumber: [''],
+    zipCode: ['', [Validators.pattern('[-0-9]+')]],
+    city: [''],
     experienceDescription: ['']
   });
 
@@ -31,12 +32,11 @@ export class UserUpdateProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserById();
+    const id = +(this.route.snapshot.paramMap.get('id') || 0);  // how to make it not 'possible null'?
+    this.getUserById(id);
   }
 
-  getUserById(): void{
-    const id = +(this.route.snapshot.paramMap.get('id') || 0);  // how to make it not 'possible null'?
-
+  getUserById(id: number): void{
     this.userProfileService.getUserById(id)
       .subscribe(userDTO => this.processUserDTO(userDTO));
   }
@@ -46,12 +46,17 @@ export class UserUpdateProfileComponent implements OnInit {
     this.profileForm.patchValue(userDTO);
   }
 
+  onInput(value: string): string{
+    return value.slice(0, 1).toUpperCase() + value.slice(1);
+  }
+
   onSubmit(): void{
     console.log(this.profileForm.value);
 
     if (this.userUpdateDTO && this.userUpdateDTO.id != null){
-      const fromForm = new UserUpdateDTO(this.profileForm.value);
-      this.userProfileService.updateUserById(this.userUpdateDTO.id, fromForm );
+        const zipCode = this.profileForm.controls.zipCode.value;
+        this.profileForm.controls.zipCode.setValue(zipCode.replace(/(\s|[-])/g, ''));
+        this.userProfileService.updateUserById(this.userUpdateDTO.id, this.profileForm.value );
     }
   }
 
