@@ -54,10 +54,16 @@ export class UserUpdateProfileComponent implements OnInit {
     console.log(this.profileForm.value);
 
     if (this.userUpdateDTO && this.userUpdateDTO.id != null){
-        const zipCode = this.profileForm.controls.zipCode.value;
-        this.profileForm.controls.zipCode.setValue(zipCode.replace(/(\s|[-])/g, ''));
+        const zipCode = this.convert(this.zipCode?.value);
+        this.zipCode?.setValue(zipCode);
         this.userProfileService.updateUserById(this.userUpdateDTO.id, this.profileForm.value );
     }
+  }
+
+  convert(value: number): number {
+    const zipCode = value.toString();
+    const zipCodeToSave = zipCode.replace(/(\s|[-])/g, '');
+    return  parseInt(zipCodeToSave, 10 );
   }
 
   get userName(): AbstractControl | null {
@@ -86,6 +92,10 @@ export class UserUpdateProfileComponent implements OnInit {
 
   get street(): AbstractControl | null {
     return this.profileForm.get('street');
+  }
+
+  get zipCode(): AbstractControl | null {
+    return this.profileForm.get('zipCode');
   }
 
   get experienceDescription(): AbstractControl | null {

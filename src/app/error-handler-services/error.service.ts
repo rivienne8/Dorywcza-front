@@ -9,14 +9,10 @@ import {ErrorDTO} from './error-DTO';
 export class ErrorService {
   message?: string;
 
-
-  constructor() { }
-
   getErrorMessage(error: Error): string {
     if (!navigator.onLine){
       return 'Brak połączenia z internetem';
     }
-
     return error.message ? error.message : error.toString();
   }
 
@@ -29,14 +25,13 @@ export class ErrorService {
       this.message = 'Dane chwilowo niedostępne';
     } else {
       const errorFromBackend: ErrorDTO = error.error;
-      this.message = 'level: ' + errorFromBackend.level
-        + ', message: ' + errorFromBackend.message;
+      this.message = `level: ${errorFromBackend.level},
+        message: ${errorFromBackend.message}`;
     }
-
     return navigator.onLine ? this.message : 'Brak połączenia z internetem';
   }
 
   getServerStack(error: HttpErrorResponse): string {
-    return 'stack from error : ' +  this.getErrorStack(error);
+    return `stack from error : ${this.getErrorStack(error)}`;
   }
 }

@@ -26,8 +26,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {GlobalErrorHandler} from './global-error-handler';
-import {ServerErrorInterceptor} from './server-error.interceptor';
+import {GlobalErrorHandler} from './error-handler-services/global-error-handler';
+import {ServerErrorInterceptor} from './error-handler-services/server-error.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OffersPageComponent } from './offers-page/offers-page.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
@@ -36,8 +36,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ViewOfferPageComponent } from './view-offer-page/view-offer-page.component';
 import {GoogleMapsModule} from '@angular/google-maps';
-import { ZipcodePipe } from './zipcode.pipe';
+import { ZipcodePipe } from './shared/pipes/zipcode.pipe';
 import { TagDetailComponent } from './view-offer-page/tag-detail/tag-detail.component';
+import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { TagDetailComponent } from './view-offer-page/tag-detail/tag-detail.comp
     ViewOfferPageComponent,
     ZipcodePipe,
     TagDetailComponent,
+    CapitalizePipe,
   ],
   imports: [
     BrowserModule,

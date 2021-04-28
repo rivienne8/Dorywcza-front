@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {NotificationService} from '../error-handler-services/notification.service';
+import {NotificationService} from '../shared/services/notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class UploadImageService {
     this.http.post<Blob>(`${this.path}/upload`, formData )
       .subscribe(
         () => {
-          this.notificationService.showSuccess('New avatar uploaded');
+          this.notificationService.showSuccess('Avatar został zapisany');
           location.reload();
         }
       );

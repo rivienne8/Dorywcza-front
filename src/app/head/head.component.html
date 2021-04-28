@@ -11,9 +11,8 @@
         <span class="header-text"><a routerLink="/main-page" class="header-text">{{title}}</a></span>
 
       <button mat-button [matMenuTriggerFor]="menu">
-<!--        <div  *ngIf="userDTO && userDTO.avatar && userDTO.avatar.url && userDTO.avatar.name; else elseBlock">-->
           <div  *ngIf="userDTO && userDTO.avatar && userDTO.avatar.url && userDTO?.avatar?.name; else withoutAvatarBlock">
-          <img mat-card-avatar src="{{path}}{{userDTO.avatar.url}}" alt="picture: {{userDTO.avatar.name}}" width="50px" height="auto" >
+          <img mat-card-avatar src="{{environment.apiUrl}}{{userDTO.avatar.url}}" alt="picture: {{userDTO.avatar.name}}" width="50px" height="auto" >
           </div>
 
       <ng-template #withoutAvatarBlock>
