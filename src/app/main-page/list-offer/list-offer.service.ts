@@ -13,11 +13,11 @@ export class ListOfferService {
   constructor(private http: HttpClient) { }
 
   getServiceOffers(pathName: string): Observable<OfferDTO[]> {
-    return this.http.get<OfferDTO[]>(`${environment.apiUrl}${pathName}`);
+    return this.http.get<OfferDTO[]>(`${environment.apiUrl}/service-offers`);
 
   }
 
-  getOffer(id: number, pathName: string): Observable<OfferDTO> {
-    return this.http.get<OfferDTO>(`${environment.apiUrl}${pathName}`);
-  }
+  // getOffer(id: number, pathName: string): Observable<OfferDTO> {
+  //   return this.http.get<OfferDTO>(`${environment.apiUrl}/service-offers`);
+  // }
 }
