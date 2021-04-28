@@ -11,6 +11,7 @@ export class BriefOfferComponent implements OnInit {
 
   @Input()
   offerDTO?: OfferDTO;
+  jobOffersDTO?: OfferDTO;
 
   constructor() { }
 

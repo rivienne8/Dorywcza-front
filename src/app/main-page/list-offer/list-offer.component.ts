@@ -12,11 +12,13 @@ export class ListOfferComponent implements OnInit {
 
   @Input()
   offersDTO: OfferDTO[] = [];
+  jobOffersDTO: OfferDTO[] = [];
 
   constructor(private listOfferService: ListOfferService) { }
 
   ngOnInit(): void {
     this.getServiceOffers();
+    this.getJobOffers();
    }
 
   getServiceOffers(): void {
@@ -24,4 +26,8 @@ export class ListOfferComponent implements OnInit {
       .subscribe(serviceOffersDTO => this.offersDTO = serviceOffersDTO);
   }
 
+  getJobOffers(): void {
+    this.listOfferService.getJobOffers(`${environment.apiUrl}/jobs`)
+      .subscribe(serviceOffersDTO => this.jobOffersDTO = serviceOffersDTO);
+  }
 }

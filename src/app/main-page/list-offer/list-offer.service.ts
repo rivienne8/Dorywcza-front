@@ -14,10 +14,9 @@ export class ListOfferService {
 
   getServiceOffers(pathName: string): Observable<OfferDTO[]> {
     return this.http.get<OfferDTO[]>(`${environment.apiUrl}/service-offers`);
-
   }
 
-  // getOffer(id: number, pathName: string): Observable<OfferDTO> {
-  //   return this.http.get<OfferDTO>(`${environment.apiUrl}/service-offers`);
-  // }
+  getJobOffers(pathName: string): Observable<OfferDTO[]> {
+    return this.http.get<OfferDTO[]>(`${environment.apiUrl}/jobs`);
+  }
 }
