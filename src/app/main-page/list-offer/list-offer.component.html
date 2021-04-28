@@ -1,10 +1,10 @@
-<mat-card fxLayout="column" fxLayoutAlign="space-evenly stretch" *ngFor="let offer of jobOffersDTO">
+<mat-card  routerLink="/jobs" fxLayout="column" fxLayoutAlign="space-evenly stretch" *ngFor="let offer of jobOffersDTO">
   <mat-card-content>
     <app-brief-offer [offerDTO]="offer"></app-brief-offer>
   </mat-card-content>
 </mat-card>
 <p></p>
-<mat-card fxLayout="column" fxLayoutAlign="space-evenly stretch" *ngFor="let offer of offersDTO">
+<mat-card routerLink="/service-offers" fxLayout="column" fxLayoutAlign="space-evenly stretch" *ngFor="let offer of offersDTO">
   <mat-card-content>
     <app-brief-offer [offerDTO]="offer"></app-brief-offer>
   </mat-card-content>

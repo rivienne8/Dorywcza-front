@@ -13,6 +13,7 @@ export class ListOfferComponent implements OnInit {
   @Input()
   offersDTO: OfferDTO[] = [];
   jobOffersDTO: OfferDTO[] = [];
+  loc = location.pathname;
 
   constructor(private listOfferService: ListOfferService) { }
 
