@@ -1,4 +1,4 @@
-<mat-card *ngFor="let offer of offersDTO">
+<mat-card fxLayout="column" fxLayoutAlign="space-evenly stretch" *ngFor="let offer of offersDTO">
   <mat-card-content>
     <app-brief-offer [offerDTO]="offer"></app-brief-offer>
   </mat-card-content>
