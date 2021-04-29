@@ -11,10 +11,15 @@
       <img *ngIf="offerDTO.userSimplifiedDTO.avatar" mat-card-avatar src="{{path}}{{offerDTO.userSimplifiedDTO.avatar.url}}" alt="picture id {{offerDTO.userSimplifiedDTO.avatar.name}}">
       {{offerDTO.userSimplifiedDTO.email}}
     </mat-card-title>
+    <mat-card-content>
       {{offerDTO.description}}
+    </mat-card-content>
   </mat-card>
   <mat-card fxFlex>
+    <mat-card-header fxLayoutAlign="center" class="extraTitle">
+
     <mat-card-title fxLayoutAlign="center" class="extraTitle">Dodatkowe informacje</mat-card-title>
+    </mat-card-header>
     <mat-card-content>
       wynagrodzenie: {{offerDTO.salaryDTO.minSalary}}zł. - {{offerDTO.salaryDTO.maxSalary}}zł. / {{offerDTO.salaryTimeUnitDTO.name}}
     </mat-card-content>
@@ -24,7 +29,7 @@
   </mat-card>
   <mat-card fxFlex>
     <mat-card-title fxLayoutAlign="center" class="extraTitle">Niezbędne wymagania</mat-card-title>
-    <app-tag-detail [tagList]="offerDTO.tagsNames"></app-tag-detail>
+    <mat-card-content><app-tag-detail [tagList]="offerDTO.tagsNames"></app-tag-detail></mat-card-content>
   </mat-card>
 
 

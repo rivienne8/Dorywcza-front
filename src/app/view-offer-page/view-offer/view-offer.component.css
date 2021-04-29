@@ -4,6 +4,8 @@ mat-card-subtitle {
 
 
 .mat-card{
+  padding: 0;
+  padding-block-end: 16px;
   width: 70%;
   margin-bottom: 4px;
   color: rgb(75, 31, 82);
@@ -39,7 +41,12 @@ mat-card .card-picture {
 }
 
 .extraTitle {
+  border-radius: 4px;
+  width: 100%;
   color: white;
   background-color: rgb(75,31,82);
+}
+mat-card-content {
+  margin: 5px;
 }
 
