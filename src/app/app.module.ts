@@ -39,6 +39,9 @@ import {GoogleMapsModule} from '@angular/google-maps';
 import { ZipcodePipe } from './shared/pipes/zipcode.pipe';
 import { TagDetailComponent } from './view-offer-page/tag-detail/tag-detail.component';
 import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
+import { MapDisplayComponent } from './view-offer-page/map-display/map-display.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
 
 
 @NgModule({
@@ -63,6 +66,8 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     ZipcodePipe,
     TagDetailComponent,
     CapitalizePipe,
+    MapDisplayComponent,
+    ScheduleDisplayComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +88,8 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     FlexLayoutModule,
     MatProgressBarModule,
     MatSnackBarModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MatDialogModule
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
