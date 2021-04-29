@@ -1,10 +1,18 @@
 
-<mat-card *ngFor="let offer of offers">
-  <mat-card-content >
-    <div>{{offer.title}} </div>
-    {{offer.user_name}}
-    {{offer.salary}} zł
-    {{offer.location}}
-  </mat-card-content>
-</mat-card>
+<div *ngIf="offerDTO">
+  <table>
+    <tr>
+      <td>{{offerDTO.title}}</td>
+      <td>{{offerDTO.cityName}}</td>
+    </tr>
+    <tr>
+      <td>{{offerDTO.userSimplifiedDTO.email}}</td>
+      <td>{{offerDTO.salaryDTO.minSalary}} - {{offerDTO.salaryDTO.maxSalary}} {{offerDTO.salaryTimeUnitDTO.name}}</td>
+    </tr>
+    <tr>
+      <td>{{offerDTO.cityName}}</td>
+    </tr>
+  </table>
+</div>
+
 

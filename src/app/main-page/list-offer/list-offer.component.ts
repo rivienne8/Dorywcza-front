@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
+import {ListOfferService} from './list-offer.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-list-offer',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListOfferComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  offersDTO: OfferDTO[] = [];
+  jobOffersDTO: OfferDTO[] = [];
+  loc = location.pathname;
+
+  constructor(private listOfferService: ListOfferService) { }
 
   ngOnInit(): void {
+    this.getServiceOffers();
+    this.getJobOffers();
+   }
+
+  getServiceOffers(): void {
+    this.listOfferService.getServiceOffers(`${environment.apiUrl}/service-offers`)
+      .subscribe(serviceOffersDTO => this.offersDTO = serviceOffersDTO);
   }
 
+  getJobOffers(): void {
+    this.listOfferService.getJobOffers(`${environment.apiUrl}/jobs`)
+      .subscribe(serviceOffersDTO => this.jobOffersDTO = serviceOffersDTO);
+  }
 }

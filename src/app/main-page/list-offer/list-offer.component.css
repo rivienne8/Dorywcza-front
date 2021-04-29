@@ -1,0 +1,14 @@
+mat-card {
+
+  height: 56px;
+  width: 47%;
+  position: relative;
+  margin: 8px;
+  top: -400px;
+  left: 40%;
+  background-color: lightgray;
+  color: rgb(75, 31, 82);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px 50px;
+}
