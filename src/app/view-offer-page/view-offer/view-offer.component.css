@@ -4,7 +4,9 @@ mat-card-subtitle {
 
 
 .mat-card{
-  width: 70%;
+  padding: 0;
+  padding-block-end: 16px;
+  width: 90%;
   margin-bottom: 4px;
   color: rgb(75, 31, 82);
   background: lightgray;
@@ -25,10 +27,6 @@ mat-card-subtitle {
   width: 23%;
   margin-bottom: 2%;
 }
-.container {
-  min-height: 100%;
-  width: 100%;
-}
 
 mat-card:first-of-type {
   margin-top: 2em;
@@ -38,8 +36,51 @@ mat-card .card-picture {
   margin-top: 0;
 }
 
-.extraTitle {
+.extra-title {
+  border-radius: 4px;
+  width: 100%;
   color: white;
   background-color: rgb(75,31,82);
 }
+mat-card-content {
+  margin: 5px;
+}
 
+mat-card-title {
+  font-weight: lighter;
+}
+
+.main-header {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.data-range {
+  margin-right:1em;
+  margin-left:1em;
+  font-size: 25px;
+}
+
+
+#description {
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+#user-name {
+  margin-left: -2%;
+  margin-top: -1%;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#all-offer-cell {
+  width: 100%;
+}
+#all-offer-link {
+  margin-left: 65%;
+}

@@ -1,4 +1,5 @@
-
-<app-view-offer></app-view-offer>
-<app-offer-view-buttons></app-offer-view-buttons>
+<div *ngIf="offerDTO">
+  <app-view-offer [offerDTO]="offerDTO"></app-view-offer>
+  <app-offer-view-buttons [offerLocationDTO]="{xposition: offerDTO.offerLocationDTO.xposition, yposition:offerDTO.offerLocationDTO.yposition}" [offerScheduleDTO]="offerDTO.offerScheduleDTO"></app-offer-view-buttons>
+</div>
 
