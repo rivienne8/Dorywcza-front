@@ -4,3 +4,11 @@
       <app-detailed-offer [offerDTO]="offer"></app-detailed-offer>
     </mat-card-content>
 </mat-card>
+<div id="paginator-div">
+
+<mat-paginator fxLayoutAlign="center" [pageSizeOptions]="[10, 25, 100]" [pageSize]="10" [length]="totalElements"
+               (page)="nextPage($event)">
+
+</mat-paginator>
+</div>
+
