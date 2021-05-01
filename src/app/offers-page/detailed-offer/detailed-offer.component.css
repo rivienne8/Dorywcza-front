@@ -1,0 +1,50 @@
+.data-range {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+.location {
+  position: absolute;
+  top: 1px;
+  right: 1%;
+}
+
+.mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 5%;
+}
+
+.user-name {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+}
+
+.salary {
+  position: absolute;
+  bottom: 0;
+  right: 35%;
+}
+
+.title {
+  position: absolute;
+  top:40%;
+  left: 2%;
+}
+
+.mat-card-content {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(75, 31, 82);
+
+}
+a:hover {
+  text-decoration: underline;
+  color: rgb(31, 76, 82);
+}
