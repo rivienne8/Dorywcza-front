@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
 import {ListDetailOfferService} from './list-detail-offer.service';
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-list-detail-offer',
@@ -10,15 +11,25 @@ import {ListDetailOfferService} from './list-detail-offer.service';
 export class ListDetailOfferComponent implements OnInit {
   @Input()
   offersDTO: OfferDTO[] = [];
+  totalElements = 0;
+
 
   constructor(private listDetailOfferService: ListDetailOfferService) { }
 
   ngOnInit(): void {
-    this.getServiceOffers();
+    this.getServiceOffersPagination(0, 10);
+
   }
 
-  getServiceOffers(): void {
-    this.listDetailOfferService.getServiceOffers(location.pathname).subscribe(serviceOffersDTO => this.offersDTO = serviceOffersDTO);
+  getServiceOffersPagination(page: number, size: number): void {
+    this.listDetailOfferService.getServiceOffersPagination(location.pathname, page.toString(), size.toString())
+      .subscribe(serviceOfferDTO => {
+        this.offersDTO = serviceOfferDTO.content;
+        this.totalElements = serviceOfferDTO.totalElements;
+      });
   }
 
+  nextPage(event: PageEvent): void {
+    this.getServiceOffersPagination(event.pageIndex, event.pageSize);
+  }
 }

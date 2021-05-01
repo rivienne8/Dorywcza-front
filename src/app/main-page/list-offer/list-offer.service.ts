@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
 import {environment} from '../../../environments/environment';
+import {OfferResponseDTO} from '../../offers-page/offers-page_DTO/offer-response-DTO';
 
 
 @Injectable({
@@ -12,11 +12,13 @@ export class ListOfferService {
 
   constructor(private http: HttpClient) { }
 
-  getServiceOffers(pathName: string): Observable<OfferDTO[]> {
-    return this.http.get<OfferDTO[]>(`${environment.apiUrl}/service-offers`);
+  getServiceOffers(pathName: string): Observable<OfferResponseDTO> {
+    const params = {page: '0', size: '3'};
+    return this.http.get<OfferResponseDTO>(`${environment.apiUrl}/service-offers`, {params});
   }
 
-  getJobOffers(pathName: string): Observable<OfferDTO[]> {
-    return this.http.get<OfferDTO[]>(`${environment.apiUrl}/jobs`);
+  getJobOffers(pathName: string): Observable<OfferResponseDTO> {
+    const params = {page: '0', size: '3'};
+    return this.http.get<OfferResponseDTO>(`${environment.apiUrl}/jobs`, {params});
   }
 }

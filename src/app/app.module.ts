@@ -42,6 +42,7 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
 import { MapDisplayComponent } from './view-offer-page/map-display/map-display.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/sch
     MatProgressBarModule,
     MatSnackBarModule,
     GoogleMapsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
