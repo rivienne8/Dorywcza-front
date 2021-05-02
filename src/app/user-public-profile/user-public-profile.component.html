@@ -48,13 +48,13 @@
         {{userPublicDTO?.lastName}}
       </div>
 
-      <div aria-label="contact-details">
+      <div aria-label="contact-details" class="user-personal-details">
         {{userPublicDTO?.email}} <br>
         <div *ngIf="!userPublicDTO?.phoneNumber">Numer telefonu:</div>
         {{userPublicDTO?.phoneNumber}}
       </div>
 
-      <div  aria-label="address">
+      <div  aria-label="address" class="user-personal-details">
         <div *ngIf="!userPublicDTO?.city">Adres:</div>
         {{userPublicDTO?.street}} {{userPublicDTO?.flatNumber}} <br>
         {{userPublicDTO?.zipCode | zipcode }} {{userPublicDTO?.city}}
@@ -111,8 +111,10 @@
 
           <div class="edit-heading">
 
-              <div class="delete-image" *ngIf="picture.id" (click)="deleteImage(picture.id)" >
-                <span class="material-icons">delete</span>
+              <div class="delete-image"  >
+                <span *ngIf="picture.id" (click)="deleteImage($event, picture.id)" class="material-icons">
+                  delete
+                </span>
 
             </div>
           </div>

@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {UserPublicDTO} from './user-public-DTO';
 import {environment} from '../../environments/environment';
 import {NotificationService} from '../shared/services/notification.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-user-public-profile',
@@ -29,10 +30,12 @@ export class UserPublicProfileComponent implements OnInit {
       .subscribe(userDTO => this.userPublicDTO = userDTO);
   }
 
-  deleteImage(id: number): void {
+  deleteImage(event: MouseEvent ,  id: number): void {
+    event.preventDefault();
     this.userPublicService.deleteImage(id)
-      .subscribe((message) => this.notificationService.showSuccess(message));
-
+      .subscribe(() => {
+        this.notificationService.showSuccess('Zdjęcie usunięte');
+      });
   }
 
 }
