@@ -17,11 +17,27 @@
 
 .card-picture {
   width: 23%;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 .container {
   min-height: 100%;
   width: 100%;
+}
+
+.card-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-elements-group .mat-card-avatar {
+  height: 5em ;
+  width: 5em;
+  flex-shrink: 1;
+}
+
+.upload-mark {
+  text-align: end;
 }
 
 mat-card:first-of-type {
@@ -31,6 +47,63 @@ mat-card:first-of-type {
 mat-card .card-picture {
   margin-top: 0;
 }
+
+.edit-heading {
+  display: inline-flex;
+  flex-flow: row;
+  font-size: smaller;
+  margin-bottom: 1em;
+}
+
+.edit-heading > div {
+  display: flex;
+  align-items: center;
+}
+
+.edit-heading-element {
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.edit-heading .delete-image {
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+}
+.material-icons {
+  margin: 0 0.5em 0 0.5em;
+  font-size: 1.3em;
+}
+
+.rating-mark {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.rating-mark span {
+  font-size: large;
+}
+
+/*.profile-elements-group > div {*/
+/*  border: solid 1px green;*/
+/*}*/
+
+.name {
+  display: flex;
+  align-items: center;
+  font-size: xx-large;
+  padding-bottom: 5%;
+}
+
+.profile-elements-group .avatar-icon {
+  font-size: 4em;
+}
+
+.user-personal-details {
+  margin-bottom: 1em;
+}
+
 
 
 

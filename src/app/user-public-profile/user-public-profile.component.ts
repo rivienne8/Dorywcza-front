@@ -3,6 +3,7 @@ import {UserPublicProfileService} from './user-public-profile.service';
 import {ActivatedRoute} from '@angular/router';
 import {UserPublicDTO} from './user-public-DTO';
 import {environment} from '../../environments/environment';
+import {NotificationService} from '../shared/services/notification.service';
 
 @Component({
   selector: 'app-user-public-profile',
@@ -15,7 +16,8 @@ export class UserPublicProfileComponent implements OnInit {
   userPublicDTO?: UserPublicDTO;
 
   constructor(private userPublicService: UserPublicProfileService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     const id = +(this.route.snapshot.paramMap.get('id') || 0);
@@ -25,6 +27,12 @@ export class UserPublicProfileComponent implements OnInit {
   getUserById(id: number): void{
     this.userPublicService.getUserById(id)
       .subscribe(userDTO => this.userPublicDTO = userDTO);
+  }
+
+  deleteImage(id: number): void {
+    this.userPublicService.deleteImage(id)
+      .subscribe((message) => this.notificationService.showSuccess(message));
+
   }
 
 }

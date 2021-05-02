@@ -13,15 +13,15 @@ export class UploadImageService {
 
   constructor(private http: HttpClient, private notificationService: NotificationService) { }
 
-  postFile(imageToUpload: File, userId: number): void {
+  postFile(imageToUpload: File, userId: number, avatarParamValue: string): void {
     const formData: FormData = new FormData();
     formData.append('image', imageToUpload, imageToUpload.name);
-    formData.append('avatar', 'true');
+    formData.append('avatar', `${avatarParamValue}`);
     formData.append('userId', String(userId));
     this.http.post<Blob>(`${this.path}/upload`, formData )
       .subscribe(
         () => {
-          this.notificationService.showSuccess('Avatar został zapisany');
+          this.notificationService.showSuccess('Zdjęcie zostało zapisane');
           location.reload();
         }
       );
