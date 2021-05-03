@@ -1,0 +1,28 @@
+
+<div class="edit-heading">
+  <div class="edit-heading-element" >Realizacje</div>
+  <div class="edit-heading-element">
+    <app-upload-image [avatarParamValue]="false" [userId]="userPublicDTO?.id" [changeIcon]="false">
+    </app-upload-image>
+  </div>
+</div>
+
+<mat-card-content>
+  <div *ngIf="! userPublicDTO?.pictures || userPublicDTO?.pictures?.length ==0">Realizacje</div>
+  <div *ngIf="userPublicDTO" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0.5%" fxLayoutAlign="flex-start">
+    <mat-card class="card-picture"  *ngFor="let picture of userPublicDTO.pictures" >
+      <img mat-card-image src="{{environment.apiUrl}}{{picture.url}}" alt="{{picture.name}}">
+
+      <div class="edit-heading">
+
+        <div class="delete-image"  >
+                <span *ngIf="picture.id" (click)="deleteImage($event, picture.id)" class="material-icons">
+                  delete
+                </span>
+
+        </div>
+      </div>
+
+    </mat-card>
+  </div>
+</mat-card-content>

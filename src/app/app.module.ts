@@ -43,6 +43,7 @@ import { MapDisplayComponent } from './view-offer-page/map-display/map-display.c
 import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
+import { DisplayImagesComponent } from './display-images/display-images.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     CapitalizePipe,
     MapDisplayComponent,
     ScheduleDisplayComponent,
+    DisplayImagesComponent,
   ],
   imports: [
     BrowserModule,

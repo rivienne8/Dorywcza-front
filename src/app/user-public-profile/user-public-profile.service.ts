@@ -17,7 +17,7 @@ export class UserPublicProfileService {
     return this.http.get<UserPublicDTO>(`${environment.apiUrl}/users/${id}`, {params});
   }
 
-  deleteImage(id: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/resources/${id}`);
-  }
+  // deleteImage(id: number): Observable<any> {
+  //   return this.http.delete(`${environment.apiUrl}/resources/${id}`);
+  // }
 }

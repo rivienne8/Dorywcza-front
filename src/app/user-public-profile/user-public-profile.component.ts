@@ -3,8 +3,6 @@ import {UserPublicProfileService} from './user-public-profile.service';
 import {ActivatedRoute} from '@angular/router';
 import {UserPublicDTO} from './user-public-DTO';
 import {environment} from '../../environments/environment';
-import {NotificationService} from '../shared/services/notification.service';
-import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-user-public-profile',
@@ -17,8 +15,7 @@ export class UserPublicProfileComponent implements OnInit {
   userPublicDTO?: UserPublicDTO;
 
   constructor(private userPublicService: UserPublicProfileService,
-              private route: ActivatedRoute,
-              private notificationService: NotificationService) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = +(this.route.snapshot.paramMap.get('id') || 0);
@@ -30,12 +27,12 @@ export class UserPublicProfileComponent implements OnInit {
       .subscribe(userDTO => this.userPublicDTO = userDTO);
   }
 
-  deleteImage(event: MouseEvent ,  id: number): void {
-    event.preventDefault();
-    this.userPublicService.deleteImage(id)
-      .subscribe(() => {
-        this.notificationService.showSuccess('Zdjęcie usunięte');
-      });
-  }
+  // deleteImage(event: MouseEvent ,  id: number): void {
+  //   event.preventDefault();
+  //   this.userPublicService.deleteImage(id)
+  //     .subscribe(() => {
+  //       this.notificationService.showSuccess('Zdjęcie usunięte');
+  //     });
+  // }
 
 }
