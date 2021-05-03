@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UploadImageService} from './upload-image.service';
+import {ImageService} from '../shared/services/image.service';
 
 @Component({
   selector: 'app-upload-image',
@@ -17,7 +17,7 @@ export class UploadImageComponent implements  OnInit {
   changeIcon?: boolean;
   iconName?: string;
 
-  constructor(private uploadImageService: UploadImageService) { }
+  constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
     if (this.changeIcon){
@@ -43,7 +43,7 @@ export class UploadImageComponent implements  OnInit {
 
   uploadFile(): void {
     if (this.imageToUpload != null && this.userId != null && this.avatarParamValue != null){
-      this.uploadImageService.postFile(this.imageToUpload, this.userId, `${this.avatarParamValue}`);
+      this.imageService.postFile(this.imageToUpload, this.userId, `${this.avatarParamValue}`);
     }
   }
 
