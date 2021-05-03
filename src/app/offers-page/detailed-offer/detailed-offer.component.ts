@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-detailed-offer',
@@ -9,8 +10,8 @@ import {OfferDTO} from '../offers-page_DTO/offerDTO';
 export class DetailedOfferComponent implements OnInit {
   @Input()
   offerDTO?: OfferDTO;
-  loc = location.pathname;
-
+  // loc = location.pathname; changed to be able use this component from other locations
+  loc = 'jobs';
   constructor() { }
 
   ngOnInit(): void {

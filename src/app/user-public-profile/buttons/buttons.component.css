@@ -1,0 +1,21 @@
+.mat-button-base {
+  height: 50px;
+  background-color: rgb(203, 235, 74);
+  color: rgb(75,31,82);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  /*border: solid 1px green;*/
+  margin: 5px 0 0 0;
+}
+
+.buttons-group {
+  width: 70%;
+}
+
+
+
+
+

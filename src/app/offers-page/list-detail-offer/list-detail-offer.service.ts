@@ -22,4 +22,10 @@ export class ListDetailOfferService {
     return this.http.get<OfferResponseDTO>(`${environment.apiUrl}${pathName}`, {params});
 
   }
+
+  getOffersForUserId(pathName: string, userId: string): Observable<OfferDTO[]>{
+    const params = {userId};
+    return this.http.get<OfferDTO[]>(`${environment.apiUrl}${pathName}`, {params});
+  }
+
 }
