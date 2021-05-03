@@ -1,9 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserPublicProfileService} from './user-public-profile.service';
 import {ActivatedRoute} from '@angular/router';
 import {UserPublicDTO} from './user-public-DTO';
 import {environment} from '../../environments/environment';
-import {ButtonsComponent} from './buttons/buttons.component';
 
 @Component({
   selector: 'app-user-public-profile',
@@ -27,13 +26,5 @@ export class UserPublicProfileComponent implements OnInit {
     this.userPublicService.getUserById(id)
       .subscribe(userDTO => this.userPublicDTO = userDTO);
   }
-
-  // deleteImage(event: MouseEvent ,  id: number): void {
-  //   event.preventDefault();
-  //   this.userPublicService.deleteImage(id)
-  //     .subscribe(() => {
-  //       this.notificationService.showSuccess('Zdjęcie usunięte');
-  //     });
-  // }
 
 }

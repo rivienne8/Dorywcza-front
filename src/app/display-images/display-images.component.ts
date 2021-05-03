@@ -1,8 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NotificationService} from '../shared/services/notification.service';
 import {ImageService} from '../shared/services/image.service';
-import { environment } from 'src/environments/environment';
-import {UserPublicProfileComponent} from '../user-public-profile/user-public-profile.component';
+import {environment} from 'src/environments/environment';
 import {UserPublicDTO} from '../user-public-profile/user-public-DTO';
 
 

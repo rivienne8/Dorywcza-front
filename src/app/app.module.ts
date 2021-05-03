@@ -46,6 +46,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { DisplayImagesComponent } from './display-images/display-images.component';
 import { ButtonsComponent } from './user-public-profile/buttons/buttons.component';
 import { UserOffersComponent } from './user-offers/user-offers.component';
+import { UserAccessibleProfileComponent } from './user-accessible-profile/user-accessible-profile.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { UserOffersComponent } from './user-offers/user-offers.component';
     DisplayImagesComponent,
     ButtonsComponent,
     UserOffersComponent,
+    UserAccessibleProfileComponent,
   ],
   imports: [
     BrowserModule,
