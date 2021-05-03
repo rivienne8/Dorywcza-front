@@ -33,7 +33,7 @@ export class UserOffersComponent implements OnInit {
   }
 
   private getServiceOffers(userId: number): void {
-    this.serviceOffersService.getOffersForUserId('/service-offers', userId.toString())
+    this.serviceOffersService.getOffersForUserId('/service-offers-user', userId.toString())
       .subscribe(serviceOfferDTO => {
         this.serviceOffersDTO = serviceOfferDTO;
       });

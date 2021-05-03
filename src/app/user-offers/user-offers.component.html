@@ -2,7 +2,15 @@
   <div class="extra-title">JOB OFFERS</div>
   <mat-card *ngFor="let offer of jobOffersDTO">
     <mat-card-content>
-      <app-detailed-offer [offerDTO]="offer"></app-detailed-offer>
+      <app-detailed-offer [offerDTO]="offer" [passedLoc]="'jobs'"></app-detailed-offer>
+    </mat-card-content>
+
+  </mat-card>
+
+  <div class="extra-title">SERVICE OFFERS</div>
+  <mat-card *ngFor="let offer of serviceOffersDTO">
+    <mat-card-content>
+      <app-detailed-offer [offerDTO]="offer" [passedLoc]="'service-offers'"></app-detailed-offer>
     </mat-card-content>
 
   </mat-card>

@@ -10,11 +10,16 @@ import {environment} from '../../../environments/environment';
 export class DetailedOfferComponent implements OnInit {
   @Input()
   offerDTO?: OfferDTO;
-  // loc = location.pathname; changed to be able use this component from other locations
-  loc = 'jobs';
+  loc = location.pathname;
+  // changed to be able use this component from other locations
+  @Input()
+  passedLoc = '';
   constructor() { }
 
   ngOnInit(): void {
+    if (this.loc !== '/jobs' && this.loc !== '/service-offers'){
+      this.loc = this.passedLoc;
+    }
   }
 
 }
