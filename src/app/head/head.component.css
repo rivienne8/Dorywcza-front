@@ -24,7 +24,7 @@
   font-size: 50px;
 }
 
-.mat-menu-item > span, a {
+a, .mat-menu-item > span, a {
   color: #424242 ;
   text-decoration: none;
 }

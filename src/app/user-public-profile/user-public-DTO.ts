@@ -1,7 +1,7 @@
 import {ImageDTO} from '../shared/models/image-DTO';
 
 export interface UserPublicDTO{
-  id?: number;
+  id: number;
   email: string;
   phoneNumber?: string;
   overallRating?: number;

@@ -13,6 +13,8 @@
 
 .material-icons {
   color: rgb(203, 235, 74);
+  margin: 0 0.5em 0 0.5em;
+  font-size: 1.3em;
 }
 
 .card-picture {
@@ -24,24 +26,8 @@
   width: 100%;
 }
 
-.card-avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.profile-elements-group .mat-card-avatar {
-  height: 5em ;
-  width: 5em;
-  flex-shrink: 1;
-}
-
 .upload-mark {
   text-align: end;
-}
-
-mat-card:first-of-type {
-  margin-top: 2em;
 }
 
 mat-card .card-picture {
@@ -70,40 +56,3 @@ mat-card .card-picture {
   display: flex;
   align-items: flex-end;
 }
-.material-icons {
-  margin: 0 0.5em 0 0.5em;
-  font-size: 1.3em;
-}
-
-.rating-mark {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-.rating-mark span {
-  font-size: large;
-}
-
-/*.profile-elements-group > div {*/
-/*  border: solid 1px green;*/
-/*}*/
-
-.name {
-  display: flex;
-  align-items: center;
-  font-size: xx-large;
-  padding-bottom: 5%;
-}
-
-.profile-elements-group .avatar-icon {
-  font-size: 4em;
-}
-
-.user-personal-details {
-  margin-bottom: 1em;
-}
-
-
-
-

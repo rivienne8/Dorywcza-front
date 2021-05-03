@@ -27,4 +27,12 @@ export class UserPublicProfileComponent implements OnInit {
       .subscribe(userDTO => this.userPublicDTO = userDTO);
   }
 
+  // deleteImage(event: MouseEvent ,  id: number): void {
+  //   event.preventDefault();
+  //   this.userPublicService.deleteImage(id)
+  //     .subscribe(() => {
+  //       this.notificationService.showSuccess('Zdjęcie usunięte');
+  //     });
+  // }
+
 }
