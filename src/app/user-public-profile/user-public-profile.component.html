@@ -2,14 +2,7 @@
 <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center" >
 
   <mat-card fxFlex >
-    <div class="edit-heading">
-      <div class="edit-heading-element" >Ogólne informacje</div>
-      <div class="edit-heading-element">
-        <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
-          <span class="material-icons">edit</span>
-        </a>
-      </div>
-    </div>
+    <ng-container *ngTemplateOutlet="headline; context:{value:'Ogólne informacje'}"></ng-container>
 
     <mat-card-content>
 
@@ -63,14 +56,7 @@
   </mat-card>
 
   <mat-card fxFlex >
-    <div class="edit-heading">
-      <div class="edit-heading-element" >Opis</div>
-      <div class="edit-heading-element">
-        <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
-          <span class="material-icons">edit</span>
-        </a>
-      </div>
-    </div>
+    <ng-container *ngTemplateOutlet="headline; context:{value:'Opis'}"></ng-container>
 
     <mat-card-content>
       <div *ngIf="! userPublicDTO?.description || userPublicDTO?.description?.length ==0">Opis</div>
@@ -79,14 +65,7 @@
   </mat-card>
 
   <mat-card fxFlex >
-    <div class="edit-heading">
-      <div class="edit-heading-element" >Doświadczenie</div>
-      <div class="edit-heading-element">
-        <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
-          <span class="material-icons">edit</span>
-        </a>
-      </div>
-    </div>
+    <ng-container *ngTemplateOutlet="headline; context:{value:'Doświadczenie'}"></ng-container>
 
     <mat-card-content>
       <div *ngIf="! userPublicDTO?.experienceDescription || userPublicDTO?.experienceDescription?.length ==0">Doświadczenie</div>
@@ -124,3 +103,14 @@
     </mat-card-content>
   </mat-card>
 </div>
+
+<ng-template #headline let-value="value">
+  <div class="edit-heading">
+    <div class="edit-heading-element" >{{value}}</div>
+    <div class="edit-heading-element">
+      <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
+        <span class="material-icons">edit</span>
+      </a>
+    </div>
+  </div>
+</ng-template>
