@@ -47,6 +47,7 @@ import { DisplayImagesComponent } from './display-images/display-images.componen
 import { ButtonsComponent } from './user-public-profile/buttons/buttons.component';
 import { UserOffersComponent } from './user-offers/user-offers.component';
 import { UserAccessibleProfileComponent } from './user-accessible-profile/user-accessible-profile.component';
+import { IndustryHeadlineComponent } from './view-offer-page/industry-headline/industry-headline.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { UserAccessibleProfileComponent } from './user-accessible-profile/user-a
     ButtonsComponent,
     UserOffersComponent,
     UserAccessibleProfileComponent,
+    IndustryHeadlineComponent,
   ],
   imports: [
     BrowserModule,
