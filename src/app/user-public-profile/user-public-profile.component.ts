@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserPublicProfileService} from './user-public-profile.service';
 import {ActivatedRoute} from '@angular/router';
 import {UserPublicDTO} from './user-public-DTO';
 import {environment} from '../../environments/environment';
+import {ButtonsComponent} from './buttons/buttons.component';
 
 @Component({
   selector: 'app-user-public-profile',

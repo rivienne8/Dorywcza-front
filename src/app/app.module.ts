@@ -44,6 +44,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { DisplayImagesComponent } from './display-images/display-images.component';
+import { ButtonsComponent } from './user-public-profile/buttons/buttons.component';
+import { UserOffersComponent } from './user-offers/user-offers.component';
 
 
 @NgModule({
@@ -71,6 +73,8 @@ import { DisplayImagesComponent } from './display-images/display-images.componen
     MapDisplayComponent,
     ScheduleDisplayComponent,
     DisplayImagesComponent,
+    ButtonsComponent,
+    UserOffersComponent,
   ],
   imports: [
     BrowserModule,

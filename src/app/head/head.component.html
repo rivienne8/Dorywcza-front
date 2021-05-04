@@ -33,7 +33,7 @@
         <a mat-menu-item *ngIf="userDTO && userDTO.id" routerLink="user-public-profile/{{userDTO.id}}">
           <span>Mój profil</span>
         </a>
-        <a mat-menu-item>
+        <a mat-menu-item *ngIf="userDTO && userDTO.id" routerLink="user-offers/{{userDTO.id}}">
           <span>Moje oferty</span>
         </a>
         <a mat-menu-item>

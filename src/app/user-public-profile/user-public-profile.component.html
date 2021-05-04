@@ -79,6 +79,11 @@
   </mat-card>
 </div>
 
+<app-buttons *ngIf="userPublicDTO" [userId]="userPublicDTO.id">
+</app-buttons>
+
+
+
 <ng-template #headline let-value="value">
   <div class="edit-heading">
     <div class="edit-heading-element" >{{value}}</div>
