@@ -12,9 +12,6 @@
           <ng-template #iconBlock>
             <mat-icon class="avatar-icon" >account_circle</mat-icon>
           </ng-template>
-          <div class="upload-mark">
-            <app-upload-image [userId]="userPublicDTO?.id" [avatarParamValue]="true" [changeIcon]="true"></app-upload-image>
-          </div>
         </div>
 
         <div fxFlex *ngIf="userPublicDTO && userPublicDTO.userName" class="name">
