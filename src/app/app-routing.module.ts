@@ -7,6 +7,7 @@ import {UserPublicProfileComponent} from './user-public-profile/user-public-prof
 import {OffersPageComponent} from './offers-page/offers-page.component';
 import {ViewOfferPageComponent} from './view-offer-page/view-offer-page.component';
 import {UserOffersComponent} from './user-offers/user-offers.component';
+import {UserAccessibleProfileComponent} from './user-accessible-profile/user-accessible-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main-page', pathMatch: 'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'user-update-profile/:id', component: UserUpdateProfileComponent },
   { path: 'user-public-profile/:id', component: UserPublicProfileComponent },
   { path: 'user-offers/:userId', component: UserOffersComponent},
+  { path: 'user-accessible-profile/:id', component: UserAccessibleProfileComponent},
   { path: 'head', component: HeadComponent },
   { path: 'service-offers', component: OffersPageComponent},
   { path: 'jobs', component: OffersPageComponent},

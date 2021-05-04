@@ -1,0 +1,104 @@
+.extra-title {
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em 0 1em 0;
+  height: 2em;
+  width: 70%;
+  border-radius: 4px;
+  color: white;
+  background-color: rgb(75,31,82);
+}
+
+.mat-card{
+  width: 70%;
+  margin-bottom: 4px;
+  color: #424242;
+  background: #fff;
+}
+
+.mat-card > a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-picture {
+  width: 23%;
+  margin-bottom: 1%;
+}
+.container {
+  min-height: 100%;
+  width: 100%;
+}
+
+.card-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-elements-group .mat-card-avatar {
+  height: 5em ;
+  width: 5em;
+  flex-shrink: 1;
+}
+
+.upload-mark {
+  text-align: end;
+}
+
+mat-card:first-of-type {
+  margin-top: 2em;
+}
+
+mat-card .card-picture {
+  margin-top: 0;
+}
+
+
+.material-icons {
+  margin: 0 0.5em 0 0.5em;
+  font-size: 1.3em;
+  color: rgb(203, 235, 74);
+}
+
+.rating-mark {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.rating-mark span {
+  font-size: large;
+}
+
+/*.profile-elements-group > div {*/
+/*  border: solid 1px green;*/
+/*}*/
+
+.name {
+  display: flex;
+  align-items: center;
+  font-size: xx-large;
+  padding-bottom: 5%;
+}
+
+.profile-elements-group .avatar-icon {
+  font-size: 4em;
+}
+
+.user-personal-details {
+  margin-bottom: 1em;
+}
+
+.mat-button-base {
+  height: 50px;
+  width: 70%;
+  background-color: rgb(203, 235, 74);
+  color: rgb(75,31,82);
+}
+
+
+
+
