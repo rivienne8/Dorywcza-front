@@ -1,0 +1,57 @@
+.mat-button-base {
+  height: 50px;
+  width: 75%;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: rgb(203, 235, 74);
+  color: rgb(75,31,82);
+}
+
+mat-card {
+
+  height: 80%;
+  width: 70%;
+  position: relative;
+  margin: 5px;
+  top: 5%;
+  left: 15%;
+  background-color: lightgray;
+  color: rgb(75, 31, 82);
+}
+
+mat-label, mat-card-subtitle {
+  color: rgb(75,31,82);
+  font-size: 18px;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: rgb(75,31,82) !important;
+}
+
+mat-form-field {
+  width: 70%;
+}
+
+#title {
+  position: absolute;
+  top: 15%;
+}
+
+#description {
+  position: absolute;
+  top: 25%;
+}
+
+#calendar {
+  position: absolute;
+  top: 35%;
+}
+
+#asd {
+  position: absolute;
+  top: 45%;
+}

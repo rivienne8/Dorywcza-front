@@ -48,6 +48,13 @@ import { ButtonsComponent } from './user-public-profile/buttons/buttons.componen
 import { UserOffersComponent } from './user-offers/user-offers.component';
 import { UserAccessibleProfileComponent } from './user-accessible-profile/user-accessible-profile.component';
 import { IndustryHeadlineComponent } from './view-offer-page/industry-headline/industry-headline.component';
+import { AddOfferComponent } from './add-offer/add-offer.component';
+import { AddOfferFirstPageComponent } from './add-offer/add-offer-first-page/add-offer-first-page.component';
+import { AddOfferSecondPageComponent } from './add-offer/add-offer-second-page/add-offer-second-page.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { LocationMapComponent } from './add-offer/location-map/location-map.component';
 
 
 @NgModule({
@@ -79,6 +86,10 @@ import { IndustryHeadlineComponent } from './view-offer-page/industry-headline/i
     UserOffersComponent,
     UserAccessibleProfileComponent,
     IndustryHeadlineComponent,
+    AddOfferComponent,
+    AddOfferFirstPageComponent,
+    AddOfferSecondPageComponent,
+    LocationMapComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,7 +112,10 @@ import { IndustryHeadlineComponent } from './view-offer-page/industry-headline/i
     MatSnackBarModule,
     GoogleMapsModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    GooglePlaceModule
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],

@@ -1,0 +1,10 @@
+<google-map [center]="{lat: offerLocationDTO.xposition, lng: offerLocationDTO.yposition}" (mapClick)="onChoseLocation($event)" [zoom]="zoom">
+  <map-marker *ngIf="locationChosen" [position]="{lat: offerLocationDTO.xposition, lng: offerLocationDTO.yposition}">
+
+  </map-marker>
+
+</google-map>
+<mat-card-content *ngIf="locationChosen">
+{{address}}
+  <button (click)="doAction()">Zapisz Adres</button>
+</mat-card-content>

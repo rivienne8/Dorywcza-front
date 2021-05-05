@@ -1,0 +1,32 @@
+<p>add-offer-first-page works!</p>
+<mat-card>
+  <div id="test">
+    <form [formGroup]="offerForm" class="example-form"  fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center">
+      <button mat-raised-button color="primary">WYBIERZ BRANŻĘ</button>
+      <mat-form-field id="title">
+        <mat-label>Dodaj tytuł</mat-label>
+        <input matInput type="text" formControlName="title"   >
+
+      </mat-form-field>
+      <mat-form-field id="description">
+        <mat-label>Dodaj opis</mat-label>
+        <input matInput type="text" formControlName="description"   >
+
+      </mat-form-field>
+      <mat-form-field id="calendar" appearance="fill">
+        <mat-label>Zaznacz od kiedy do kiedy potrzebujesz pracy</mat-label>
+        <mat-date-range-input formGroupName="dateRangeDTO" [rangePicker]="picker">
+          <input matStartDate formControlName="startDate" placeholder="Start date">
+          <input matEndDate formControlName="endDate" placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+      </mat-form-field>
+
+      <button mat-raised-button id="asd" color="primary" (click)="openChoseLocationUp()" >LOKALIZACJA</button>
+    </form>
+
+  </div>
+</mat-card>
+

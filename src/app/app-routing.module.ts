@@ -8,6 +8,9 @@ import {OffersPageComponent} from './offers-page/offers-page.component';
 import {ViewOfferPageComponent} from './view-offer-page/view-offer-page.component';
 import {UserOffersComponent} from './user-offers/user-offers.component';
 import {UserAccessibleProfileComponent} from './user-accessible-profile/user-accessible-profile.component';
+import {AddOfferComponent} from './add-offer/add-offer.component';
+import {AddOfferFirstPageComponent} from './add-offer/add-offer-first-page/add-offer-first-page.component';
+import {AddOfferSecondPageComponent} from './add-offer/add-offer-second-page/add-offer-second-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main-page', pathMatch: 'full'},
@@ -21,6 +24,11 @@ const routes: Routes = [
   { path: 'jobs', component: OffersPageComponent},
   { path: 'service-offers/:id', component: ViewOfferPageComponent},
   { path: 'jobs/:id', component: ViewOfferPageComponent},
+  { path: 'add-service-offer', component: AddOfferComponent,
+    children: [
+      { path: 'first', component: AddOfferFirstPageComponent},
+      { path: 'second', component: AddOfferSecondPageComponent}
+    ]}
 
 ];
 
