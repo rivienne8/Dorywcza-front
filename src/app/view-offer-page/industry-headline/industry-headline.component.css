@@ -1,0 +1,21 @@
+
+div {
+  color: rgb(75,31,82);
+}
+
+.container {
+  margin-top: 1em;
+}
+
+.material-icons {
+  color: rgb(203, 235, 74);
+}
+
+.industry-align {
+  display: flex;
+  align-items: center;
+}
+
+
+
+

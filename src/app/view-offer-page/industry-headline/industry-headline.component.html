@@ -1,0 +1,18 @@
+
+<div fxLayout="row" class="container">
+
+  <div fxLayout="row" fxFlexAlign="start" *ngIf="offerDTO?.industryDTO?.parentIndustryDTO?.parentIndustryDTO">
+    <span class="material-icons">navigate_next</span>
+    <div class="industry-align">{{offerDTO?.industryDTO?.parentIndustryDTO?.parentIndustryDTO?.name}}</div>
+  </div>
+  <div fxLayout="row" fxFlexAlign="start" *ngIf="offerDTO?.industryDTO?.parentIndustryDTO">
+    <span class="material-icons">navigate_next</span>
+    <div class="industry-align">{{offerDTO?.industryDTO?.parentIndustryDTO?.name}}</div>
+  </div>
+  <div fxLayout="row" fxFlexAlign="start">
+    <span class="material-icons">navigate_next</span>
+    <div class="industry-align">{{offerDTO?.industryDTO?.name}}</div>
+    <span class="material-icons">navigate_next</span>
+  </div>
+
+</div>

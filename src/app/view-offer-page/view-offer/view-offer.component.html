@@ -1,6 +1,10 @@
 
+
 <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center"  *ngIf="offerDTO">
-  <mat-card-header fxFlexAlign="start">{{offerDTO.industryDTO.name}} -> podkategoria</mat-card-header>
+
+  <div class="container-for-industry">
+  <app-industry-headline [offerDTO]="offerDTO"></app-industry-headline>
+  </div>
 
   <mat-card fxFlex>
     <mat-card-header fxLayoutAlign="center">
