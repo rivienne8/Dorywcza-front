@@ -10,6 +10,6 @@
 <ng-template #industryElement let-industry="value">
 <div  fxLayout="row" fxFlexAlign="start" >
   <span class="material-icons">navigate_next</span>
-  <div class="industry-align">{{industry.name}}</div>
+  <div class="industry-align" routerLink="/service-offers" [queryParams]="{industryId: industry.id}">{{industry.name}}</div>
 </div>
 </ng-template>
