@@ -1,3 +1,15 @@
+.extra-title {
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em 0 1em 0;
+  height: 2em;
+  width: 70%;
+  border-radius: 4px;
+  color: white;
+  background-color: rgb(75,31,82);
+}
 
 .mat-card{
   width: 70%;
@@ -9,10 +21,6 @@
 .mat-card > a, a:visited {
   text-decoration: none;
   color: inherit;
-}
-
-.material-icons {
-  color: rgb(203, 235, 74);
 }
 
 .card-picture {
@@ -48,31 +56,11 @@ mat-card .card-picture {
   margin-top: 0;
 }
 
-.edit-heading {
-  display: inline-flex;
-  flex-flow: row;
-  font-size: smaller;
-  margin-bottom: 1em;
-}
 
-.edit-heading > div {
-  display: flex;
-  align-items: center;
-}
-
-.edit-heading-element {
-  font-size: 0.9em;
-  text-decoration: none;
-}
-
-.edit-heading .delete-image {
-  cursor: pointer;
-  display: flex;
-  align-items: flex-end;
-}
 .material-icons {
   margin: 0 0.5em 0 0.5em;
   font-size: 1.3em;
+  color: rgb(203, 235, 74);
 }
 
 .rating-mark {
@@ -102,6 +90,13 @@ mat-card .card-picture {
 
 .user-personal-details {
   margin-bottom: 1em;
+}
+
+.mat-button-base {
+  height: 50px;
+  width: 70%;
+  background-color: rgb(203, 235, 74);
+  color: rgb(75,31,82);
 }
 
 

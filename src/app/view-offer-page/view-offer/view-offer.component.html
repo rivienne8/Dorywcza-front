@@ -1,6 +1,10 @@
 
+
 <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center"  *ngIf="offerDTO">
-  <mat-card-header fxFlexAlign="start">{{offerDTO.industryDTO.name}} -> podkategoria</mat-card-header>
+
+  <div class="container-for-industry">
+  <app-industry-headline [offerDTO]="offerDTO"></app-industry-headline>
+  </div>
 
   <mat-card fxFlex>
     <mat-card-header fxLayoutAlign="center">
@@ -13,7 +17,7 @@
   <mat-card fxFlex>
     <mat-card-header fxFlexAlign="start" id="description">
         <img fxFlexAlign="start" *ngIf="offerDTO.userSimplifiedDTO.avatar" mat-card-avatar src="{{path}}{{offerDTO.userSimplifiedDTO.avatar.url}}" alt="picture id {{offerDTO.userSimplifiedDTO.avatar.name}}">
-        <span id="user-name">{{offerDTO.userSimplifiedDTO.email}}</span>
+        <span routerLink="/user-accessible-profile/{{offerDTO.userSimplifiedDTO.id}}" id="user-name">{{offerDTO.userSimplifiedDTO.email}}</span>
 <!--        <span id="all-offer-link"><a routerLink="">wszystkie oferty</a></span>-->
     </mat-card-header>
     <mat-card-content>

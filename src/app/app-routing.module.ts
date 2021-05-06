@@ -6,6 +6,8 @@ import {UserUpdateProfileComponent} from './user-update-profile/user-update-prof
 import {UserPublicProfileComponent} from './user-public-profile/user-public-profile.component';
 import {OffersPageComponent} from './offers-page/offers-page.component';
 import {ViewOfferPageComponent} from './view-offer-page/view-offer-page.component';
+import {UserOffersComponent} from './user-offers/user-offers.component';
+import {UserAccessibleProfileComponent} from './user-accessible-profile/user-accessible-profile.component';
 import {LoginComponent} from './auth/conteiners/login/login.component';
 import {AuthGuard} from './auth/guards/auth.guard';
 import {CustomersGuard} from './auth/guards/customers.guard';
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'main-page', component: MainPageComponent},
   { path: 'user-update-profile/:id', component: UserUpdateProfileComponent },
   { path: 'user-public-profile/:id', component: UserPublicProfileComponent },
+  { path: 'user-offers/:userId', component: UserOffersComponent},
+  { path: 'user-accessible-profile/:id', component: UserAccessibleProfileComponent},
   { path: 'head', component: HeadComponent },
   { path: 'service-offers', component: OffersPageComponent},
   {path: 'jobs', component: OffersPageComponent},

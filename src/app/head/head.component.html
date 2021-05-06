@@ -24,25 +24,21 @@
       </button>
 
       <mat-menu #menu>
-        <button *ngIf="userDTO" mat-menu-item>
+        <a *ngIf="userDTO" mat-menu-item>
           <span aria-label="login/register/logout">Wyloguj</span>
-        </button>
-        <button *ngIf="!userDTO" mat-menu-item>
-          <a routerLink="/login">
-            <span aria-label="login/register/logout">Zaloguj/Zarejestruj</span>
-          </a>
-        </button>
-        <button *ngIf="userDTO && userDTO.id" mat-menu-item>
-          <a routerLink="user-public-profile/{{userDTO.id}}">
-            <span>Mój profil</span>
-          </a>
-        </button>
-        <button mat-menu-item>
+        </a>
+        <a mat-menu-item *ngIf="!userDTO" routerLink="/login" >
+          <span aria-label="login/register/logout">Zaloguj/Zarejestruj</span>
+        </a>
+        <a mat-menu-item *ngIf="userDTO && userDTO.id" routerLink="user-public-profile/{{userDTO.id}}">
+          <span>Mój profil</span>
+        </a>
+        <a mat-menu-item *ngIf="userDTO && userDTO.id" routerLink="user-offers/{{userDTO.id}}">
           <span>Moje oferty</span>
-        </button>
-        <button mat-menu-item>
+        </a>
+        <a mat-menu-item>
           <span>Moje odpowiedzi</span>
-        </button>
+        </a>
       </mat-menu>
 
     </mat-toolbar>

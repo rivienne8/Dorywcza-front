@@ -16,4 +16,5 @@ export class UserPublicProfileService {
       .set('type', 'public');
     return this.http.get<UserPublicDTO>(`${environment.apiUrl}/users/${id}`, {params});
   }
+
 }
