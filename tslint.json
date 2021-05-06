@@ -83,7 +83,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
@@ -97,7 +97,7 @@
         },
         {
           "call-signature": "onespace",
-          "index-signature": "onespace",
+          "index-signature": "nospace",
           "parameter": "onespace",
           "property-declaration": "onespace",
           "variable-declaration": "onespace"

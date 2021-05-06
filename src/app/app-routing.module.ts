@@ -6,6 +6,10 @@ import {UserUpdateProfileComponent} from './user-update-profile/user-update-prof
 import {UserPublicProfileComponent} from './user-public-profile/user-public-profile.component';
 import {OffersPageComponent} from './offers-page/offers-page.component';
 import {ViewOfferPageComponent} from './view-offer-page/view-offer-page.component';
+import {LoginComponent} from './auth/conteiners/login/login.component';
+import {AuthGuard} from './auth/guards/auth.guard';
+import {CustomersGuard} from './auth/guards/customers.guard';
+import {RegisterComponent} from './auth/conteiners/regiser/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main-page', pathMatch: 'full'},
@@ -16,13 +20,14 @@ const routes: Routes = [
   { path: 'service-offers', component: OffersPageComponent},
   {path: 'jobs', component: OffersPageComponent},
   {path: 'service-offers/:id', component: ViewOfferPageComponent},
-  {path: 'jobs/:id', component: ViewOfferPageComponent}
-
+  {path: 'jobs/:id', component: ViewOfferPageComponent},
+  {path: 'auth', loadChildren: './auth/auth.module#AuthModule'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  declarations: []
 })
 
 export class AppRoutingModule { }

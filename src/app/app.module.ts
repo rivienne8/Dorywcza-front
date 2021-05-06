@@ -43,6 +43,7 @@ import { MapDisplayComponent } from './view-offer-page/map-display/map-display.c
 import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
+import {AuthModule} from './auth/auth.module';
 
 
 @NgModule({
@@ -91,7 +92,9 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     MatSnackBarModule,
     GoogleMapsModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+AuthModule
+
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
