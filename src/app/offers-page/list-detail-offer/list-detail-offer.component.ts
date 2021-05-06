@@ -9,15 +9,24 @@ import {PageEvent} from '@angular/material/paginator';
   styleUrls: ['./list-detail-offer.component.css']
 })
 export class ListDetailOfferComponent implements OnInit {
+
   @Input()
+  industryId?: number;
+
   offersDTO: OfferDTO[] = [];
   totalElements = 0;
+  sampleOfferDTO?: OfferDTO;
 
 
   constructor(private listDetailOfferService: ListDetailOfferService) { }
 
   ngOnInit(): void {
-    this.getServiceOffersPagination(0, 10);
+    if (!this.industryId){
+      this.getServiceOffersPagination(0, 10);
+    } else {
+      this.getServiceOffersPaginationForIndustry(this.industryId, 0, 10);
+    }
+
 
   }
 
@@ -31,5 +40,14 @@ export class ListDetailOfferComponent implements OnInit {
 
   nextPage(event: PageEvent): void {
     this.getServiceOffersPagination(event.pageIndex, event.pageSize);
+  }
+
+  getServiceOffersPaginationForIndustry(industryId: number, page: number, size: number): void {
+    this.listDetailOfferService.getOffersForIndustry(location.pathname, industryId.toString(), page.toString(), size.toString())
+      .subscribe(serviceOfferDTO => {
+        this.offersDTO = serviceOfferDTO.content;
+        this.totalElements = serviceOfferDTO.totalElements;
+        this.sampleOfferDTO = this.offersDTO[0];
+      });
   }
 }

@@ -1,6 +1,7 @@
 
 div {
   color: rgb(75,31,82);
+  /*border: solid 1px green;*/
 }
 
 .container {
@@ -14,6 +15,7 @@ div {
 .industry-align {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 
