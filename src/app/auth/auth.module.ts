@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {AuthRoutingModule} from './auth-routing.module';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {AuthRoutingModule} from './auth-routing.module';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MatMenuModule
 
   ]
 })

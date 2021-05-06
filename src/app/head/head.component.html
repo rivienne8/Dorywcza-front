@@ -28,7 +28,9 @@
           <span aria-label="login/register/logout">Wyloguj</span>
         </button>
         <button *ngIf="!userDTO" mat-menu-item>
-          <span aria-label="login/register/logout">Zaloguj/Zarejestruj</span>
+          <a routerLink="/login">
+            <span aria-label="login/register/logout">Zaloguj/Zarejestruj</span>
+          </a>
         </button>
         <button *ngIf="userDTO && userDTO.id" mat-menu-item>
           <a routerLink="user-public-profile/{{userDTO.id}}">

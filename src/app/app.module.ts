@@ -93,7 +93,7 @@ import {AuthModule} from './auth/auth.module';
     GoogleMapsModule,
     MatDialogModule,
     MatPaginatorModule,
-AuthModule
+    AuthModule
 
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
