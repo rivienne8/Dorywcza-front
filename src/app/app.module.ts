@@ -44,6 +44,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import {AuthModule} from './auth/auth.module';
+import { DisplayImagesComponent } from './display-images/display-images.component';
+import { ButtonsComponent } from './user-public-profile/buttons/buttons.component';
+import { UserOffersComponent } from './user-offers/user-offers.component';
+import { UserAccessibleProfileComponent } from './user-accessible-profile/user-accessible-profile.component';
+import { IndustryHeadlineComponent } from './view-offer-page/industry-headline/industry-headline.component';
 
 
 @NgModule({
@@ -70,6 +75,11 @@ import {AuthModule} from './auth/auth.module';
     CapitalizePipe,
     MapDisplayComponent,
     ScheduleDisplayComponent,
+    DisplayImagesComponent,
+    ButtonsComponent,
+    UserOffersComponent,
+    UserAccessibleProfileComponent,
+    IndustryHeadlineComponent,
   ],
   imports: [
     BrowserModule,
