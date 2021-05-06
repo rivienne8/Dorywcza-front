@@ -12,14 +12,23 @@ export class IndustryHeadlineComponent implements OnInit {
   @Input()
   offerDTO?: OfferDTO;
   industries: IndustryDTO[] = [];
+  kindOfOffer?: string;
+
 
   constructor() {
+    // console.log('headline start');
   }
 
   ngOnInit(): void {
     if (this.offerDTO){
       this.getIndustries(this.offerDTO);
     }
+    if (location.pathname.includes('jobs')){
+      this.kindOfOffer = 'jobs';
+    } else if (location.pathname.includes('service-offers')){
+      this.kindOfOffer = 'service-offers';
+    }
+
   }
 
   getIndustries(offerDTO: OfferDTO): void{

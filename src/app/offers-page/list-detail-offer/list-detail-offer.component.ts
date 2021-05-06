@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
 import {ListDetailOfferService} from './list-detail-offer.service';
 import {PageEvent} from '@angular/material/paginator';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-list-detail-offer',
@@ -16,13 +15,12 @@ export class ListDetailOfferComponent implements OnInit {
 
   offersDTO: OfferDTO[] = [];
   totalElements = 0;
+  sampleOfferDTO?: OfferDTO;
 
 
-  constructor(private listDetailOfferService: ListDetailOfferService,
-              private route: ActivatedRoute) { }
+  constructor(private listDetailOfferService: ListDetailOfferService) { }
 
   ngOnInit(): void {
-    // this.getIndustryId();
     if (!this.industryId){
       this.getServiceOffersPagination(0, 10);
     } else {
@@ -31,14 +29,6 @@ export class ListDetailOfferComponent implements OnInit {
 
 
   }
-
-  // getIndustryId(): void {
-  //   const param = 'industryId';
-  //   this.route.queryParams.subscribe(
-  //     params => {
-  //       this.industryId =  params[param];
-  //     });
-  // }
 
   getServiceOffersPagination(page: number, size: number): void {
     this.listDetailOfferService.getServiceOffersPagination(location.pathname, page.toString(), size.toString())
@@ -57,6 +47,7 @@ export class ListDetailOfferComponent implements OnInit {
       .subscribe(serviceOfferDTO => {
         this.offersDTO = serviceOfferDTO.content;
         this.totalElements = serviceOfferDTO.totalElements;
+        this.sampleOfferDTO = this.offersDTO[0];
       });
   }
 }
