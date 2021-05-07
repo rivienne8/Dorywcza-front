@@ -1,25 +1,28 @@
 <script src="login.component.ts"></script>
-<div class="header center">Log In</div>
 
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+<form [formGroup]="loginForm" class="example-form" (ngSubmit)="login()" fxLayout="column" fxLayoutGap="5px"
+      fxLayoutAlign="start center">
 
-  <mat-form-field>
-    <input matInput type="text" id="username" placeholder="Username" autocomplete="off" formControlName="username" required>
+  <mat-form-field appearance="outline">
+    <mat-label>Nazwa użytkownika:</mat-label>
+    <input matInput type="text" formControlName="userName" formControlName="username" required>
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput type="password" id="password" placeholder="Password" formControlName="password" required>
+  <mat-form-field appearance="outline">
+    <mat-label>Hasło:</mat-label>
+    <input matInput type="password" id="password" formControlName="password" required>
   </mat-form-field>
 
-  <div class="actions">
-    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">LOG IN</button>
-  </div>
-
-</form>
-<section>
-  <button  mat-menu-item>
+  <button mat-menu-item>
     <a routerLink="/register">
       <span>Nie masz konta? Zarejestruj się!</span>
     </a>
   </button>
-</section>
+  <div class="next">
+    <a routerLink="/">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">DALEJ</button>
+    </a>
+  </div>
+  <span>* pola obowiązkowe</span>
+</form>
+

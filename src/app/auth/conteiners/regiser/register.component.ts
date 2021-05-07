@@ -12,7 +12,9 @@ export class RegisterComponent {
 
   registerForm = this.formBuilder.group({
     username: [''],
-    password: ['']
+    password: [''],
+    passwordRepeat: [''],
+    telNumber: ['']
   });
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
@@ -24,7 +26,9 @@ export class RegisterComponent {
     this.authService.register(
       {
         username: this.form.username.value,
-        password: this.form.password.value
+        password: this.form.password.value,
+        passwordRepeat: this.form.passwordRepead.value,
+        telNumber: this.form.telNumber.value
       }
     )
       .subscribe(success => {
