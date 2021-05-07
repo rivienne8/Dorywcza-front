@@ -39,8 +39,12 @@ export class ListDetailOfferComponent implements OnInit {
       });
   }
 
-  nextPage(event: PageEvent): void {
-    this.getServiceOffersPagination(event.pageIndex, event.pageSize);
+  nextPage(event: PageEvent, industryId?: number): void {
+    if (industryId){
+      this.getServiceOffersPaginationForIndustry(industryId, event.pageIndex, event.pageSize);
+    } else {
+      this.getServiceOffersPagination(event.pageIndex, event.pageSize);
+    }
   }
 
   getServiceOffersPaginationForIndustry(industryId: number, page: number, size: number): void {
