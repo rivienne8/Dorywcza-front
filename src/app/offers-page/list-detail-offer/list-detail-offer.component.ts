@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
 import {ListDetailOfferService} from './list-detail-offer.service';
 import {PageEvent} from '@angular/material/paginator';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-list-detail-offer',

@@ -1,7 +1,8 @@
 
 
-
-<app-industry-headline [offerDTO]="sampleOfferDTO"></app-industry-headline>
+<div class="container-for-industry">
+  <app-industry-headline  *ngIf="sampleOfferDTO" [offerDTO]="sampleOfferDTO"></app-industry-headline>
+</div>
 <mat-card *ngFor="let offer of offersDTO">
     <mat-card-content>
       <app-detailed-offer [offerDTO]="offer"></app-detailed-offer>

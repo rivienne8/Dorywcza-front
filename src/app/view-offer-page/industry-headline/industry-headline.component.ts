@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
 import {IndustryDTO} from '../../offers-page/offers-page_DTO/industry-DTO';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-industry-headline',
@@ -8,6 +9,8 @@ import {IndustryDTO} from '../../offers-page/offers-page_DTO/industry-DTO';
   styleUrls: ['./industry-headline.component.css']
 })
 export class IndustryHeadlineComponent implements OnInit {
+  // @Input()
+  // sampleOfferDTO$?: Observable<OfferDTO>;
 
   @Input()
   offerDTO?: OfferDTO;
@@ -20,6 +23,7 @@ export class IndustryHeadlineComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     if (this.offerDTO){
       this.getIndustries(this.offerDTO);
     }
