@@ -18,7 +18,7 @@ export class HeadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserDTOById(1);
+    this.getUserDTOById(1); // for public user (not register user) change id to 0
   }
 
   private getUserDTOById(id: number): void {
