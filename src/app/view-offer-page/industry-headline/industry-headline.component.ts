@@ -16,7 +16,7 @@ export class IndustryHeadlineComponent implements OnInit {
   offerDTO?: OfferDTO;
   industries: IndustryDTO[] = [];
   kindOfOffer?: string;
-
+  industrySector?: string;
 
   constructor() {
     // console.log('headline start');
@@ -29,8 +29,10 @@ export class IndustryHeadlineComponent implements OnInit {
     }
     if (location.pathname.includes('jobs')){
       this.kindOfOffer = 'jobs';
+      this.industrySector = 'Oferty pracy';
     } else if (location.pathname.includes('service-offers')){
       this.kindOfOffer = 'service-offers';
+      this.industrySector = 'Oferty usług';
     }
 
   }

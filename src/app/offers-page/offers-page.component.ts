@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ListDetailOfferService} from './list-detail-offer/list-detail-offer.service';
-import {ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 
 
 @Component({
@@ -13,7 +13,12 @@ export class OffersPageComponent implements OnInit {
   industryId?: number;
 
   constructor(private listDetailOfferService: ListDetailOfferService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute , private router: Router) {
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
 
   ngOnInit(): void {
     this.getIndustryId();
