@@ -43,6 +43,7 @@ import { MapDisplayComponent } from './view-offer-page/map-display/map-display.c
 import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
+import {AuthModule} from './auth/auth.module';
 import { DisplayImagesComponent } from './display-images/display-images.component';
 import { ButtonsComponent } from './user-public-profile/buttons/buttons.component';
 import { UserOffersComponent } from './user-offers/user-offers.component';
@@ -101,7 +102,9 @@ import { IndustryHeadlineComponent } from './view-offer-page/industry-headline/i
     MatSnackBarModule,
     GoogleMapsModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    AuthModule
+
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
