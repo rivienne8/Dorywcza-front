@@ -9,24 +9,26 @@ import {Observable} from 'rxjs';
   styleUrls: ['./industry-headline.component.css']
 })
 export class IndustryHeadlineComponent implements OnInit {
-  // @Input()
-  // sampleOfferDTO$?: Observable<OfferDTO>;
 
   @Input()
-  offerDTO?: OfferDTO;
+  industryDTO?: IndustryDTO;
   industries: IndustryDTO[] = [];
   kindOfOffer?: string;
   industrySector?: string;
 
   constructor() {
-    // console.log('headline start');
   }
 
   ngOnInit(): void {
 
-    if (this.offerDTO){
-      this.getIndustries(this.offerDTO);
+    if (this.industryDTO){
+      this.getIndustries(this.industryDTO);
     }
+    this.adjustProperties();
+
+  }
+
+  adjustProperties(){
     if (location.pathname.includes('jobs')){
       this.kindOfOffer = 'jobs';
       this.industrySector = 'Oferty pracy';
@@ -34,11 +36,10 @@ export class IndustryHeadlineComponent implements OnInit {
       this.kindOfOffer = 'service-offers';
       this.industrySector = 'Oferty usług';
     }
-
   }
 
-  getIndustries(offerDTO: OfferDTO): void{
-    let currentIndustryDTO = offerDTO.industryDTO;
+  getIndustries(industryDTO: IndustryDTO): void{
+    let currentIndustryDTO = industryDTO;
     this.industries.push(currentIndustryDTO);
 
     while (currentIndustryDTO.parentIndustryDTO){

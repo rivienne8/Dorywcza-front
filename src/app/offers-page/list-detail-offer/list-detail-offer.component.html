@@ -1,7 +1,7 @@
 
 
 <div class="container-for-industry">
-  <app-industry-headline  *ngIf="sampleOfferDTO" [offerDTO]="sampleOfferDTO"></app-industry-headline>
+  <app-industry-headline  *ngIf="industryDTO" [industryDTO]="industryDTO" ></app-industry-headline>
 </div>
 <mat-card *ngFor="let offer of offersDTO">
     <mat-card-content>
@@ -11,7 +11,7 @@
 <div id="paginator-div">
 
 <mat-paginator fxLayoutAlign="center" [pageSizeOptions]="[10, 25, 100]" [pageSize]="10" [length]="totalElements"
-               (page)="nextPage($event, sampleOfferDTO?.industryDTO?.id)">
+               (page)="nextPage($event, industryDTO?.id)">
 
 </mat-paginator>
 </div>
