@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
 import {ListDetailOfferService} from './list-detail-offer.service';
 import {PageEvent} from '@angular/material/paginator';
+import {Observable, of} from 'rxjs';
+import {IndustryDTO} from '../offers-page_DTO/industry-DTO';
 
 @Component({
   selector: 'app-list-detail-offer',
@@ -15,7 +17,7 @@ export class ListDetailOfferComponent implements OnInit {
 
   offersDTO: OfferDTO[] = [];
   totalElements = 0;
-  sampleOfferDTO?: OfferDTO;
+  industryDTO?: IndustryDTO;
 
 
   constructor(private listDetailOfferService: ListDetailOfferService) { }
@@ -38,8 +40,12 @@ export class ListDetailOfferComponent implements OnInit {
       });
   }
 
-  nextPage(event: PageEvent): void {
-    this.getServiceOffersPagination(event.pageIndex, event.pageSize);
+  nextPage(event: PageEvent, industryId?: number): void {
+    if (industryId){
+      this.getServiceOffersPaginationForIndustry(industryId, event.pageIndex, event.pageSize);
+    } else {
+      this.getServiceOffersPagination(event.pageIndex, event.pageSize);
+    }
   }
 
   getServiceOffersPaginationForIndustry(industryId: number, page: number, size: number): void {
@@ -47,7 +53,23 @@ export class ListDetailOfferComponent implements OnInit {
       .subscribe(serviceOfferDTO => {
         this.offersDTO = serviceOfferDTO.content;
         this.totalElements = serviceOfferDTO.totalElements;
-        this.sampleOfferDTO = this.offersDTO[0];
-      });
+        const sampleDTO = this.offersDTO[0].industryDTO;
+        const industries = this.getIndustries(sampleDTO);
+        // tslint:disable-next-line:triple-equals
+        this.industryDTO = industries.filter(x => x.id == industryId)[0];
+         });
+  }
+
+  getIndustries(industryDTO: IndustryDTO): IndustryDTO[] {
+    const industries = [];
+    let currentIndustryDTO = industryDTO;
+    industries.push(currentIndustryDTO);
+
+    while (currentIndustryDTO.parentIndustryDTO){
+      const parentIndustryDTO = currentIndustryDTO.parentIndustryDTO;
+      industries.unshift(parentIndustryDTO);
+      currentIndustryDTO = parentIndustryDTO;
+    }
+    return industries;
   }
 }

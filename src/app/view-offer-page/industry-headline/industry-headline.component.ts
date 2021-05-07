@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
 import {IndustryDTO} from '../../offers-page/offers-page_DTO/industry-DTO';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-industry-headline',
@@ -10,29 +11,35 @@ import {IndustryDTO} from '../../offers-page/offers-page_DTO/industry-DTO';
 export class IndustryHeadlineComponent implements OnInit {
 
   @Input()
-  offerDTO?: OfferDTO;
+  industryDTO?: IndustryDTO;
   industries: IndustryDTO[] = [];
   kindOfOffer?: string;
-
+  industrySector?: string;
 
   constructor() {
-    // console.log('headline start');
   }
 
   ngOnInit(): void {
-    if (this.offerDTO){
-      this.getIndustries(this.offerDTO);
+
+    if (this.industryDTO){
+      this.getIndustries(this.industryDTO);
     }
-    if (location.pathname.includes('jobs')){
-      this.kindOfOffer = 'jobs';
-    } else if (location.pathname.includes('service-offers')){
-      this.kindOfOffer = 'service-offers';
-    }
+    this.adjustProperties();
 
   }
 
-  getIndustries(offerDTO: OfferDTO): void{
-    let currentIndustryDTO = offerDTO.industryDTO;
+  adjustProperties(){
+    if (location.pathname.includes('jobs')){
+      this.kindOfOffer = 'jobs';
+      this.industrySector = 'Oferty pracy';
+    } else if (location.pathname.includes('service-offers')){
+      this.kindOfOffer = 'service-offers';
+      this.industrySector = 'Oferty usług';
+    }
+  }
+
+  getIndustries(industryDTO: IndustryDTO): void{
+    let currentIndustryDTO = industryDTO;
     this.industries.push(currentIndustryDTO);
 
     while (currentIndustryDTO.parentIndustryDTO){

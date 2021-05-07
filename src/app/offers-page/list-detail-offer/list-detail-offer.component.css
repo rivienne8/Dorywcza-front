@@ -19,3 +19,11 @@ mat-paginator {
   padding-top: 25px;
   display: block;
 }
+
+.container-for-industry {
+  display: flex;
+  justify-content: stretch;
+  margin-left: 25%;
+  padding-top: 1em;
+  align-items: center;
+}
