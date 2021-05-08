@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder } from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 
@@ -11,8 +11,8 @@ import {AuthService} from '../../services/auth.service';
 export class LoginComponent {
 
   loginForm = this.formBuilder.group({
-    username: [''],
-    password: ['']
+    username: ['', [Validators.minLength(2)]],
+    password: ['', [Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
   });
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
@@ -32,6 +32,14 @@ export class LoginComponent {
           this.router.navigate(['/customers']);
         }
       });
+  }
+
+  get userName(): AbstractControl | null {
+    return this.loginForm.get('userName');
+  }
+
+  get password(): AbstractControl | null {
+    return this.loginForm.get('password');
   }
 
 }

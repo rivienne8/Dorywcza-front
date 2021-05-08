@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {MustMatch} from './much-controll';
 
 @Component({
   selector: 'app-register',
@@ -11,11 +12,17 @@ import {AuthService} from '../../services/auth.service';
 export class RegisterComponent {
 
   registerForm = this.formBuilder.group({
-    username: [''],
-    password: [''],
-    passwordRepeat: [''],
-    telNumber: ['']
-  });
+    username: ['', [Validators.minLength(2)]],
+    password: ['', [Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
+    passwordRepeat: ['', Validators.required],
+    phoneNumber: ['', [Validators.pattern('[- +()0-9]+')]]
+    },
+    {
+      // check whether our password and confirm password match
+      validator: MustMatch('password', 'passwordRepeat')
+    });
+
+
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
@@ -28,7 +35,7 @@ export class RegisterComponent {
         username: this.form.username.value,
         password: this.form.password.value,
         passwordRepeat: this.form.passwordRepead.value,
-        telNumber: this.form.telNumber.value
+        phoneNumber: this.form.phoneNumber.value
       }
     )
       .subscribe(success => {
@@ -37,5 +44,22 @@ export class RegisterComponent {
         }
       });
   }
+  get userName(): AbstractControl | null {
+    return this.registerForm.get('userName');
+  }
+
+  get passwordRepeat(): AbstractControl | null {
+    return this.registerForm.get('passwordRepeat');
+  }
+
+  get password(): AbstractControl | null {
+    return this.registerForm.get('password');
+  }
+
+  get phoneNumber(): AbstractControl | null {
+    return this.registerForm.get('phoneNumber');
+  }
+
 
 }
+
