@@ -28,7 +28,7 @@ export class OffersPageComponent implements OnInit {
     const param = 'industryId';
     this.route.queryParams.subscribe(
       params => {
-        this.industryId =  params[param];
+        this.industryId =  +params[param];
       });
   }
 
