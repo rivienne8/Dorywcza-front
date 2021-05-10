@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
 import {IndustryDTO} from '../../offers-page/offers-page_DTO/industry-DTO';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-industry-headline',
@@ -17,6 +18,7 @@ export class IndustryHeadlineComponent implements OnInit {
   industrySector?: string;
 
   constructor() {
+
   }
 
   ngOnInit(): void {
@@ -27,6 +29,17 @@ export class IndustryHeadlineComponent implements OnInit {
     this.adjustProperties();
 
   }
+
+  // ngOnChanges() {
+  //   // this.industries = [];
+  //   // this.kindOfOffer = undefined;
+  //   // this.industrySector = undefined;
+  //   // this.ngOnInit();
+  //   if (this.industryDTO){
+  //     this.getIndustries(this.industryDTO);
+  //   }
+  //   this.adjustProperties();
+  // }
 
   adjustProperties(){
     if (location.pathname.includes('jobs')){

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
 import {ListDetailOfferService} from './list-detail-offer.service';
 import {PageEvent} from '@angular/material/paginator';
@@ -10,7 +10,7 @@ import {IndustryDTO} from '../offers-page_DTO/industry-DTO';
   templateUrl: './list-detail-offer.component.html',
   styleUrls: ['./list-detail-offer.component.css']
 })
-export class ListDetailOfferComponent implements OnInit {
+export class ListDetailOfferComponent implements OnInit, OnChanges {
 
   @Input()
   industryId?: number;
@@ -28,8 +28,18 @@ export class ListDetailOfferComponent implements OnInit {
     } else {
       this.getServiceOffersPaginationForIndustry(this.industryId, 0, 10);
     }
+  }
 
-
+  ngOnChanges() {
+    // this.industryDTO = undefined;
+    // this.offersDTO = [];
+    // this.totalElements = 0;
+    // this.ngOnInit();
+    if (!this.industryId){
+      this.getServiceOffersPagination(0, 10);
+    } else {
+      this.getServiceOffersPaginationForIndustry(this.industryId, 0, 10);
+    }
   }
 
   getServiceOffersPagination(page: number, size: number): void {
