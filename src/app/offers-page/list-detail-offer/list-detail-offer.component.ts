@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {OfferDTO} from '../offers-page_DTO/offerDTO';
 import {ListDetailOfferService} from './list-detail-offer.service';
 import {PageEvent} from '@angular/material/paginator';
@@ -10,7 +10,7 @@ import {IndustryDTO} from '../offers-page_DTO/industry-DTO';
   templateUrl: './list-detail-offer.component.html',
   styleUrls: ['./list-detail-offer.component.css']
 })
-export class ListDetailOfferComponent implements OnInit {
+export class ListDetailOfferComponent implements OnInit, OnChanges {
 
   @Input()
   industryId?: number;
@@ -28,8 +28,15 @@ export class ListDetailOfferComponent implements OnInit {
     } else {
       this.getServiceOffersPaginationForIndustry(this.industryId, 0, 10);
     }
+  }
 
-
+  ngOnChanges() {
+    if (!this.industryId){
+      this.getServiceOffersPagination(0, 10);
+      this.industryDTO = undefined;
+    } else {
+      this.getServiceOffersPaginationForIndustry(this.industryId, 0, 10);
+    }
   }
 
   getServiceOffersPagination(page: number, size: number): void {
@@ -53,23 +60,20 @@ export class ListDetailOfferComponent implements OnInit {
       .subscribe(serviceOfferDTO => {
         this.offersDTO = serviceOfferDTO.content;
         this.totalElements = serviceOfferDTO.totalElements;
-        const sampleDTO = this.offersDTO[0].industryDTO;
-        const industries = this.getIndustries(sampleDTO);
-        // tslint:disable-next-line:triple-equals
-        this.industryDTO = industries.filter(x => x.id == industryId)[0];
+        this.industryDTO = this.getIndustryForHeadline(this.offersDTO[0].industryDTO);
          });
   }
 
-  getIndustries(industryDTO: IndustryDTO): IndustryDTO[] {
-    const industries = [];
-    let currentIndustryDTO = industryDTO;
-    industries.push(currentIndustryDTO);
-
-    while (currentIndustryDTO.parentIndustryDTO){
-      const parentIndustryDTO = currentIndustryDTO.parentIndustryDTO;
-      industries.unshift(parentIndustryDTO);
-      currentIndustryDTO = parentIndustryDTO;
+  getIndustryForHeadline(industryDTO: IndustryDTO){
+    if (industryDTO.id === this.industryId){
+      return industryDTO;
     }
-    return industries;
+
+    let currentIndustryDTO = industryDTO;
+    while (currentIndustryDTO.parentIndustryDTO && !(currentIndustryDTO.parentIndustryDTO.id === this.industryId)){
+      currentIndustryDTO = currentIndustryDTO.parentIndustryDTO;
+    }
+    return currentIndustryDTO.parentIndustryDTO;
   }
+
 }

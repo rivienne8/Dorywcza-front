@@ -15,20 +15,18 @@ export class OffersPageComponent implements OnInit {
   constructor(private listDetailOfferService: ListDetailOfferService,
               private route: ActivatedRoute , private router: Router) {
 
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
-    };
+    this.getIndustryId();
+
   }
 
   ngOnInit(): void {
-    this.getIndustryId();
   }
 
   getIndustryId(): void {
     const param = 'industryId';
     this.route.queryParams.subscribe(
       params => {
-        this.industryId =  params[param];
+        this.industryId =  +params[param];
       });
   }
 
