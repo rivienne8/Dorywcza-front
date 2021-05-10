@@ -53,23 +53,36 @@ export class ListDetailOfferComponent implements OnInit {
       .subscribe(serviceOfferDTO => {
         this.offersDTO = serviceOfferDTO.content;
         this.totalElements = serviceOfferDTO.totalElements;
-        const sampleDTO = this.offersDTO[0].industryDTO;
-        const industries = this.getIndustries(sampleDTO);
-        // tslint:disable-next-line:triple-equals
-        this.industryDTO = industries.filter(x => x.id == industryId)[0];
+        // const sampleDTO = this.offersDTO[0].industryDTO;
+        // const industries = this.getIndustries(sampleDTO);
+        // // tslint:disable-next-line:triple-equals
+        // this.industryDTO = industries.filter(x => x.id == industryId)[0];
+        this.industryDTO = this.getIndustryForHeadline(this.offersDTO[0].industryDTO);
          });
   }
 
-  getIndustries(industryDTO: IndustryDTO): IndustryDTO[] {
-    const industries = [];
-    let currentIndustryDTO = industryDTO;
-    industries.push(currentIndustryDTO);
-
-    while (currentIndustryDTO.parentIndustryDTO){
-      const parentIndustryDTO = currentIndustryDTO.parentIndustryDTO;
-      industries.unshift(parentIndustryDTO);
-      currentIndustryDTO = parentIndustryDTO;
+  getIndustryForHeadline(industryDTO: IndustryDTO){
+    if (industryDTO.id === this.industryId){
+      return industryDTO;
     }
-    return industries;
+
+    let currentIndustryDTO = industryDTO;
+    while (currentIndustryDTO.parentIndustryDTO && !(currentIndustryDTO.parentIndustryDTO.id === this.industryId)){
+      currentIndustryDTO = currentIndustryDTO.parentIndustryDTO;
+    }
+    return currentIndustryDTO.parentIndustryDTO;
   }
+
+  // getIndustries(industryDTO: IndustryDTO): IndustryDTO[] {
+  //   const industries = [];
+  //   let currentIndustryDTO = industryDTO;
+  //   industries.push(currentIndustryDTO);
+  //
+  //   while (currentIndustryDTO.parentIndustryDTO){
+  //     const parentIndustryDTO = currentIndustryDTO.parentIndustryDTO;
+  //     industries.unshift(parentIndustryDTO);
+  //     currentIndustryDTO = parentIndustryDTO;
+  //   }
+  //   return industries;
+  // }
 }
