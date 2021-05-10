@@ -31,12 +31,9 @@ export class ListDetailOfferComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    // this.industryDTO = undefined;
-    // this.offersDTO = [];
-    // this.totalElements = 0;
-    // this.ngOnInit();
     if (!this.industryId){
       this.getServiceOffersPagination(0, 10);
+      this.industryDTO = undefined;
     } else {
       this.getServiceOffersPaginationForIndustry(this.industryId, 0, 10);
     }
@@ -63,10 +60,6 @@ export class ListDetailOfferComponent implements OnInit, OnChanges {
       .subscribe(serviceOfferDTO => {
         this.offersDTO = serviceOfferDTO.content;
         this.totalElements = serviceOfferDTO.totalElements;
-        // const sampleDTO = this.offersDTO[0].industryDTO;
-        // const industries = this.getIndustries(sampleDTO);
-        // // tslint:disable-next-line:triple-equals
-        // this.industryDTO = industries.filter(x => x.id == industryId)[0];
         this.industryDTO = this.getIndustryForHeadline(this.offersDTO[0].industryDTO);
          });
   }
@@ -83,16 +76,4 @@ export class ListDetailOfferComponent implements OnInit, OnChanges {
     return currentIndustryDTO.parentIndustryDTO;
   }
 
-  // getIndustries(industryDTO: IndustryDTO): IndustryDTO[] {
-  //   const industries = [];
-  //   let currentIndustryDTO = industryDTO;
-  //   industries.push(currentIndustryDTO);
-  //
-  //   while (currentIndustryDTO.parentIndustryDTO){
-  //     const parentIndustryDTO = currentIndustryDTO.parentIndustryDTO;
-  //     industries.unshift(parentIndustryDTO);
-  //     currentIndustryDTO = parentIndustryDTO;
-  //   }
-  //   return industries;
-  // }
 }
