@@ -8,6 +8,22 @@ mat-card {
   left: 25%;
   background-color: lightgray;
   color: rgb(75, 31, 82);
+}
 
+mat-paginator {
+  background: rgb(75,31,82);
+  margin: 5px;
+}
 
+#paginator-div {
+  padding-top: 25px;
+  display: block;
+}
+
+.container-for-industry {
+  display: flex;
+  justify-content: stretch;
+  margin-left: 25%;
+  padding-top: 1em;
+  align-items: center;
 }

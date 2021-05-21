@@ -1,0 +1,23 @@
+
+div {
+  color: rgb(75,31,82);
+  /*border: solid 1px green;*/
+}
+
+.container {
+  margin-top: 1em;
+}
+
+.material-icons {
+  color: rgb(203, 235, 74);
+}
+
+.industry-align {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+

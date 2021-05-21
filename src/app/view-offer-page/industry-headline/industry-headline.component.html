@@ -1,0 +1,19 @@
+
+
+<div fxLayout="row" class="container">
+  <div  fxLayout="row" fxFlexAlign="start" >
+    <span class="material-icons">navigate_next</span>
+    <div class="industry-align" routerLink="/{{kindOfOffer}}">{{industrySector}}</div>
+  </div>
+  <div *ngFor="let industryParent of industries">
+    <ng-container *ngTemplateOutlet="industryElement; context:{value: industryParent}"></ng-container>
+  </div>
+
+</div>
+
+<ng-template #industryElement let-industry="value">
+<div  fxLayout="row" fxFlexAlign="start" >
+  <span class="material-icons">navigate_next</span>
+  <div class="industry-align" routerLink="/{{kindOfOffer}}" [queryParams]="{industryId: industry.id}">{{industry.name}}</div>
+</div>
+</ng-template>

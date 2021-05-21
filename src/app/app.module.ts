@@ -42,6 +42,13 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
 import { MapDisplayComponent } from './view-offer-page/map-display/map-display.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import {AuthModule} from './auth/auth.module';
+import { DisplayImagesComponent } from './display-images/display-images.component';
+import { ButtonsComponent } from './user-public-profile/buttons/buttons.component';
+import { UserOffersComponent } from './user-offers/user-offers.component';
+import { UserAccessibleProfileComponent } from './user-accessible-profile/user-accessible-profile.component';
+import { IndustryHeadlineComponent } from './view-offer-page/industry-headline/industry-headline.component';
 
 
 @NgModule({
@@ -68,6 +75,11 @@ import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/sch
     CapitalizePipe,
     MapDisplayComponent,
     ScheduleDisplayComponent,
+    DisplayImagesComponent,
+    ButtonsComponent,
+    UserOffersComponent,
+    UserAccessibleProfileComponent,
+    IndustryHeadlineComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +101,10 @@ import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/sch
     MatProgressBarModule,
     MatSnackBarModule,
     GoogleMapsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule,
+    AuthModule
+
   ],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],

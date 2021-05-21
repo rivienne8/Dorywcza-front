@@ -24,11 +24,11 @@ export class ListOfferComponent implements OnInit {
 
   getServiceOffers(): void {
     this.listOfferService.getServiceOffers(`${environment.apiUrl}/service-offers`)
-      .subscribe(serviceOffersDTO => this.offersDTO = serviceOffersDTO);
+      .subscribe(serviceOffersDTO => this.offersDTO = serviceOffersDTO.content);
   }
 
   getJobOffers(): void {
     this.listOfferService.getJobOffers(`${environment.apiUrl}/jobs`)
-      .subscribe(serviceOffersDTO => this.jobOffersDTO = serviceOffersDTO);
+      .subscribe(serviceOffersDTO => this.jobOffersDTO = serviceOffersDTO.content);
   }
 }

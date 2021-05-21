@@ -1,0 +1,61 @@
+
+.mat-card{
+  width: 70%;
+  margin-bottom: 4px;
+  color: #424242;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mat-card > a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.material-icons {
+  color: rgb(203, 235, 74);
+  margin: 0 0.5em 0 0.5em;
+  font-size: 1.3em;
+}
+
+.card-picture {
+  width: 23%;
+  margin-bottom: 1%;
+}
+.container {
+  min-height: 100%;
+  width: 100%;
+}
+
+.upload-mark {
+  text-align: end;
+}
+
+mat-card .card-picture {
+  margin-top: 0;
+}
+
+.edit-heading {
+  display: inline-flex;
+  flex-flow: row;
+  font-size: smaller;
+  margin-bottom: 1em;
+}
+
+.edit-heading > div {
+  display: flex;
+  align-items: center;
+}
+
+.edit-heading-element {
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.edit-heading .delete-image {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+}

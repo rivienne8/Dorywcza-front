@@ -1,53 +1,96 @@
 
-
-
-
 <div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center" >
 
-<mat-card class="router-outlet-container" fxFlex >
-  <mat-card-title>Profil</mat-card-title>
-    <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
-      <span class="material-icons">edit</span>
-    </a>
-  <mat-card-content>
-    <div *ngIf="userPublicDTO">
-      <div>Nazwa użytkownika: {{userPublicDTO.userName}}</div>
-      <div>Scoring: {{userPublicDTO.overallRating}}</div>
-      <div>Email: {{userPublicDTO.email}}</div>
-      <div>O mnie: {{userPublicDTO.description}}</div>
-      <mat-card class="card-picture" *ngIf="userPublicDTO.avatar && userPublicDTO.avatar.url">
-        <img mat-card-image src="{{path}}{{userPublicDTO.avatar.url}}" alt="{{userPublicDTO.avatar.name}}" >
-        <app-upload-image [userId]="userPublicDTO?.id"></app-upload-image>
-      </mat-card>
-    </div>
-  </mat-card-content>
-</mat-card>
+  <mat-card fxFlex >
+    <ng-container *ngTemplateOutlet="headline; context:{value:'Ogólne informacje'}"></ng-container>
 
-<mat-card fxFlex >
-  <mat-card-title>Dane teleadresowe:</mat-card-title>
-  <mat-card-content>
+    <mat-card-content>
 
-      <div>imię i nazwisko: {{userPublicDTO?.firstName}} {{userPublicDTO?.lastName}}</div>
-      <div>adres: {{userPublicDTO?.street}} {{userPublicDTO?.flatNumber}} <br>
-                  {{userPublicDTO?.zipCode | zipcode }} {{userPublicDTO?.city}}
+      <div fxLayout="row" fxLayoutAlign="space-between stretch" class="profile-elements-group">
+        <div fxFlex="25%">
+          <div class="card-avatar" *ngIf="userPublicDTO && userPublicDTO.avatar && userPublicDTO.avatar.url; else iconBlock">
+            <img mat-card-avatar
+                 src="{{path}}{{userPublicDTO.avatar.url}}" alt="{{userPublicDTO.avatar.name}}">
+          </div>
+          <ng-template #iconBlock>
+            <mat-icon class="avatar-icon" >account_circle</mat-icon>
+          </ng-template>
+          <div class="upload-mark">
+            <app-upload-image [userId]="userPublicDTO?.id" [avatarParamValue]="true" [changeIcon]="true"></app-upload-image>
+          </div>
+        </div>
+
+        <div fxFlex *ngIf="userPublicDTO && userPublicDTO.userName; else noNameBlock" class="name">
+          {{userPublicDTO.userName}}
+        </div>
+        <ng-template #noNameBlock >
+          <div fxFlex class="name">
+            {{'Nazwa użytkownika'}}
+          </div>
+        </ng-template>
+
+        <div aria-label="rating" fxFlex="10%" class="rating-mark">
+          <mat-icon><span>star_rate</span></mat-icon>
+        </div>
       </div>
 
-      <div *ngIf="userPublicDTO?.phoneNumber">telefon: {{userPublicDTO?.phoneNumber}}</div>
+      <div aria-label="personal-details" class="user-personal-details">
+        <div *ngIf="!userPublicDTO?.firstName">Imię:</div>
+        {{userPublicDTO?.firstName}} <br>
+        <div *ngIf="!userPublicDTO?.lastName">Nazwisko:</div>
+        {{userPublicDTO?.lastName}}
+      </div>
 
-  </mat-card-content>
-</mat-card>
+      <div aria-label="contact-details" class="user-personal-details">
+        {{userPublicDTO?.email}} <br>
+        <div *ngIf="!userPublicDTO?.phoneNumber">Numer telefonu:</div>
+        {{userPublicDTO?.phoneNumber}}
+      </div>
 
-<mat-card fxFlex>
-  <mat-card-title>Doświadczenie</mat-card-title>
-  <mat-card-content>
+      <div  aria-label="address" class="user-personal-details">
+        <div *ngIf="!userPublicDTO?.city">Adres:</div>
+        {{userPublicDTO?.street}} {{userPublicDTO?.flatNumber}} <br>
+        {{userPublicDTO?.zipCode | zipcode }} {{userPublicDTO?.city}}
+      </div>
+    </mat-card-content>
+  </mat-card>
 
-  <div>{{userPublicDTO?.experienceDescription}}</div>
-  <div *ngIf="userPublicDTO" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0.5%" fxLayoutAlign="flex-start">
-    <mat-card class="card-picture"  *ngFor="let picture of userPublicDTO.pictures" >
-      <img mat-card-image src="{{path}}{{picture.url}}" alt="{{picture.name}}">
+  <mat-card fxFlex >
+    <ng-container *ngTemplateOutlet="headline; context:{value:'Opis'}"></ng-container>
 
-    </mat-card>
-  </div>
-  </mat-card-content>
-</mat-card>
+    <mat-card-content>
+      <div *ngIf="! userPublicDTO?.description || userPublicDTO?.description?.length ==0">Opis</div>
+      <div>{{userPublicDTO?.description}}</div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card fxFlex >
+    <ng-container *ngTemplateOutlet="headline; context:{value:'Doświadczenie'}"></ng-container>
+
+    <mat-card-content>
+      <div *ngIf="! userPublicDTO?.experienceDescription || userPublicDTO?.experienceDescription?.length ==0">Doświadczenie</div>
+      <div>{{userPublicDTO?.experienceDescription}}</div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card fxFlex >
+    <app-display-images [userPublicDTO]="userPublicDTO"></app-display-images>
+
+  </mat-card>
 </div>
+
+<app-buttons *ngIf="userPublicDTO" [userId]="userPublicDTO.id">
+</app-buttons>
+
+
+
+<ng-template #headline let-value="value">
+  <div class="edit-heading">
+    <div class="edit-heading-element" >{{value}}</div>
+    <div class="edit-heading-element">
+      <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
+        <span class="material-icons">edit</span>
+      </a>
+    </div>
+  </div>
+</ng-template>

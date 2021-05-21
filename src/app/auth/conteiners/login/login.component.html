@@ -1,0 +1,34 @@
+<script src="login.component.ts"></script>
+
+<form [formGroup]="loginForm" class="example-form" (ngSubmit)="login()" fxLayout="column" fxLayoutGap="5px"
+      fxLayoutAlign="start center">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Nazwa użytkownika:</mat-label>
+    <input matInput type="text" formControlName="userName" formControlName="username" required>
+    <mat-error class="ng-invalid" *ngIf="userName && userName.invalid ">
+      Nazwa użytkownika za krótka
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Hasło:</mat-label>
+    <input matInput type="password" id="password" formControlName="password" required>
+    <mat-error class="ng-invalid" *ngIf="password && password.invalid ">
+      Błędne hasło
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-menu-item>
+    <a routerLink="/register">
+      <span>Nie masz konta? Zarejestruj się!</span>
+    </a>
+  </button>
+  <div class="next">
+    <a routerLink="/">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">DALEJ</button>
+    </a>
+  </div>
+  <span>* pola obowiązkowe</span>
+</form>
+

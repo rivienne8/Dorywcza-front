@@ -1,27 +1,17 @@
-<!--<div *ngIf="serviceOfferDTO">-->
-<!--  <div>{{serviceOfferDTO.dateRangeDTO.startDate}} - {{serviceOfferDTO.dateRangeDTO.endDate}}</div>-->
-<!--  <div>{{serviceOfferDTO.offerLocationDTO.xposition}}, {{serviceOfferDTO.offerLocationDTO.yposition}}</div>-->
-<!--  <div>{{serviceOfferDTO.title}}</div>-->
-<!--  <span>{{serviceOfferDTO.userSimplifiedDTO.email}}</span>-->
-<!--  <div>{{serviceOfferDTO.salaryDTO.minSalary}} - {{serviceOfferDTO.salaryDTO.maxSalary}} {{serviceOfferDTO.salaryTimeUnitDTO.name}}</div>-->
-<!--</div>-->
 
 <div *ngIf="offerDTO">
-  <table>
-    <tr>
-      <td>{{offerDTO.dateRangeDTO.startDate}} - {{offerDTO.dateRangeDTO.endDate}}</td>
-      <td>{{offerDTO.offerLocationDTO.xposition}}, {{offerDTO.offerLocationDTO.yposition}}</td>
-    </tr>
-    <tr>
-      <td>{{offerDTO.cityName}}</td>
-      <td><button routerLink="/{{loc}}/{{offerDTO.id}}" mat-button >Idz!</button></td>
-    </tr>
-    <tr>
-      <td>{{offerDTO.title}}</td>
-    </tr>
-    <tr>
-      <td>{{offerDTO.userSimplifiedDTO.email}}</td>
-      <td>{{offerDTO.salaryDTO.minSalary}} - {{offerDTO.salaryDTO.maxSalary}} {{offerDTO.salaryTimeUnitDTO.name}}</td>
-    </tr>
-  </table>
+
+
+    <mat-card-content class="data-range">{{offerDTO.dateRangeDTO.startDate}} - {{offerDTO.dateRangeDTO.endDate}}</mat-card-content>
+    <mat-card-content class="location">{{offerDTO.offerLocationDTO.cityName}}</mat-card-content>
+    <mat-card-title class="title"><a routerLink="/{{loc}}/{{offerDTO.id}}">{{offerDTO.title}}</a></mat-card-title>
+
+
+
+<span>
+    <mat-card-content class="user-name">{{offerDTO.userSimplifiedDTO.email}}</mat-card-content>
+    <mat-card-content class="salary">{{offerDTO.salaryDTO.minSalary}} - {{offerDTO.salaryDTO.maxSalary}} {{offerDTO.salaryTimeUnitDTO.name}}</mat-card-content>
+</span>
+
+
 </div>
