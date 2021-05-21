@@ -1,9 +1,49 @@
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
 
-<h1>
-  <a>
-  {{'dorywcza.pl' | uppercase}}
-  </a> <br>
-  <div *ngIf="id">
-    <a  routerLink="/user-profile/{{id}}">{{userName}}</a>
+  <div>
+    <mat-toolbar class="background">
+      <a class="mat-icon-button" routerLink="/main-page">
+        <button class="mat-icon-button" aria-label="Redirect home page">
+          <mat-icon class="icon">track_changes</mat-icon>
+        </button>
+      </a>
+
+        <span class="header-text"><a routerLink="/main-page" class="header-text">{{title}}</a></span>
+
+      <button mat-button [matMenuTriggerFor]="menu">
+          <div  *ngIf="userDTO && userDTO.avatar && userDTO.avatar.url && userDTO?.avatar?.name; else withoutAvatarBlock">
+          <img mat-card-avatar src="{{environment.apiUrl}}{{userDTO.avatar.url}}" alt="picture: {{userDTO.avatar.name}}" width="50px" height="auto" >
+          </div>
+
+      <ng-template #withoutAvatarBlock>
+        <button class="mat-icon-button"  aria-label="Login/Register/Account settings">
+          <mat-icon class="icon">account_circle</mat-icon>
+        </button>
+      </ng-template>
+
+      </button>
+
+      <mat-menu #menu>
+        <button *ngIf="userDTO" mat-menu-item>
+          <span aria-label="login/register/logout">Wyloguj</span>
+        </button>
+        <button *ngIf="!userDTO" mat-menu-item>
+          <span aria-label="login/register/logout">Zaloguj/Zarejestruj</span>
+        </button>
+        <button *ngIf="userDTO && userDTO.id" mat-menu-item>
+          <a routerLink="user-public-profile/{{userDTO.id}}">
+            <span>Mój profil</span>
+          </a>
+        </button>
+        <button mat-menu-item>
+          <span>Moje oferty</span>
+        </button>
+        <button mat-menu-item>
+          <span>Moje odpowiedzi</span>
+        </button>
+      </mat-menu>
+
+    </mat-toolbar>
+
   </div>
-</h1>
+

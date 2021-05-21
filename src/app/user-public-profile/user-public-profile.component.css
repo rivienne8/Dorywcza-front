@@ -1,0 +1,36 @@
+
+.mat-card{
+  width: 70%;
+  margin-bottom: 4px;
+  color: #424242;
+  background: #fff;
+}
+
+.mat-card > a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.material-icons {
+  color: rgb(203, 235, 74);
+}
+
+.card-picture {
+  width: 23%;
+  margin-bottom: 2%;
+}
+.container {
+  min-height: 100%;
+  width: 100%;
+}
+
+mat-card:first-of-type {
+  margin-top: 2em;
+}
+
+mat-card .card-picture {
+  margin-top: 0;
+}
+
+
+

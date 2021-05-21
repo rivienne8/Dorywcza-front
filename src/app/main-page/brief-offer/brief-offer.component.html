@@ -1,1 +1,18 @@
-<p>brief-offer works!</p>
+
+<div *ngIf="offerDTO">
+  <table>
+    <tr>
+      <td>{{offerDTO.title}}</td>
+      <td>{{offerDTO.cityName}}</td>
+    </tr>
+    <tr>
+      <td>{{offerDTO.userSimplifiedDTO.email}}</td>
+      <td>{{offerDTO.salaryDTO.minSalary}} - {{offerDTO.salaryDTO.maxSalary}} {{offerDTO.salaryTimeUnitDTO.name}}</td>
+    </tr>
+    <tr>
+      <td>{{offerDTO.cityName}}</td>
+    </tr>
+  </table>
+</div>
+
+

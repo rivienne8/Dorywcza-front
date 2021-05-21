@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.error {
+  background-color: rgb(137, 42, 42);
+  color: white;
+}
+
+.success {
+  background-color: rgb(125, 144, 32);
+  color: white;
+}
+
+.mat-button-base {
+  background-color: rgb(203, 235, 74);
+  color: rgb(75,31,82);
+}
+
+.mat-card{
+  margin-bottom: 4px;
+  color: #424242;
+  background: #fff;
+}
+
+.mat-menu-panel {
+  background: rgb(203, 235, 74);
+}
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+}

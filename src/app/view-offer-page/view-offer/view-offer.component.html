@@ -1,1 +1,41 @@
-<p>view-offer works!</p>
+
+<div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center"  *ngIf="offerDTO">
+  <mat-card-header fxFlexAlign="start">{{offerDTO.industryDTO.name}} -> podkategoria</mat-card-header>
+
+  <mat-card fxFlex>
+    <mat-card-header fxLayoutAlign="center">
+      <mat-card-title fxLayoutAlign="center" class="main-header">{{offerDTO.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayoutAlign="center">
+      <p>Potrzebny od: <span class="data-range">{{offerDTO.dateRangeDTO.startDate}}</span> do <span class="data-range">{{offerDTO.dateRangeDTO.endDate}}</span></p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card fxFlex>
+    <mat-card-header fxFlexAlign="start" id="description">
+        <img fxFlexAlign="start" *ngIf="offerDTO.userSimplifiedDTO.avatar" mat-card-avatar src="{{path}}{{offerDTO.userSimplifiedDTO.avatar.url}}" alt="picture id {{offerDTO.userSimplifiedDTO.avatar.name}}">
+        <span id="user-name">{{offerDTO.userSimplifiedDTO.email}}</span>
+        <span id="all-offer-link"><a routerLink="">wszystkie oferty</a></span>
+    </mat-card-header>
+    <mat-card-content>
+      {{offerDTO.description}}
+    </mat-card-content>
+  </mat-card>
+  <mat-card fxFlex>
+    <mat-card-header fxLayoutAlign="center" class="extra-title">
+      <mat-card-title>Dodatkowe informacje</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      wynagrodzenie: {{offerDTO.salaryDTO.minSalary}}zł. - {{offerDTO.salaryDTO.maxSalary}}zł. / {{offerDTO.salaryTimeUnitDTO.name}}
+    </mat-card-content>
+    <mat-card-content>
+      wymagane doświadczenie: <span *ngIf="offerDTO.hasExperience; else elseBlock">TAK</span> <ng-template #elseBlock>NIE</ng-template>
+    </mat-card-content>
+  </mat-card>
+  <mat-card fxFlex>
+    <mat-card-header fxLayoutAlign="center" class="extra-title">
+      <mat-card-title>Niezbędne wymagania</mat-card-title>
+    </mat-card-header>
+    <mat-card-content><app-tag-detail [tagList]="offerDTO.tagsNames"></app-tag-detail></mat-card-content>
+  </mat-card>
+</div>
+

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {OfferDTO} from '../../offers-page/offers-page_DTO/offerDTO';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-view-offer',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-offer.component.css']
 })
 export class ViewOfferComponent implements OnInit {
+  path = environment.apiUrl;
 
-  constructor() { }
+  @Input()
+  offerDTO?: OfferDTO;
 
-  ngOnInit(): void {
+  constructor() {
   }
+
+  ngOnInit(): void {  }
 
 }

@@ -1,0 +1,86 @@
+mat-card-subtitle {
+  color: black;
+}
+
+
+.mat-card{
+  padding: 0;
+  padding-block-end: 16px;
+  width: 90%;
+  margin-bottom: 4px;
+  color: rgb(75, 31, 82);
+  background: lightgray;
+  /*box-shadow: 5px 10px 8px #888888;*/
+}
+
+
+.mat-card > a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.material-icons {
+  color: rgb(203, 235, 74);
+}
+
+.card-picture {
+  width: 23%;
+  margin-bottom: 2%;
+}
+
+mat-card:first-of-type {
+  margin-top: 2em;
+}
+
+mat-card .card-picture {
+  margin-top: 0;
+}
+
+.extra-title {
+  border-radius: 4px;
+  width: 100%;
+  color: white;
+  background-color: rgb(75,31,82);
+}
+mat-card-content {
+  margin: 5px;
+}
+
+mat-card-title {
+  font-weight: lighter;
+}
+
+.main-header {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.data-range {
+  margin-right:1em;
+  margin-left:1em;
+  font-size: 25px;
+}
+
+
+#description {
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+#user-name {
+  margin-left: -2%;
+  margin-top: -1%;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#all-offer-cell {
+  width: 100%;
+}
+#all-offer-link {
+  margin-left: 65%;
+}

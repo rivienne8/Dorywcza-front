@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeadComponent } from './head/head.component';
@@ -11,8 +10,39 @@ import { ListDetailOfferComponent } from './offers-page/list-detail-offer/list-d
 import { DetailedOfferComponent } from './offers-page/detailed-offer/detailed-offer.component';
 import { OfferViewButtonsComponent } from './view-offer-page/offer-view-buttons/offer-view-buttons.component';
 import { ViewOfferComponent } from './view-offer-page/view-offer/view-offer.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import {HttpClientModule} from '@angular/common/http';
+import { UserUpdateProfileComponent } from './user-update-profile/user-update-profile.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { UserPublicProfileComponent } from './user-public-profile/user-public-profile.component';
+import { FooterComponent } from './footer/footer.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {BriefOfferComponent} from './main-page/brief-offer/brief-offer.component';
+import {MainPageComponent} from './main-page/main-page.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {GlobalErrorHandler} from './error-handler-services/global-error-handler';
+import {ServerErrorInterceptor} from './error-handler-services/server-error.interceptor';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { OffersPageComponent } from './offers-page/offers-page.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ViewOfferPageComponent } from './view-offer-page/view-offer-page.component';
+import {GoogleMapsModule} from '@angular/google-maps';
+import { ZipcodePipe } from './shared/pipes/zipcode.pipe';
+import { TagDetailComponent } from './view-offer-page/tag-detail/tag-detail.component';
+import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
+import { MapDisplayComponent } from './view-offer-page/map-display/map-display.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ScheduleDisplayComponent } from './view-offer-page/schedule-display/schedule-display.component';
+
 
 @NgModule({
   declarations: [
@@ -25,14 +55,44 @@ import {HttpClientModule} from '@angular/common/http';
     DetailedOfferComponent,
     OfferViewButtonsComponent,
     ViewOfferComponent,
-    UserProfileComponent
+    UserUpdateProfileComponent,
+    UserPublicProfileComponent,
+    FooterComponent,
+    MainPageComponent,
+    BriefOfferComponent,
+    OffersPageComponent,
+    UploadImageComponent,
+    ViewOfferPageComponent,
+    ZipcodePipe,
+    TagDetailComponent,
+    CapitalizePipe,
+    MapDisplayComponent,
+    ScheduleDisplayComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatMenuModule, MatButtonModule,
+    MatCardModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    FlexLayoutModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    GoogleMapsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler},
+    {provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

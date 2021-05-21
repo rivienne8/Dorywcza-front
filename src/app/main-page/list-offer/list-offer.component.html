@@ -1,8 +1,13 @@
-<button> List offer</button>
-<app-list-offer>
-<!--  wylistowanie 4 miniaturek ofert -->
+<mat-card  routerLink="/jobs" fxLayout="column" fxLayoutAlign="space-evenly stretch" *ngFor="let offer of jobOffersDTO">
+  <mat-card-content>
+    <app-brief-offer [offerDTO]="offer"></app-brief-offer>
+  </mat-card-content>
+</mat-card>
+<p></p>
+<mat-card routerLink="/service-offers" fxLayout="column" fxLayoutAlign="space-evenly stretch" *ngFor="let offer of offersDTO">
+  <mat-card-content>
+    <app-brief-offer [offerDTO]="offer"></app-brief-offer>
+  </mat-card-content>
+</mat-card>
 
-<!--    <li *ngFor="let offer of offers">-->
 
-<!--  </li>-->
-</app-list-offer>

@@ -1,0 +1,53 @@
+
+
+
+
+<div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center" >
+
+<mat-card class="router-outlet-container" fxFlex >
+  <mat-card-title>Profil</mat-card-title>
+    <a *ngIf="userPublicDTO && userPublicDTO.id" routerLink="/user-update-profile/{{userPublicDTO.id}}">
+      <span class="material-icons">edit</span>
+    </a>
+  <mat-card-content>
+    <div *ngIf="userPublicDTO">
+      <div>Nazwa użytkownika: {{userPublicDTO.userName}}</div>
+      <div>Scoring: {{userPublicDTO.overallRating}}</div>
+      <div>Email: {{userPublicDTO.email}}</div>
+      <div>O mnie: {{userPublicDTO.description}}</div>
+      <mat-card class="card-picture" *ngIf="userPublicDTO.avatar && userPublicDTO.avatar.url">
+        <img mat-card-image src="{{path}}{{userPublicDTO.avatar.url}}" alt="{{userPublicDTO.avatar.name}}" >
+        <app-upload-image [userId]="userPublicDTO?.id"></app-upload-image>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card fxFlex >
+  <mat-card-title>Dane teleadresowe:</mat-card-title>
+  <mat-card-content>
+
+      <div>imię i nazwisko: {{userPublicDTO?.firstName}} {{userPublicDTO?.lastName}}</div>
+      <div>adres: {{userPublicDTO?.street}} {{userPublicDTO?.flatNumber}} <br>
+                  {{userPublicDTO?.zipCode | zipcode }} {{userPublicDTO?.city}}
+      </div>
+
+      <div *ngIf="userPublicDTO?.phoneNumber">telefon: {{userPublicDTO?.phoneNumber}}</div>
+
+  </mat-card-content>
+</mat-card>
+
+<mat-card fxFlex>
+  <mat-card-title>Doświadczenie</mat-card-title>
+  <mat-card-content>
+
+  <div>{{userPublicDTO?.experienceDescription}}</div>
+  <div *ngIf="userPublicDTO" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="0.5%" fxLayoutAlign="flex-start">
+    <mat-card class="card-picture"  *ngFor="let picture of userPublicDTO.pictures" >
+      <img mat-card-image src="{{path}}{{picture.url}}" alt="{{picture.name}}">
+
+    </mat-card>
+  </div>
+  </mat-card-content>
+</mat-card>
+</div>

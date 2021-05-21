@@ -1,0 +1,47 @@
+<div fxLayout="column" fxLayoutGap="5px" fxLayoutAlign="start center" id="asd">
+  <mat-card fxFlex>
+    <mat-card-header fxLayoutAlign="center">
+      <mat-card-title>Dostępność</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table>
+        <tr>
+          <th>Pn.</th>
+          <th>Wt.</th>
+          <th>Śr.</th>
+          <th>Czw.</th>
+          <th>Pt.</th>
+          <th>Sb.</th>
+          <th>Nd.</th>
+        </tr>
+        <tr>
+          <th *ngIf="offerScheduleDTO.mondayMorning; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.tuesdayMorning; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.wednesdayMorning; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.thursdayMorning; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.fridayMorning; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.saturdayMorning; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.sundayMorning; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+        </tr>
+        <tr>
+          <th *ngIf="offerScheduleDTO.mondayAfternoon; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.tuesdayAfternoon; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.wednesdayAfternoon; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.thursdayAfternoon; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.fridayAfternoon; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.saturdayAfternoon; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.sundayAfternoon; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+        </tr>
+        <tr>
+          <th *ngIf="offerScheduleDTO.mondayEvening; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.tuesdayEvening; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.wednesdayEvening; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.thursdayEvening; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.fridayEvening; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.saturdayEvening; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+          <th *ngIf="offerScheduleDTO.sundayEvening; else elseBlock">TAK</th> <ng-template #elseBlock>NIE</ng-template>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
