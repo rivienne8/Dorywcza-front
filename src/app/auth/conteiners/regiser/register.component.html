@@ -1,44 +1,17 @@
+<div class="header center">Register</div>
+
 <form [formGroup]="registerForm" (ngSubmit)="register()">
 
-  <mat-form-field appearance="outline">
-    <mat-label>Nazwa użytkownika:</mat-label>
-    <input matInput type="text" id="username" formControlName="username" required >
-    <mat-error class="ng-invalid" *ngIf="userName && userName.invalid ">
-      Nazwa użytkownika za krótka
-    </mat-error>
+  <mat-form-field>
+    <input matInput type="text" id="username" placeholder="Username" autocomplete="off" formControlName="username" required>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Hasło:</mat-label>
-    <input matInput type="password" id="password" formControlName="password" required>
-    <mat-error class="ng-invalid" *ngIf="password && password.invalid ">
-      Hasło musi zawierać minimum 8 znaków w tym małą i wielką literę, cyfrę i znak specjalny
-    </mat-error>
+  <mat-form-field>
+    <input matInput type="password" id="password" placeholder="Password" formControlName="password" required>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Powtórz hasło:</mat-label>
-    <input matInput type="password" id="passwordRepeat" formControlName="passwordRepeat" required>
-    <mat-error class="ng-invalid" *ngIf="passwordRepeat && passwordRepeat.invalid">
-      Passwords must match
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Numer telefonu</mat-label>
-    <input matInput type="tel" formControlName="phoneNumber" required>
-    <mat-error class="ng-invalid" *ngIf="phoneNumber && phoneNumber.invalid && (phoneNumber.dirty && phoneNumber.touched)">
-      Numer telefonu powinien składać się z cyfr
-    </mat-error>
-  </mat-form-field>
-
-  <div class="next">
-    <a routerLink="/">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">DALEJ</button>
-    </a>
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">LOG IN</button>
   </div>
-  <span>* pola obowiązkowe</span>
-
-
 
 </form>
