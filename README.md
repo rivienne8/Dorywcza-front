@@ -1,4 +1,6 @@
 # Dorywcza
+Project in progress since April 2021. (Codecool course) Developers: Jakub Zieliński, Piotr Wójcik, Joanna Rzeszótko-Doniec
+UI for dorywcza application.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
 
